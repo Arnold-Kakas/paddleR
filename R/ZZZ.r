@@ -69,7 +69,6 @@ post <- function(link, body) {
 
 #' Make a POST request to Paddle API without body
 #' @param link The API endpoint URL.
-#' @param body The body of the request, typically a list to be converted to JSON.
 #' @return Parsed JSON response from the API.
 
 post_excl_body <- function(link) {

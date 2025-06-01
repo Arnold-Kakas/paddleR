@@ -8,8 +8,6 @@ post_excl_body(link)
 }
 \arguments{
 \item{link}{The API endpoint URL.}
-
-\item{body}{The body of the request, typically a list to be converted to JSON.}
 }
 \value{
 Parsed JSON response from the API.

@@ -48,7 +48,7 @@ paddle_create_customer <- function(email,
 #'
 #' @return A list with customer data and pagination info.
 #' @export
-paddle_retrieve_customers <- function(email = NULL,
+paddle_list_customers <- function(email = NULL,
                                      id = NULL,
                                      status = NULL,
                                      after = NULL,
