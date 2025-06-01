@@ -25,6 +25,7 @@ The goal of paddleR is to ...
 You can install the development version of regexcite from [GitHub](https://github.com/) with:
       
 ```{r}
+#| eval = FALSE
 # install.packages("devtools")
 devtools::install_github("Arnold-Kakas/paddleR")
 
@@ -54,6 +55,7 @@ The package supports two modes of operation:
 You can toggle modes using:
 
 ```{r}
+#| eval = FALSE
 set_paddle_mode("sandbox")  # or "live"
 ```
 
@@ -68,6 +70,7 @@ To authenticate with the Paddle API, you must set your API key(s) as environment
 Set PADDLE_KEY to the appropriate key for your current mode.
 
 ```{r}
+#| eval = FALSE
 Sys.setenv(PADDLE_KEY = "your-live-or-sandbox-key") # or use .Renviron file
 ```
 
@@ -76,6 +79,7 @@ Sys.setenv(PADDLE_KEY = "your-live-or-sandbox-key") # or use .Renviron file
 Set both PADDLE_KEY_LIVE and PADDLE_KEY_SANDBOX, and the package will automatically use the correct one based on the selected mode.
 
 ```{r}
+#| eval = FALSE
 Sys.setenv(PADDLE_KEY_LIVE = "your-live-key")
 Sys.setenv(PADDLE_KEY_SANDBOX = "your-sandbox-key")
 ```
