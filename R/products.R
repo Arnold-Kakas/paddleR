@@ -8,19 +8,14 @@
 #'
 #' @param id Character vector of product IDs to match. Optional.
 #' @param status Character vector of statuses to filter by (e.g., `"active"`, `"archived"`). Optional.
-#' @param tax_category Character vector of tax categories to filter. Optional.
-#' @param type Character string specifying product type. Optional.
-#' @param include Character vector of related entities to include (e.g., `"prices"`). Optional.
-#' @param after Character ID for pagination. Return products after this ID. Optional.
-#' @param order_by Ordering string (e.g., `"id[ASC]"`, `"created_at[DESC]"`). Optional.
+#' @param tax_category Character vector of tax categories to filter. One of `"digital-goods"`, `"ebooks`, `"implementation-services"`, `"professional-services"`, `"saas"`, `"software-programming-services"`, `"standard"`, `"training-services"`, and `"website-hosting"`. Optional.
+#' @param type Character. Type of product (one of `"standard"` and `"custom"`). Optional.
+#' @param include Character vector of related entities - default `NULL` or `"prices"`. Optional.
+#' @param after Character. Return entities after the specified Paddle ID when working with paginated endpoints.. Optional.
+#' @param order_by Character. Ordering string (e.g., `"id[ASC]"`). Valid fields for ordering: `"created_at"`, `"custom_data"`, `"id"`, `"description"`, `"image_url"`, `"name"`, `"status"`, `"tax_category"`, and `"updated_at"`. Valid directions `"[ASC]"` and `"[DESC]"` Optional. Optional.
 #' @param per_page Number of products per page (max 200). Optional, defaults to 50.
-#'
 #' @return A list containing product data and pagination metadata.
 #' @export
-#'
-#' @examples
-#' paddle_list_products(per_page = 10, include = "prices")
-#' paddle_list_products(status = c("active", "archived"))
 paddle_list_products <- function(id = NULL,
                                  status = NULL,
                                  tax_category = NULL,
@@ -29,6 +24,66 @@ paddle_list_products <- function(id = NULL,
                                  after = NULL,
                                  order_by = NULL,
                                  per_page = NULL) {
+
+  if (!is.null(order_by)) {
+    valid_order_entities <- c("created_at[ASC]",
+                              "custom_data[ASC]",
+                              "id[ASC]",
+                              "description[ASC]",
+                              "image_url[ASC]",
+                              "name[ASC]",
+                              "status[ASC]",
+                              "tax_category[ASC]",
+                              "updated_at[ASC]",
+                              "created_at[DESC]",
+                              "custom_data[DESC]",
+                              "id[DESC]",
+                              "description[DESC]",
+                              "image_url[DESC]",
+                              "name[DESC]",
+                              "status[DESC]",
+                              "tax_category[DESC]",
+                              "updated_at[DESC]")
+    if (!order_by %in% valid_order_entities) {
+      stop(sprintf(
+        "`order_by` must be one of: %s",
+        paste(valid_order_entities, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  if (!is.null(tax_category)) {
+    tax_categories <- c("digital-goods", "ebooks", "implementation-services",
+                        "professional-services", "saas", "software-programming-services",
+                        "standard", "training-services", "website-hosting")
+    if (!tax_category %in% tax_categories) {
+      stop(sprintf(
+        "`tax_category` must be one of: %s",
+        paste(tax_categories, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  if (!is.null(type)) {
+    valid_types <- c("standard", "custom")
+    if (!type %in% valid_types) {
+      stop(sprintf(
+        "`type` must be one of: %s",
+        paste(valid_types, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  if (!is.null(status)) {
+    valid_status <- c("active", "archived")
+    if (!status %in% valid_status) {
+      stop(sprintf(
+        "`status` must be one of: %s",
+        paste(valid_status, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
   query <- list()
 
   if (!is.null(id))           query$id           <- paste(id, collapse = ",")
@@ -43,4 +98,152 @@ paddle_list_products <- function(id = NULL,
   url <- httr2::url_modify(paste0(get_paddle_url(), "/products"), query = query)
 
   get(url)
+}
+
+#' Create a Paddle Product
+#'
+#' Creates a new product in Paddle. You must specify a name and tax category
+#' (chosen from a predefined set supported by Paddle).
+#'
+#' @param name Name of the product. Required.
+#' @param tax_category Character vector of tax categories to filter. One of `"digital-goods"`, `"ebooks`, `"implementation-services"`, `"professional-services"`, `"saas"`, `"software-programming-services"`, `"standard"`, `"training-services"`, and `"website-hosting"`. Required.
+#' @param description Short description of the product. Optional.
+#' @param type Character. Type of product (one of `"standard"` and `"custom"`). Optional, defaults to `"standard`.
+#' @param image_url HTTPS URL for the product image (1:1 recommended). Optional.
+#' @param custom_data Named list of your own structured key-value metadata. Optional.
+#'
+#' @return A list representing the newly created product.
+#' @export
+paddle_create_product <- function(name,
+                                  tax_category,
+                                  description = NULL,
+                                  type = NULL,
+                                  image_url = NULL,
+                                  custom_data = NULL) {
+  if (missing(name) || !nzchar(name)) {
+    stop("`name` is required and must be a non-empty string.", call. = FALSE)
+  }
+
+  valid_tax_categories <- c(
+    "digital-goods",
+    "ebooks",
+    "implementation-services",
+    "professional-services",
+    "saas",
+    "software-programming-services",
+    "standard",
+    "training-services",
+    "website-hosting"
+  )
+
+  if (missing(tax_category) || !nzchar(tax_category)) {
+    stop("`tax_category` is required and must be a non-empty string.", call. = FALSE)
+  }
+
+  if (!tax_category %in% valid_tax_categories) {
+    stop(
+      sprintf("`tax_category` must be one of: %s", paste(valid_tax_categories, collapse = ", ")),
+      call. = FALSE
+    )
+  }
+
+  if (!is.null(type)) {
+    valid_types <- c("standard", "custom")
+    if (!type %in% valid_types) {
+      stop(sprintf(
+        "`type` must be one of: %s",
+        paste(valid_types, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  body <- list(
+    name = name,
+    tax_category = tax_category
+  )
+
+  if (!is.null(description))  body$description  <- description
+  if (!is.null(type))         body$type         <- type
+  if (!is.null(image_url))    body$image_url    <- image_url
+  if (!is.null(custom_data))  body$custom_data  <- custom_data
+
+  url <- paste0(get_paddle_url(), "/products")
+
+  post(url, body)
+}
+
+#' Update a Paddle Product
+#'
+#' Updates an existing product using its Paddle ID. You can update any combination
+#' of fields, such as name, description, tax category, type, image URL, custom metadata, and status.
+#'
+#' @param product_id The Paddle product ID (e.g., `"pro_abc123"`). Required.
+#' @param name Updated product name. Optional.
+#' @param description Updated product description. Optional (use `NULL` to clear).
+#' @param type Character. Type of product (one of `"standard"` and `"custom"`). Optional, defaults to `"standard`.
+#' @param tax_category Character vector of tax categories to filter. One of `"digital-goods"`, `"ebooks`, `"implementation-services"`, `"professional-services"`, `"saas"`, `"software-programming-services"`, `"standard"`, `"training-services"`, and `"website-hosting"`. Optional.
+#' @param image_url HTTPS image URL. Optional (use `NULL` to clear).
+#' @param custom_data Named list of key-value metadata. Optional (use `NULL` to clear).
+#' @param status Character vector of statuses (e.g., `"active"`, `"archived"`). Optional.
+#'
+#' @return A list representing the updated product.
+#' @export
+paddle_update_product <- function(product_id,
+                                  name = NULL,
+                                  description = NULL,
+                                  type = NULL,
+                                  tax_category = NULL,
+                                  image_url = NULL,
+                                  custom_data = NULL,
+                                  status = NULL) {
+
+  if (missing(product_id) || !nzchar(product_id)) {
+    stop("`product_id` is required and must be a non-empty string.", call. = FALSE)
+  }
+
+  if (!is.null(tax_category)) {
+    tax_categories <- c("digital-goods", "ebooks", "implementation-services",
+                        "professional-services", "saas", "software-programming-services",
+                        "standard", "training-services", "website-hosting")
+    if (!tax_category %in% tax_categories) {
+      stop(sprintf(
+        "`tax_category` must be one of: %s",
+        paste(tax_categories, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  if (!is.null(type)) {
+    valid_types <- c("standard", "custom")
+    if (!type %in% valid_types) {
+      stop(sprintf(
+        "`type` must be one of: %s",
+        paste(valid_types, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  if (!is.null(status)) {
+    valid_status <- c("active", "archived")
+    if (!status %in% valid_status) {
+      stop(sprintf(
+        "`status` must be one of: %s",
+        paste(valid_status, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  body <- list()
+
+  if (!missing(name))         body$name         <- name
+  if (!missing(description))  body$description  <- description
+  if (!missing(type))         body$type         <- type
+  if (!missing(tax_category)) body$tax_category <- tax_category
+  if (!missing(image_url))    body$image_url    <- image_url
+  if (!missing(custom_data))  body$custom_data  <- custom_data
+  if (!missing(status))       body$status       <- status
+
+  url <- paste0(get_paddle_url(), "/products/", product_id)
+
+  update(url, body)
 }

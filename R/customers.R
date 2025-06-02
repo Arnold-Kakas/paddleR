@@ -41,10 +41,10 @@ paddle_create_customer <- function(email,
 #' @param email Vector of email addresses to match exactly. Optional.
 #' @param id Vector of Paddle customer IDs. Optional.
 #' @param status Vector of statuses to filter by (`"active"` or `"archived"`). Optional.
-#' @param after Return customers after this Paddle ID for pagination. Optional.
+#' @param after Return entities after the specified Paddle ID when working with paginated endpoints. Optional.
 #' @param order_by Order results by `"id[ASC]"` or `"id[DESC]"`. Optional.
 #' @param per_page Number of results per page (1–200). Optional, defaults to 50.
-#' @param search Search term (matches ID, name, email). Optional.
+#' @param search Search term (one of `"id"`, `"name"`, `"email"`). Optional.
 #'
 #' @return A list with customer data and pagination info.
 #' @export
@@ -55,6 +55,37 @@ paddle_list_customers <- function(email = NULL,
                                      order_by = NULL,
                                      per_page = NULL,
                                      search = NULL) {
+
+  if (!is.null(search)) {
+    search_terms <- c("id", "name", "email")
+    if (!search %in% search_terms) {
+      stop(sprintf(
+        "`search` must be one of: %s",
+        paste(search_terms, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  if (!is.null(status)) {
+    valid_status <- c("active", "archived")
+    if (!status %in% valid_status) {
+      stop(sprintf(
+        "`status` must be one of: %s",
+        paste(valid_status, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
+  if (!is.null(order_by)) {
+    valid_orders <- c("id[ASC]", "id[DESC]")
+    if (!order_by %in% valid_orders) {
+      stop(sprintf(
+        "`order_by` must be one of: %s",
+        paste(valid_orders, collapse = ", ")
+      ), call. = FALSE)
+    }
+  }
+
   query <- list()
 
   if (!is.null(email))     query$email     <- paste(email, collapse = ",")
@@ -78,7 +109,7 @@ paddle_list_customers <- function(email = NULL,
 #' @param customer_id Paddle customer ID (required).
 #' @param name Full name of the customer. Optional (can be `NULL` to remove).
 #' @param email Email address of the customer. Optional.
-#' @param status Status of the customer ("active" or "archived"). Optional.
+#' @param status Status of the customer (`"active"` or `"archived"`). Optional.
 #' @param custom_data Named list of custom metadata. Optional (can be `NULL` to remove).
 #' @param locale Locale string (IETF BCP 47). Optional.
 #'
@@ -92,6 +123,17 @@ paddle_update_customer <- function(customer_id,
                                    locale = NULL) {
   if (missing(customer_id) || !nzchar(customer_id)) {
     stop("`customer_id` is required and must be a non-empty string.", call. = FALSE)
+  }
+
+
+  if (!is.null(status)) {
+    valid_status <- c("active", "archived")
+    if (!status %in% valid_status) {
+      stop(sprintf(
+        "`status` must be one of: %s",
+        paste(valid_status, collapse = ", ")
+      ), call. = FALSE)
+    }
   }
 
   body <- list()

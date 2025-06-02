@@ -20,15 +20,15 @@ paddle_list_products(
 
 \item{status}{Character vector of statuses to filter by (e.g., `"active"`, `"archived"`). Optional.}
 
-\item{tax_category}{Character vector of tax categories to filter. Optional.}
+\item{tax_category}{Character vector of tax categories to filter. One of `"digital-goods"`, `"ebooks`, `"implementation-services"`, `"professional-services"`, `"saas"`, `"software-programming-services"`, `"standard"`, `"training-services"`, and `"website-hosting"`. Optional.}
 
-\item{type}{Character string specifying product type. Optional.}
+\item{type}{Character. Type of product (one of `"standard"` and `"custom"`). Optional.}
 
-\item{include}{Character vector of related entities to include (e.g., `"prices"`). Optional.}
+\item{include}{Character vector of related entities - default `NULL` or `"prices"`. Optional.}
 
-\item{after}{Character ID for pagination. Return products after this ID. Optional.}
+\item{after}{Character. Return entities after the specified Paddle ID when working with paginated endpoints.. Optional.}
 
-\item{order_by}{Ordering string (e.g., `"id[ASC]"`, `"created_at[DESC]"`). Optional.}
+\item{order_by}{Character. Ordering string (e.g., `"id[ASC]"`). Valid fields for ordering: `"created_at"`, `"custom_data"`, `"id"`, `"description"`, `"image_url"`, `"name"`, `"status"`, `"tax_category"`, and `"updated_at"`. Valid directions `"[ASC]"` and `"[DESC]"` Optional. Optional.}
 
 \item{per_page}{Number of products per page (max 200). Optional, defaults to 50.}
 }
@@ -37,8 +37,4 @@ A list containing product data and pagination metadata.
 }
 \description{
 Fetches a paginated list of products from the Paddle API. By default, only active products are returned.
-}
-\examples{
-paddle_list_products(per_page = 10, include = "prices")
-paddle_list_products(status = c("active", "archived"))
 }

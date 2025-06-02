@@ -20,7 +20,7 @@ paddle_update_customer(
 
 \item{email}{Email address of the customer. Optional.}
 
-\item{status}{Status of the customer ("active" or "archived"). Optional.}
+\item{status}{Status of the customer (`"active"` or `"archived"`). Optional.}
 
 \item{custom_data}{Named list of custom metadata. Optional (can be `NULL` to remove).}
 
