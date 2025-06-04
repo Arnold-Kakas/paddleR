@@ -167,3 +167,39 @@ paddle_generate_auth_token <- function(customer_id) {
 
   post_excl_body(url)  # no body, just POST the path
 }
+
+
+#' List Credit Balances for a Customer
+#'
+#' Retrieves credit balances across all currencies for a specific customer from the Paddle API.
+#'
+#' @param customer_id Character. Paddle customer ID (e.g., "ctm_123"). Required.
+#' @param currency_code Optional character vector of ISO 4217 currency codes to filter results.
+#'
+#' @return A list of credit balances by currency with available, reserved, and used totals.
+#' @export
+paddle_list_credit_balances <- function(customer_id, currency_code = NULL) {
+  if (missing(customer_id) || !is.character(customer_id) || nchar(customer_id) == 0) {
+    stop("`customer_id` must be a non-empty string.", call. = FALSE)
+  }
+
+  if (!is.null(currency_code)) {
+    valid_pattern <- "^[A-Z]{3}$"
+    invalid <- currency_code[!grepl(valid_pattern, currency_code)]
+    if (length(invalid)) {
+      stop(sprintf("Invalid currency code(s): %s", paste(invalid, collapse = ", ")), call. = FALSE)
+    }
+  }
+
+  query <- list()
+  if (!is.null(currency_code)) {
+    query$currency_code <- paste(currency_code, collapse = ",")
+  }
+
+  url <- httr2::url_modify(
+    paste0(get_paddle_url(), "/customers/", customer_id, "/credit-balances"),
+    query = query
+  )
+
+  get(url)
+}

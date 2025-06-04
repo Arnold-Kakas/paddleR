@@ -53,3 +53,14 @@ test_that("paddle_list_customer() returns error with wrong inputs3", {
   set_paddle_mode("sandbox")
   expect_error(paddle_list_customers(search = "wrong input"), "`search` must be one of: id, name, email")
 })
+
+test_that("paddle_list_credit_balances() validates input correctly", {
+  expect_error(paddle_list_credit_balances(""),
+               "`customer_id` must be a non-empty string")
+
+  expect_error(paddle_list_credit_balances("ctm_01jwk0s510nxxv3gv8ky41e46a", currency_code = "usd"),
+               "Invalid currency code")
+
+  expect_silent(paddle_list_credit_balances("ctm_01jwk0s510nxxv3gv8ky41e46a"))
+  expect_silent(paddle_list_credit_balances("ctm_01jwk0s510nxxv3gv8ky41e46a", currency_code = c("USD", "EUR")))
+})
