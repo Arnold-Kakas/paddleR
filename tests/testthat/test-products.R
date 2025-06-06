@@ -77,14 +77,14 @@ test_that("paddle_update_product() fails without product_id", {
 
 test_that("paddle_update_product() works with all optional params", {
   skip_on_cran()
-  expect_error(paddle_update_product(
+  expect_type(paddle_update_product(
     product_id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # replace with real ID for live test
     name = "Updated Product",
     description = "Updated via test",
     type = "standard",
-    tax_category = "saas",
+    tax_category = "standard",
     image_url = NULL,
     custom_data = list(modified = TRUE),
     status = "archived"
-  ))
+  ), "list")
 })

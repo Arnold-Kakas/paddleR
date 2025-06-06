@@ -140,11 +140,11 @@ paddle_create_discount <- function(amount,
     type = type
   )
 
-  if (!is.null(enabled_for_checkout))          body$enabled_for_checkout <- enabled_for_checkout
+  if (!is.null(enabled_for_checkout))          body$enabled_for_checkout <- tolower(enabled_for_checkout)
   if (!is.null(code))                          body$code <- code
   if (!is.null(mode))                          body$mode <- mode
   if (!is.null(currency_code))                 body$currency_code <- currency_code
-  if (!is.null(recur))                         body$recur <- recur
+  if (!is.null(recur))                         body$recur <- tolower(recur)
   if (!is.null(maximum_recurring_intervals))   body$maximum_recurring_intervals <- maximum_recurring_intervals
   if (!is.null(usage_limit))                   body$usage_limit <- usage_limit
   if (!is.null(restrict_to))                   body$restrict_to <- restrict_to
@@ -234,13 +234,13 @@ paddle_update_discount <- function(discount_id,
   body <- list()
   if (!is.null(status))                      body$status <- status
   if (!is.null(description))                 body$description <- description
-  if (!is.null(enabled_for_checkout))        body$enabled_for_checkout <- enabled_for_checkout
+  if (!is.null(enabled_for_checkout))        body$enabled_for_checkout <- tolower(enabled_for_checkout)
   if (!is.null(code))                        body$code <- code
   if (!is.null(type))                        body$type <- type
   if (!is.null(mode))                        body$mode <- mode
   if (!is.null(amount))                      body$amount <- amount
   if (!is.null(currency_code))               body$currency_code <- currency_code
-  if (!is.null(recur))                       body$recur <- recur
+  if (!is.null(recur))                       body$recur <- tolower(recur)
   if (!is.null(maximum_recurring_intervals)) body$maximum_recurring_intervals <- maximum_recurring_intervals
   if (!is.null(usage_limit))                 body$usage_limit <- usage_limit
   if (!is.null(restrict_to))                 body$restrict_to <- restrict_to

@@ -7,13 +7,13 @@
 paddle_create_customer(email, name = NULL, custom_data = NULL, locale = NULL)
 }
 \arguments{
-\item{email}{Email address for the customer. Required.}
+\item{email}{Character. Email address for the customer. Required.}
 
-\item{name}{Full name of the customer. Optional.}
+\item{name}{Character. Full name of the customer. Optional.}
 
 \item{custom_data}{Named list of custom metadata. Optional.}
 
-\item{locale}{Locale string (IETF BCP 47). Optional, defaults to "en".}
+\item{locale}{Character. Locale string (IETF BCP 47). Optional, defaults to "en".}
 }
 \value{
 A data frame with the new customer info.

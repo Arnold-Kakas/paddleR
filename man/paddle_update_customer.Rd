@@ -14,17 +14,17 @@ paddle_update_customer(
 )
 }
 \arguments{
-\item{customer_id}{Paddle customer ID (required).}
+\item{customer_id}{Character. Paddle customer ID (required).}
 
-\item{name}{Full name of the customer. Optional (can be `NULL` to remove).}
+\item{name}{Character. Full name of the customer. Optional (can be `NULL` to remove).}
 
-\item{email}{Email address of the customer. Optional.}
+\item{email}{Character. Email address of the customer. Optional.}
 
-\item{status}{Status of the customer (`"active"` or `"archived"`). Optional.}
+\item{status}{Character. Status of the customer (`"active"` or `"archived"`). Optional.}
 
 \item{custom_data}{Named list of custom metadata. Optional (can be `NULL` to remove).}
 
-\item{locale}{Locale string (IETF BCP 47). Optional.}
+\item{locale}{Character. Locale string (IETF BCP 47). Optional.}
 }
 \value{
 A list with the updated customer info.
