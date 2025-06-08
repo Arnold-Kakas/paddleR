@@ -109,3 +109,11 @@ update <- function(link, body) {
 
   handle_paddle_response(res)
 }
+
+
+#' Drop NULL values from a list
+#' @param x A list from which to remove NULL values.
+#' @return A list with NULL values removed.
+drop_nulls <- function(x) {
+  x[!vapply(x, is.null, logical(1))]
+}

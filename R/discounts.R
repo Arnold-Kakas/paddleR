@@ -56,6 +56,12 @@ paddle_list_discounts <- function(id = NULL,
     }
   }
 
+  if (!is.null(per_page)) {
+    if (!is.numeric(per_page) || per_page < 1 || per_page > 200) {
+      stop("`per_page` must be between 1 and 200.", call. = FALSE)
+    }
+  }
+
   query <- list()
 
   if (!is.null(id))       query$id       <- paste(id, collapse = ",")

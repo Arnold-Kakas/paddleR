@@ -282,10 +282,6 @@ paddle_update_transaction <- function(transaction_id,
     billing_details$payment_terms <- payment_terms
   }
 
-  drop_nulls <- function(x) {
-    x[!vapply(x, is.null, logical(1))]
-  }
-
   body <- drop_nulls(list(
     status = status,
     customer_id = customer_id,

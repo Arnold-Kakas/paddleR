@@ -10,6 +10,9 @@ test_that("paddle_list_transactions() validates inputs correctly", {
   expect_silent(paddle_list_transactions(status = c("completed", "billed")))
   expect_silent(paddle_list_transactions(include = c("customer", "address")))
   expect_silent(paddle_list_transactions(per_page = 50, billed_at = "2023-04-18T17:03:26"))
+  expect_silent(paddle_list_transactions(customer_id = "ctm_01jvprk7zfmz4xe5298np09ck3",
+                                         subscription_id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+                                         collection_mode = "automatic"))
 })
 
 
@@ -97,7 +100,7 @@ test_that("paddle_update_transaction() handles include query and validation", {
 })
 
 test_that("paddle_preview_transaction() validates inputs and succeeds", {
-  good_items <- list(list(price_id = "pri_test123", quantity = 2))
+  good_items <- list(list(price_id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx", quantity = 2))
 
   expect_error(paddle_preview_transaction(items = NULL), "must be a non-empty list")
   expect_error(paddle_preview_transaction(items = list()), "must be a non-empty list")
@@ -109,12 +112,11 @@ test_that("paddle_preview_transaction() validates inputs and succeeds", {
   expect_silent(
     paddle_preview_transaction(
       items = good_items,
-      customer_id = "ctm_123",
+      customer_id = "ctm_01jwk0s510nxxv3gv8ky41e46a",
       currency_code = "EUR",
-      discount_id = "dsc_123",
+      discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9",
       ignore_trials = TRUE,
-      customer_ip_address = "8.8.8.8",
-      address = list(country_code = "DE", postal_code = "10115")
+      customer_ip_address = "8.8.8.8"
     )
   )
 })
