@@ -166,8 +166,49 @@ test_that("paddle_activate_trial_subscription() validates required argument", {
 
   expect_error(paddle_activate_trial_subscription(), "`subscription_id` must be a non-empty string")
   expect_error(paddle_activate_trial_subscription(""), "`subscription_id` must be a non-empty string")
+  #expect_silent(paddle_activate_trial_subscription("sub_01jvptej6fxyctrdt8ty45gw4k"))
+})
+
+test_that("paddle_pause_subscription() validates inputs", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
+
+  effective_from <- format(seq(Sys.time(), by = "1 month", length.out = 2)[2], "%Y-%m-%dT%H:%M:%SZ")
+
+  expect_error(paddle_pause_subscription(), "`subscription_id` must be a non-empty string")
+  expect_error(paddle_pause_subscription("sub_01jvprmj2e0fn0ay9h0xjv375q", on_resume = "invalid"), "`on_resume` must be 'start_new_billing_period' or 'continue_billing_period'")
+  #expect_silent(paddle_pause_subscription("sub_01jvptej6fxyctrdt8ty45gw4k", effective_from = "immediately", resume_at = effective_from, on_resume = "start_new_billing_period"))
+
+  })
+
+test_that("paddle_resume_subscription() validates inputs", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
+
+  effective_from <- format(seq(Sys.time(), by = "1 month", length.out = 2)[2], "%Y-%m-%dT%H:%M:%SZ")
+
+  expect_error(paddle_resume_subscription(), "`subscription_id` must be a non-empty string")
+  expect_error(paddle_resume_subscription("sub_01jvptej6fxyctrdt8ty45gw4k"), "`effective_from` must be a non-empty RFC 3339 datetime string")
+  expect_error(paddle_resume_subscription("sub_01jvptej6fxyctrdt8ty45gw4k", effective_from = effective_from, on_resume = "invalid"),
+               "`on_resume` must be 'start_new_billing_period' or 'continue_billing_period'")
+  #expect_silent(paddle_resume_subscription("sub_01jvptej6fxyctrdt8ty45gw4k", effective_from = effective_from, on_resume = "continue_billing_period"))
 })
 
 
+test_that("paddle_cancel_subscription() validates inputs", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
+
+  expect_error(paddle_cancel_subscription(), "`subscription_id` must be a non-empty string")
+  expect_error(paddle_cancel_subscription(""), "`subscription_id` must be a non-empty string")
+  expect_error(paddle_cancel_subscription("sub_123", effective_from = 42), "`effective_from` must be one of: 'next_billing_period', 'immediately'")
+})
 
 
+# test_that("paddle_cancel_subscription() can cancel with scheduled future date", {
+#   skip_on_cran()
+#   set_paddle_mode("sandbox")
+#
+#   res <- paddle_cancel_subscription("sub_01jvprmj2e0fn0ay9h0xjv375q", effective_from = "immediately")
+#   expect_type(res, "list")
+# })

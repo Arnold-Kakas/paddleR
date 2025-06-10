@@ -406,3 +406,110 @@ paddle_activate_trial_subscription <- function(subscription_id) {
     link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/activate")
   )
 }
+
+#' Pause a subscription
+#'
+#' Pauses a subscription using its ID. You can pause at the end of the billing period (default),
+#' pause immediately by setting `effective_from = "immediately"`, or set a resume date.
+#'
+#' @param subscription_id Character. Required. Paddle subscription ID (e.g. "sub_abc123").
+#' @param effective_from Character or NULL. Optional. One of `"next_billing_period"` or `"immediately"`. Defaults to `"next_billing_period"`.
+#' @param resume_at Character or NULL. Optional. RFC 3339 date-time string when subscription should resume.
+#' @param on_resume Character or NULL. Optional. One of `"start_new_billing_period"` or `"continue_billing_period"`.
+#'
+#' @return A list representing the updated subscription object.
+#' @export
+paddle_pause_subscription <- function(
+    subscription_id,
+    effective_from = NULL,
+    resume_at = NULL,
+    on_resume = NULL
+) {
+  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
+    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  }
+
+  if (!is.null(on_resume) && !on_resume %in% c("start_new_billing_period", "continue_billing_period")) {
+    stop("`on_resume` must be 'start_new_billing_period' or 'continue_billing_period'.", call. = FALSE)
+  }
+
+  if (!is.null(effective_from) && !effective_from %in% c("next_billing_period", "immediately")) {
+    stop("`effective_from` must be one of: 'next_billing_period', 'immediately'.", call. = FALSE)
+  }
+
+  body <- drop_nulls(list(
+    effective_from = effective_from,
+    resume_at = resume_at,
+    on_resume = on_resume
+  ))
+
+  post(
+    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/pause"),
+    body = body
+  )
+}
+
+#' Resume a paused or scheduled-to-pause subscription
+#'
+#' Resumes a paused subscription immediately or at a specified date.
+#' Also updates a scheduled pause if subscription is active.
+#'
+#' @param subscription_id Character. Required. Paddle subscription ID (e.g. "sub_abc123").
+#' @param effective_from Character. Required. RFC 3339 datetime string when the resume should occur.
+#' @param on_resume Character or NULL. Optional. One of `"start_new_billing_period"` or `"continue_billing_period"`.
+#'
+#' @return A list representing the updated subscription object.
+#' @export
+paddle_resume_subscription <- function(
+    subscription_id,
+    effective_from,
+    on_resume = NULL
+) {
+  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
+    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  }
+
+  if (missing(effective_from) || !is.character(effective_from) || !nzchar(effective_from)) {
+    stop("`effective_from` must be a non-empty RFC 3339 datetime string.", call. = FALSE)
+  }
+
+  if (!is.null(on_resume) && !on_resume %in% c("start_new_billing_period", "continue_billing_period")) {
+    stop("`on_resume` must be 'start_new_billing_period' or 'continue_billing_period'.", call. = FALSE)
+  }
+
+  body <- drop_nulls(list(
+    effective_from = effective_from,
+    on_resume = on_resume
+  ))
+
+  post(
+    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/resume"),
+    body = body
+  )
+}
+
+#' Cancel a Paddle subscription
+#'
+#' Cancels a subscription using its ID. Defaults to cancel at next billing period unless `effective_from` is set to "immediately".
+#'
+#' @param subscription_id Character. Required. Paddle subscription ID, e.g. "sub_abc123".
+#' @param effective_from Character or NULL. Optional. One of `"next_billing_period"` or `"immediately"`. Defaults to `"next_billing_period"`.
+#'
+#' @return A list with the updated subscription entity and metadata.
+#' @export
+paddle_cancel_subscription <- function(subscription_id, effective_from = NULL) {
+  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
+    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  }
+
+  if (!is.null(effective_from) && !effective_from %in% c("next_billing_period", "immediately")) {
+    stop("`effective_from` must be one of: 'next_billing_period', 'immediately'.", call. = FALSE)
+  }
+
+  body <- drop_nulls(list(effective_from = effective_from))
+
+  post(
+    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/cancel"),
+    body = body
+  )
+}
