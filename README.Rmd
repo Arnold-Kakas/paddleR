@@ -89,6 +89,7 @@ API keys must have the appropriate permissions based on the Paddle endpoint you 
 ## API coverage
 
 The package currently supports the following Paddle API endpoint categories:
+
 - Customers
 - Products
 - Subscriptions
@@ -96,6 +97,7 @@ The package currently supports the following Paddle API endpoint categories:
 - Events
 
 Missing an endpoint? Please open an issue on GitHub or submit a pull request. At this moment there are several endpoint categories that are not yet implemented, including:
+
 - Notifications
 - Notification Settings
 - Adjustments

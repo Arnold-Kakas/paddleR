@@ -84,9 +84,19 @@ scopes.
 ## API coverage
 
 The package currently supports the following Paddle API endpoint
-categories: - Customers - Products - Subscriptions - Invoices - Events
+categories:
+
+- Customers
+- Products
+- Subscriptions
+- Invoices
+- Events
 
 Missing an endpoint? Please open an issue on GitHub or submit a pull
 request. At this moment there are several endpoint categories that are
-not yet implemented, including: - Notifications - Notification
-Settings - Adjustments - Few endpoints from higher mentioned categories
+not yet implemented, including:
+
+- Notifications
+- Notification Settings
+- Adjustments
+- Few endpoints from higher mentioned categories
