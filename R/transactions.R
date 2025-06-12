@@ -216,7 +216,7 @@ paddle_create_transaction <- function(items,
 #'
 #' @param transaction_id Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).
 #' @param status Character. Optional. `"billed"` or `"canceled"`.
-#' @param customer_id, address_id, business_id Character. Optional Paddle IDs.
+#' @param customer_id,address_id,business_id Character. Optional Paddle IDs.
 #' @param custom_data Named list. Optional.
 #' @param currency_code Character. Optional. `"USD"`, `"EUR"`, or `"GBP"` if `collection_mode = "manual"`.
 #' @param collection_mode Character. Optional. `"automatic"` or `"manual"`.
@@ -278,7 +278,7 @@ paddle_update_transaction <- function(transaction_id,
     if (!is.list(payment_terms) || !"interval" %in% names(payment_terms) || !"frequency" %in% names(payment_terms)) {
       stop("`payment_terms` must be a list with `interval` and `frequency`.", call. = FALSE)
     }
-    billing_details <- billing_details %||% list()
+    billing_details <- rlang::`%||%`(billing_details, list())
     billing_details$payment_terms <- payment_terms
   }
 
@@ -383,14 +383,3 @@ paddle_preview_transaction <- function(items,
 
   post(paste0(get_paddle_url(), "/transactions/preview"), body)
 }
-
-# Not yet implemented in the package:
-# Preview a transaction
-# post
-# https://api.paddle.com/transactions/preview
-# Get a PDF invoice for a transaction
-# get
-# https://api.paddle.com/transactions/{transaction_id}/invoice
-# Revise a billed or completed transaction
-# post
-# https://api.paddle.com/transactions/{transaction_id}/revise

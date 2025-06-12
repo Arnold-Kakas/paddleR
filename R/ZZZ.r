@@ -1,24 +1,6 @@
 # --------------------------------------------------
 # Helper Functions
 # --------------------------------------------------
-
-#' Null coalescing operator
-#'
-#' Returns `a` if not NULL, otherwise returns `b`.
-#'
-#' @param a First value.
-#' @param b Second value used if `a` is NULL.
-#'
-#' @return Either `a` or `b`.
-#' @export
-#' @name %||%
-#' @rdname null_coalescing_operator
-#' @usage a \%||\% b
-`%||%` <- function(a, b) {
-  if (!is.null(a)) a else b
-}
-
-
 #' Handle Paddle API Response
 #'
 #' Parses and returns the response if successful, otherwise stops with an error message.
@@ -58,7 +40,7 @@ handle_paddle_response <- function(resp) {
 
 post <- function(link, body) {
     res <- httr2::request(link) |>
-      httr2::req_auth_bearer_token(Sys.getenv("PADDLE_KEY")) |>
+      httr2::req_auth_bearer_token(get_paddle_key()) |>
       httr2::req_body_json(body) |>
       httr2::req_error(is_error = function(resp) FALSE) |>
       httr2::req_perform()
@@ -73,7 +55,7 @@ post <- function(link, body) {
 
 post_excl_body <- function(link) {
   res <- httr2::request(link) |>
-    httr2::req_auth_bearer_token(Sys.getenv("PADDLE_KEY")) |>
+    httr2::req_auth_bearer_token(get_paddle_key()) |>
     httr2::req_method("POST") |>
     httr2::req_error(is_error = function(resp) FALSE) |>
     httr2::req_perform()
@@ -87,7 +69,7 @@ post_excl_body <- function(link) {
 
 get <- function(link) {
   res <- httr2::request(link) |>
-    httr2::req_auth_bearer_token(Sys.getenv("PADDLE_KEY")) |>
+    httr2::req_auth_bearer_token(get_paddle_key()) |>
     httr2::req_error(is_error = function(resp) FALSE) |>
     httr2::req_perform()
 
@@ -101,7 +83,7 @@ get <- function(link) {
 
 update <- function(link, body) {
   res <- httr2::request(link) |>
-    httr2::req_auth_bearer_token(Sys.getenv("PADDLE_KEY")) |>
+    httr2::req_auth_bearer_token(get_paddle_key()) |>
     httr2::req_body_json(body) |>
     httr2::req_method("PATCH") |>
     httr2::req_error(is_error = function(resp) FALSE) |>

@@ -1,0 +1,113 @@
+---
+title: "Getting Started with paddle"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{getting_started_with_paddleR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r eval=FALSE}
+library(paddleR)
+```
+
+## Overview
+
+The `paddleR` package provides a complete R interface to the [Paddle](https://www.paddle.com/) Billing [API](https://developer.paddle.com/api-reference/overview), enabling you to manage customers, subscriptions, transactions, invoices, and more directly from R.
+
+Whether you're building internal dashboards, automated billing workflows, or a SaaS application backend, paddle makes it easy to interact with Paddle's RESTful endpoints in a consistent and validated way.
+
+## Setting the API Mode
+
+`PaddleR` supports two environments:
+
+* Live (https://api.paddle.com) for production
+* Sandbox (https://sandbox-api.paddle.com) for safe testing
+
+By default, the package uses live mode. You can switch modes using:
+
+```{r eval=FALSE}
+# Set sandbox mode for testing
+set_paddle_mode("sandbox")
+
+# Revert back to live mode
+set_paddle_mode("live")
+```
+
+You can check the current mode and base URL with:
+
+```{r eval=FALSE}
+get_paddle_mode()  # Returns "live" or "sandbox"
+get_paddle_url()   # Returns full API base URL
+```
+
+## Setting Your API Key
+
+To authenticate with the Paddle API, you must set your API key(s) as environment variables. You have two options:
+
+### Option 1: Single Key (Live OR Sandbox)
+
+```{r}
+Sys.setenv(PADDLE_KEY = "your-live-or-sandbox-key")
+```
+
+### Option 2: Recommended – Separate Keys for Live and Sandbox
+
+```{r eval=FALSE}
+Sys.setenv(PADDLE_KEY_LIVE = "your-live-key")
+Sys.setenv(PADDLE_KEY_SANDBOX = "your-sandbox-key")
+```
+
+This allows the package to automatically choose the correct key based on the mode selected with `set_paddle_mode()`. Please make sure your API has all the necessary permissions for the operations you want to perform.
+
+### Example: Initialize and Fetch Data
+
+```{r eval=FALSE}
+# Set mode to sandbox for testing
+set_paddle_mode("sandbox")
+
+# List products, subscriptions, or customers
+products <- paddle_list_products()
+subscriptions <- paddle_list_subscriptions()
+```
+
+## Package Initialization Logic
+
+Internally, the package uses a hidden environment to store the current mode and URL:
+
+```{r eval=FALSE}
+.paddle_env <- new.env(parent = emptyenv())
+.paddle_env$mode     <- "live"
+.paddle_env$base_url <- "https://api.paddle.com"
+```
+
+These are updated dynamically using the exported helpers:
+
+* set_paddle_mode("sandbox")
+* get_paddle_mode()
+* get_paddle_url()
+
+## Next Steps
+Now that you have paddleR set up, you can start building your Paddle integration:
+
+* Use `paddle_list_*()` functions to explore available resources like products, subscriptions, customers, etc.
+* Create and manage customers with `paddle_create_customer()`, `paddle_update_customer()`, etc.
+* Manage subscriptions using `paddle_create_subscription()`, `paddle_update_subscription()`, etc.
+* Handle transactions with `paddle_list_transactions()`, `paddle_get_transaction()`, etc.
+* Work with invoices using `paddle_list_invoices()`, `paddle_get_invoice()`, etc.
+* Manage discounts with `paddle_list_discounts()`, `paddle_create_discount()`, etc.
+* Use `paddle_list_prices()` to explore available prices for products
+* Create and manage products with `paddle_create_product()`, `paddle_update_product()`, etc.
+
+## Need Help?
+
+* File an issue on GitHub if something doesn’t work
+* Some of API endpoints may not be implemented yet, so feel free to request new features
+* Check the [Paddle API documentation](https://developer.paddle.com/api-reference/overview) for more details on available endpoints

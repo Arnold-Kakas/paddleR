@@ -7,7 +7,9 @@
 
 <!-- badges: end -->
 
-The goal of paddleR is to …
+The goal of paddleR is to provide a comprehensive R interface to the
+Paddle API, enabling seamless integration with Paddle’s billing and
+subscription management platform.
 
 ## Installation
 

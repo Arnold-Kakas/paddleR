@@ -1,0 +1,557 @@
+---
+title: "Managing customers"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{managing_customers}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = FALSE,
+  comment = "#>"
+)
+```
+
+```{r eval=TRUE}
+library(paddleR)
+```
+
+## Overview
+
+This vignette demonstrates how to manage customers using the paddle package. The functions covered include:
+
+* Creating and listing customers
+* Updating customer information
+* Managing customer addresses and businesses
+* Retrieving credit balances
+* Generating authentication tokens for checkout
+
+## Creating Customer
+
+To create a customer, the only required field is an email address. You can also supply optional metadata, full name, and locale.
+
+Calling `paddle_create_customer()` will return a list containing the customer ID, status, custom data, name, email, locale, and timestamps:
+
+```{r eval=FALSE}
+set_paddle_mode("sandbox") # Use sandbox for testing
+
+paddle_create_customer(
+  email = "example@company.com",
+  name = "John Smith",
+  locale = "en-GB",
+  custom_data = list(industry = "SaaS", ref = "trial")
+)
+```
+
+```{r}
+cat('
+$email
+[1] "lia30@okeefe.com"
+
+$custom_data
+$custom_data$industry
+[1] "SaaS"
+
+$custom_data$ref
+[1] "bulk"
+
+
+$locale
+[1] "en-GB"
+
+$data
+$data$id
+[1] "ctm_01jxjjc245e0ygrhzmtes96j5w"
+
+$data$status
+[1] "active"
+
+$data$custom_data
+$data$custom_data$industry
+[1] "SaaS"
+
+$data$custom_data$ref
+[1] "bulk"
+
+
+$data$name
+NULL
+
+$data$email
+[1] "lia30@okeefe.com"
+
+$data$marketing_consent
+[1] FALSE
+
+$data$locale
+[1] "en-GB"
+
+$data$created_at
+[1] "2025-06-12T17:18:00.837Z"
+
+$data$updated_at
+[1] "2025-06-12T17:18:00.837Z"
+
+$data$import_meta
+NULL
+
+
+$meta
+$meta$request_id
+[1] "16a19e1e-2a12-4f69-b134-34a95cc15c2d"
+')
+```
+
+You can see newly created customer in Paddle dashboard under "Customers" section:
+
+![Customer John Smith is created in Paddle](reference/figures/john_smith.png)
+
+## Bulk Customer Creation (e.g. Testing)
+
+If you need to create multiple customers, you can use a loop or vectorized approach. For example, using the `charlatan` package to generate random emails:
+
+```{r eval=FALSE}
+library(charlatan)
+
+provider <- InternetProvider_de_DE$new()
+emails <- replicate(5, provider$company_email(), simplify = TRUE)
+
+customers <- lapply(emails, function(email) {
+  paddle_create_customer(
+    email = email,
+    locale = "de-DE",
+    custom_data = list(industry = "SaaS", ref = "bulk")
+  )
+})
+```
+
+This will create multiple customers with unique emails and the same custom data. You can then inspect the `customers` list to see the details of each created customer.
+
+![New customers from bulk upload are created in Paddle](reference/figures/bulk_customers_upload.png)
+
+## Listing Customers
+
+Retrieve all customers, or filter by email, ID, or status:
+
+```{r eval=FALSE}
+# List all customers
+paddle_list_customers()
+```
+
+will return a list of customers with their details, such as ID, status, custom data, name, email, locale, and timestamps.
+
+```{r eval=FALSE}
+# Search by email
+paddle_list_customers(email = "example@company.com")
+```
+
+will return a list of details for specific customer matching the email address:
+
+```{r, echo=FALSE, results='asis'}
+cat("
+$data
+$data[[1]]
+$data[[1]]$id
+[1] \"ctm_01jxjhwrveed9zsp29qy8fmdkr\"
+
+$data[[1]]$status
+[1] \"active\"
+
+$data[[1]]$custom_data
+$data[[1]]$custom_data$ref
+[1] \"trial\"
+
+$data[[1]]$custom_data$industry
+[1] \"SaaS\"
+
+$data[[1]]$name
+[1] \"John Smith\"
+
+$data[[1]]$email
+[1] \"example@company.com\"
+
+$data[[1]]$marketing_consent
+[1] FALSE
+
+$data[[1]]$locale
+[1] \"en-GB\"
+
+$data[[1]]$created_at
+[1] \"2025-06-12T17:09:39.822Z\"
+
+$data[[1]]$updated_at
+[1] \"2025-06-12T17:09:39.822Z\"
+
+$data[[1]]$import_meta
+NULL
+
+$meta
+$meta$request_id
+[1] \"28c4d590-8aaa-4fa0-9622-99d307865bc7\"
+
+$meta$pagination
+$meta$pagination$per_page
+[1] 50
+
+$meta$pagination$`next`
+[1] \"https://sandbox-api.paddle.com/custom")
+```
+
+you can subset the list of customers e.g. by their status:
+
+```{r eval=FALSE}
+paddle_list_customers(status = "archived")
+```
+
+## Updating a Customer
+
+You can update a customer's name, email, status, custom data, or locale. In this example, we will update the name of an existing customer:
+
+```{r eval=FALSE}
+paddle_update_customer(
+  customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  name = "Johny Smith"
+)
+```
+
+```{r}
+cat('
+$data
+$data$id
+[1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+
+$data$status
+[1] "active"
+
+$data$custom_data
+$data$custom_data$ref
+[1] "trial"
+
+$data$custom_data$industry
+[1] "SaaS"
+
+
+$data$name
+[1] "Johny Smith"
+
+$data$email
+[1] "example@company.com"
+
+$data$marketing_consent
+[1] FALSE
+
+$data$locale
+[1] "en-GB"
+
+$data$created_at
+[1] "2025-06-12T17:09:39.822Z"
+
+$data$updated_at
+[1] "2025-06-12T17:29:19.416951Z"
+
+$data$import_meta
+NULL
+
+
+$meta
+$meta$request_id
+[1] "f0c9ba18-9bdc-4090-941d-a1499e1d1374"')
+```
+
+## Managing Customer Addresses
+
+### Create Address
+
+You can create a customer address by providing the customer ID, country code, city, and postal code. The address will be linked to the specified customer.
+
+```{r eval=FALSE}
+paddle_create_customer_address(
+  customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  country_code = "US",
+  city = "New York",
+  postal_code = "10001"
+)
+```
+
+```{r}
+cat('
+    $data
+$data$id
+[1] "add_01jxjk35r0zskb9hvby15hrhzz"
+
+$data$status
+[1] "active"
+
+$data$customer_id
+[1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+
+$data$description
+NULL
+
+$data$first_line
+NULL
+
+$data$second_line
+NULL
+
+$data$city
+[1] "New York"
+
+$data$postal_code
+[1] "10001"
+
+$data$region
+NULL
+
+$data$country_code
+[1] "US"
+
+$data$custom_data
+NULL
+
+$data$created_at
+[1] "2025-06-12T17:30:38.208Z"
+
+$data$updated_at
+[1] "2025-06-12T17:30:38.208Z"
+
+$data$import_meta
+NULL
+
+
+$meta
+$meta$request_id
+[1] "5bd11221-c7d4-48d4-9b93-621c26903eb3"
+    ')
+```
+
+### Update Address
+
+To update an existing customer address, you can specify the customer ID, address ID, and the fields you want to change. For example, to update the city of an address:
+
+```{r eval=FALSE}
+paddle_update_customer_address(
+  customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  address_id = "add_01jxjk35r0zskb9hvby15hrhzz",
+  city = "San Francisco"
+)
+```
+
+```{r}
+cat('
+$data
+$data$id
+[1] "add_01jxjk35r0zskb9hvby15hrhzz"
+
+$data$status
+[1] "active"
+
+$data$customer_id
+[1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+
+$data$description
+NULL
+
+$data$first_line
+NULL
+
+$data$second_line
+NULL
+
+$data$city
+[1] "San Francisco"
+
+$data$postal_code
+[1] "10001"
+
+$data$region
+NULL
+
+$data$country_code
+[1] "US"
+
+$data$custom_data
+NULL
+
+$data$created_at
+[1] "2025-06-12T17:30:38.208Z"
+
+$data$updated_at
+[1] "2025-06-12T17:31:40.069188Z"
+
+$data$import_meta
+NULL
+
+
+$meta
+$meta$request_id
+[1] "c45c21a7-c3b2-4ae2-b8a7-40d3939553f4"
+')
+```
+
+## Managing Businesses
+
+### Create a Business
+
+You can create a business linked to a customer by providing the customer ID, business name, and optional contacts. The business will be associated with the specified customer.
+
+```{r eval=FALSE}
+paddle_create_customer_business(
+  customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  name = "Example Company",
+  contacts = list(list(email = "ceo@ec.com", name = "Johny Smith"))
+)
+```
+
+```{r}
+cat('
+$data
+$data$id
+[1] "biz_01jxjk6yqnw88jt9tepz31vnrz"
+
+$data$status
+[1] "active"
+
+$data$customer_id
+[1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+
+$data$name
+[1] "Example Company"
+
+$data$company_number
+NULL
+
+$data$tax_identifier
+NULL
+
+$data$contacts
+$data$contacts[[1]]
+$data$contacts[[1]]$name
+[1] "Johny Smith"
+
+$data$contacts[[1]]$email
+[1] "ceo@ec.com"
+
+
+
+$data$custom_data
+NULL
+
+$data$created_at
+[1] "2025-06-12T17:32:42.101Z"
+
+$data$updated_at
+[1] "2025-06-12T17:32:42.101Z"
+
+$data$import_meta
+NULL
+
+
+$meta
+$meta$request_id
+[1] "b40a33dd-d538-48e9-9f65-998bb257ca74"
+')
+```
+
+### Update a Business
+
+To update an existing business, you can specify the customer ID, business ID, and the fields you want to change. For example, to update the tax identifier of a business:
+
+```{r eval=FALSE}
+paddle_update_customer_business(
+  customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  business_id = "biz_01jxjk6yqnw88jt9tepz31vnrz",
+  tax_identifier = "123456789"
+)
+```
+
+```{r}
+cat('
+$data
+$data$id
+[1] "biz_01jxjk6yqnw88jt9tepz31vnrz"
+
+$data$status
+[1] "active"
+
+$data$customer_id
+[1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+
+$data$name
+[1] "Example Company"
+
+$data$company_number
+NULL
+
+$data$tax_identifier
+[1] "123456789"
+
+$data$contacts
+$data$contacts[[1]]
+$data$contacts[[1]]$name
+[1] "Johny Smith"
+
+$data$contacts[[1]]$email
+[1] "ceo@ec.com"
+
+
+
+$data$custom_data
+NULL
+
+$data$created_at
+[1] "2025-06-12T17:32:42.101Z"
+
+$data$updated_at
+[1] "2025-06-12T17:33:17.436074Z"
+
+$data$import_meta
+NULL
+
+
+$meta
+$meta$request_id
+[1] "8fca18b3-b802-443b-9935-a6d082e62ec3"
+')
+```
+
+## Checking Credit Balances
+
+You can retrieve the credit balance for a customer across all or selected currencies:
+
+```{r eval=FALSE}
+paddle_list_credit_balances("ctm_01jxjhwrveed9zsp29qy8fmdkr")
+
+# Filter by currency
+paddle_list_credit_balances("ctm_01jxjhwrveed9zsp29qy8fmdkr", currency_code = "USD")
+```
+
+In this case there are no credit balances, so the response will be empty:
+
+```{r}
+cat('
+$data
+list()
+
+$meta
+$meta$request_id
+[1] "1980e393-528d-45f1-a2ae-c0709d47e235"
+')
+```
+
+## Summary
+
+You now know how to:
+
+* Create and update customers in Paddle
+* Work with addresses and businesses linked to customers
+* Fetch credit balances
+
+You can use the same workflow in production by switching to "live" mode:
+
+```{r eval=FALSE}
+set_paddle_mode("live")
+```
+

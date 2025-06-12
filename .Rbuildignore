@@ -6,3 +6,6 @@
 ^\.github
 ^README
 ^dev
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

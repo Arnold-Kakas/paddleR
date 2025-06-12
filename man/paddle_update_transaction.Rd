@@ -18,42 +18,36 @@ paddle_update_transaction(
   payment_terms = NULL,
   billing_period = NULL,
   items = NULL,
-  checkout = NULL,
+  checkout_url = NULL,
   include = NULL
 )
 }
 \arguments{
-\item{transaction_id}{Character. Required. The ID of the transaction (e.g. `"txn_abc123"`).}
+\item{transaction_id}{Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).}
 
-\item{status}{Character. Optional. You may set a transaction to `"billed"` or `"canceled"`. Billed transactions cannot be changed.}
+\item{status}{Character. Optional. `"billed"` or `"canceled"`.}
 
-\item{customer_id}{Character. Optional. Paddle customer ID.}
+\item{customer_id, address_id, business_id}{Character. Optional Paddle IDs.}
 
-\item{address_id}{Character. Optional. Requires `customer_id`.}
+\item{custom_data}{Named list. Optional.}
 
-\item{business_id}{Character. Optional. Requires `customer_id`.}
+\item{currency_code}{Character. Optional. `"USD"`, `"EUR"`, or `"GBP"` if `collection_mode = "manual"`.}
 
-\item{custom_data}{Named list. Optional structured metadata.}
+\item{collection_mode}{Character. Optional. `"automatic"` or `"manual"`.}
 
-\item{currency_code}{Character. Optional. Must be `"USD"`, `"EUR"`, or `"GBP"` if `collection_mode = "manual"`.}
+\item{discount_id}{Character. Optional.}
 
-\item{collection_mode}{Character. Optional. Must be `"automatic"` or `"manual"`.}
+\item{billing_details}{List. Optional, see API.}
 
-\item{discount_id}{Character. Optional. Paddle discount ID.}
+\item{payment_terms}{List with `interval` and `frequency`. Shortcut to fill `billing_details$payment_terms`.}
 
-\item{billing_details}{List. Required if `collection_mode = "manual"`. May include:
-- `payment_terms` → list with `interval` (Character, must be one of `"day"`, `"week"`, `"month"`, `"year"`) and `frequency` (integer)
-- `enable_checkout` (logical)
-- `purchase_order_number` (Character)
-- `additional_information` (Character or null)}
+\item{billing_period}{List with `starts_at` and `ends_at` in RFC 3339 format. Optional.}
 
-\item{billing_period}{List with `starts_at` and `ends_at` (RFC 3339 format). Optional.}
+\item{items}{List of objects with `price_id` and `quantity`. Optional.}
 
-\item{items}{List of items. Optional. Each object must contain either a `price_id` or a `price object`, and a `quantity`. Please review API documentation for more details.}
+\item{checkout_url}{Character. Optional.}
 
-\item{checkout}{List with `url`. Optional.}
-
-\item{include}{Character vector. Related entities to include. Must be one of `"address"`, `"adjustments"`, `"adjustments_totals"`, `"available_payment_methods"`, `"business"`, `"customer"`, `"discount"`.}
+\item{include}{Character vector of related entities to return. Optional.}
 }
 \value{
 A list with updated transaction data and metadata.

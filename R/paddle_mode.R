@@ -29,6 +29,36 @@ set_paddle_mode <- function(mode = c("live", "sandbox")) {
 #' @export
 get_paddle_mode <- function() .paddle_env$mode
 
+#' Get Paddle API Key Based on Current Mode
+#'
+#' Resolves the Paddle API key based on environment variables and the selected mode (live or sandbox).
+#'
+#' @return A character string representing the Paddle API key.
+#' @export
+get_paddle_key <- function() {
+  mode <- get_paddle_mode()
+  if (!mode %in% c("live", "sandbox")) {
+    stop("`paddle.mode` must be either 'live' or 'sandbox'")
+  }
+
+  if (!is.null(Sys.getenv("PADDLE_KEY"))) {
+    return(Sys.getenv("PADDLE_KEY"))
+  }
+
+  key_env_var <- switch(mode,
+                        live = "PADDLE_KEY_LIVE",
+                        sandbox = "PADDLE_KEY_SANDBOX"
+  )
+
+  key <- Sys.getenv(key_env_var)
+  if (identical(key, "")) {
+    stop(sprintf("Environment variable `%s` must be set to authenticate with Paddle", key_env_var))
+  }
+
+  return(key)
+}
+
+
 #' Get Paddle URL
 #' This function retrieves the base URL for Paddle API requests based on the current mode.
 #'
