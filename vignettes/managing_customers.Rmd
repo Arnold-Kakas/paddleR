@@ -48,8 +48,7 @@ paddle_create_customer(
 )
 ```
 
-```{r echo=FALSE, results='asis'}
-cat('
+```
 $data
 $data$id
 [1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
@@ -86,12 +85,12 @@ NULL
 
 $meta
 $meta$request_id
-[1] "f0c9ba18-9bdc-4090-941d-a1499e1d1374"')
+[1] "f0c9ba18-9bdc-4090-941d-a1499e1d1374"
 ```
 
 You can see newly created customer in Paddle dashboard under "Customers" section:
 
-<img src="images/john_smith.png" align="right" width="70%"/>
+<img src="images/john_smith.png" />
 
 ## Bulk Customer Creation (e.g. Testing)
 
@@ -114,7 +113,7 @@ customers <- lapply(emails, function(email) {
 
 This will create multiple customers with unique emails and the same custom data. You can then inspect the `customers` list to see the details of each created customer.
 
-<img src="images/bulk_customers_upload.png" align="right" width="70%"/>
+<img src="images/bulk_customers_upload.png"/>
 
 ## Listing Customers
 
@@ -135,7 +134,6 @@ paddle_list_customers(email = "example@company.com")
 will return a list of details for specific customer matching the email address:
 
 ```
-cat("
 $data
 $data[[1]]
 $data[[1]]$id
@@ -181,7 +179,7 @@ $meta$pagination$per_page
 [1] 50
 
 $meta$pagination$`next`
-[1] \"https://sandbox-api.paddle.com/custom")
+[1] \"https://sandbox-api.paddle.com/custom"
 ```
 
 you can subset the list of customers e.g. by their status:
@@ -201,8 +199,7 @@ paddle_update_customer(
 )
 ```
 
-```{r echo=FALSE, results='asis'}
-cat('
+```
 $data
 $data$id
 [1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
@@ -242,7 +239,7 @@ NULL
 
 $meta
 $meta$request_id
-[1] "f0c9ba18-9bdc-4090-941d-a1499e1d1374"')
+[1] "f0c9ba18-9bdc-4090-941d-a1499e1d1374"
 ```
 
 ## Managing Customer Addresses
@@ -260,9 +257,8 @@ paddle_create_customer_address(
 )
 ```
 
-```{r, echo=FALSE, results='asis'}
-cat('
-    $data
+```
+$data
 $data$id
 [1] "add_01jxjk35r0zskb9hvby15hrhzz"
 
@@ -309,7 +305,6 @@ NULL
 $meta
 $meta$request_id
 [1] "5bd11221-c7d4-48d4-9b93-621c26903eb3"
-    ')
 ```
 
 ### Update Address
@@ -324,8 +319,7 @@ paddle_update_customer_address(
 )
 ```
 
-```{r, echo=FALSE, results='asis'}
-cat('
+```
 $data
 $data$id
 [1] "add_01jxjk35r0zskb9hvby15hrhzz"
@@ -373,7 +367,6 @@ NULL
 $meta
 $meta$request_id
 [1] "c45c21a7-c3b2-4ae2-b8a7-40d3939553f4"
-')
 ```
 
 ## Managing Businesses
@@ -390,8 +383,7 @@ paddle_create_customer_business(
 )
 ```
 
-```{r, echo=FALSE, results='asis'}
-cat('
+```
 $data
 $data$id
 [1] "biz_01jxjk6yqnw88jt9tepz31vnrz"
@@ -437,7 +429,6 @@ NULL
 $meta
 $meta$request_id
 [1] "b40a33dd-d538-48e9-9f65-998bb257ca74"
-')
 ```
 
 ### Update a Business
@@ -452,8 +443,7 @@ paddle_update_customer_business(
 )
 ```
 
-```{r, echo=FALSE, results='asis'}
-cat('
+```
 $data
 $data$id
 [1] "biz_01jxjk6yqnw88jt9tepz31vnrz"
@@ -499,7 +489,6 @@ NULL
 $meta
 $meta$request_id
 [1] "8fca18b3-b802-443b-9935-a6d082e62ec3"
-')
 ```
 
 ## Checking Credit Balances
@@ -515,15 +504,13 @@ paddle_list_credit_balances("ctm_01jxjhwrveed9zsp29qy8fmdkr", currency_code = "U
 
 In this case there are no credit balances, so the response will be empty:
 
-```{r}
-cat('
+```
 $data
 list()
 
 $meta
 $meta$request_id
 [1] "1980e393-528d-45f1-a2ae-c0709d47e235"
-')
 ```
 
 ## Summary
