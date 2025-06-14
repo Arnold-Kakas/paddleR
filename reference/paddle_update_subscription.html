@@ -38,6 +38,9 @@
       <a href="../articles/managing_customers.html">Managing customers</a>
     </li>
   </ul></li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -58,7 +61,7 @@
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">paddle_update_subscription</span><span class="op">(</span></span>
-<span>  <span class="va">subscription_id</span>,</span>
+<span>  <span class="va">id</span>,</span>
 <span>  customer_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  address_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  business_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -79,7 +82,7 @@
     <h2>Arguments</h2>
 
 
-<dl><dt id="arg-subscription-id">subscription_id<a class="anchor" aria-label="anchor" href="#arg-subscription-id"></a></dt>
+<dl><dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
 <dd><p>Character. Required. The ID of the subscription (e.g. "sub_abc123").</p></dd>
 
 
@@ -141,6 +144,17 @@
     <p>A list with updated subscription entity and metadata.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># paddle_has_token()</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="set_paddle_mode.html">set_paddle_mode</a></span><span class="op">(</span><span class="st">"sandbox"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">paddle_update_subscription</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  id <span class="op">=</span> <span class="st">"sub_01jvptej6fxyctrdt8ty45gw4k"</span>,</span></span>
+<span class="r-in"><span>  custom_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>purpose <span class="op">=</span> <span class="st">"example"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

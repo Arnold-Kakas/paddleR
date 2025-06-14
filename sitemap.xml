@@ -7,6 +7,7 @@
 <url><loc>https://arnold-kakas.github.io/paddleR/articles/managing_customers.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/authors.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/index.html</loc></url>
+<url><loc>https://arnold-kakas.github.io/paddleR/news/index.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/drop_nulls.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/get.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/get_paddle_key.html</loc></url>
@@ -26,6 +27,7 @@
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/paddle_generate_auth_token.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/paddle_get_events.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/paddle_get_update_payment_transaction.html</loc></url>
+<url><loc>https://arnold-kakas.github.io/paddleR/reference/paddle_has_token.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/paddle_list_credit_balances.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/paddle_list_customer_addresses.html</loc></url>
 <url><loc>https://arnold-kakas.github.io/paddleR/reference/paddle_list_customer_businesses.html</loc></url>

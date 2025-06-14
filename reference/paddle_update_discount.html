@@ -38,6 +38,9 @@
       <a href="../articles/managing_customers.html">Managing customers</a>
     </li>
   </ul></li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -58,7 +61,7 @@
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">paddle_update_discount</span><span class="op">(</span></span>
-<span>  <span class="va">discount_id</span>,</span>
+<span>  <span class="va">id</span>,</span>
 <span>  status <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  description <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  enabled_for_checkout <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -80,7 +83,7 @@
     <h2>Arguments</h2>
 
 
-<dl><dt id="arg-discount-id">discount_id<a class="anchor" aria-label="anchor" href="#arg-discount-id"></a></dt>
+<dl><dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
 <dd><p>Character. The Paddle discount ID (e.g., "dsc_123"). Required.</p></dd>
 
 
@@ -145,6 +148,17 @@
     <p>A list containing the updated discount and metadata.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># paddle_has_token()</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="set_paddle_mode.html">set_paddle_mode</a></span><span class="op">(</span><span class="st">"sandbox"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">paddle_update_discount</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  id <span class="op">=</span> <span class="st">"dsc_01jx7mfd3bdqgwvw9595c50jfq"</span>,</span></span>
+<span class="r-in"><span>  description <span class="op">=</span> <span class="st">"Updated description"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>

@@ -38,6 +38,9 @@
       <a href="../articles/managing_customers.html">Managing customers</a>
     </li>
   </ul></li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -58,7 +61,7 @@
 
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">paddle_update_transaction</span><span class="op">(</span></span>
-<span>  <span class="va">transaction_id</span>,</span>
+<span>  <span class="va">id</span>,</span>
 <span>  status <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  customer_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  address_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
@@ -80,7 +83,7 @@
     <h2>Arguments</h2>
 
 
-<dl><dt id="arg-transaction-id">transaction_id<a class="anchor" aria-label="anchor" href="#arg-transaction-id"></a></dt>
+<dl><dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
 <dd><p>Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).</p></dd>
 
 
@@ -137,6 +140,10 @@
     <p>A list with updated transaction data and metadata.</p>
     </div>
 
+    <div id="ref-examples">
+    <h2>Examples</h2>
+
+    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
