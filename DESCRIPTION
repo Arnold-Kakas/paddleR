@@ -1,7 +1,7 @@
 Package: paddleR
 Type: Package
 Title: Wrapper for Paddle API (Application Programming Interface)
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
     person(
       "Arnold", "Kakas",
