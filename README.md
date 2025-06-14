@@ -9,11 +9,28 @@
 [![Codecov test
 coverage](https://codecov.io/gh/Arnold-Kakas/paddleR/graph/badge.svg)](https://app.codecov.io/gh/Arnold-Kakas/paddleR)
 <!-- badges: end -->
+
+## 📦 About paddleR
+
 <img src="man/figures/logo.png" align="right" width="160"/>
 
-The goal of paddleR is to provide a comprehensive R interface to the
-Paddle API, enabling seamless integration with Paddle’s billing and
-subscription management platform.
+The goal of paddleR is to provide a comprehensive and user-friendly R
+interface to the Paddle API, enabling seamless integration with Paddle’s
+powerful billing and subscription management platform.
+
+This R package provides a robust interface to the Paddle API, enabling
+developers, analysts, and product teams to interact with Paddle’s
+billing and subscription platform directly from R.
+
+The package allows you to:
+
+- Create, retrieve, and update customers
+- Generate authentication tokens for Paddle.js checkout flows
+- Query customer lists with filters and pagination
+- Retrieve subscription details, including status and history
+- Manage products
+- Manage invoices
+- Many more
 
 ## Installation
 
@@ -29,21 +46,7 @@ install.packages("paddleR")
 library(paddleR)
 ```
 
-## 📦 About paddleR
-
-This R package provides a robust interface to the Paddle API, enabling
-developers, analysts, and product teams to interact with Paddle’s
-billing and subscription platform directly from R.
-
-The package allows you to:
-
-- Create, retrieve, and update customers
-- Generate authentication tokens for Paddle.js checkout flows
-- Query customer lists with filters and pagination
-- Retrieve subscription details, including status and history
-- Manage products
-- Manage invoices
-- Many more
+## Modes
 
 The package supports two modes of operation:
 
