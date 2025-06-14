@@ -140,7 +140,7 @@ NULL</p>
 [1] “f0c9ba18-9bdc-4090-941d-a1499e1d1374”</p>
 <p>You can see newly created customer in Paddle dashboard under
 “Customers” section:</p>
-<p><img src="reference/figures/john_smith.png" align="right" width="70%"></p>
+<p><img src="images/john_smith.png" align="right" width="70%"></p>
 </div>
 <div class="section level2">
 <h2 id="bulk-customer-creation-e-g--testing">Bulk Customer Creation (e.g. Testing)<a class="anchor" aria-label="anchor" href="#bulk-customer-creation-e-g--testing"></a>
@@ -164,7 +164,7 @@ package to generate random emails:</p>
 <p>This will create multiple customers with unique emails and the same
 custom data. You can then inspect the <code>customers</code> list to see
 the details of each created customer.</p>
-<p><img src="reference/figures/bulk_customers_upload.png" align="right" width="70%"></p>
+<p><img src="images/bulk_customers_upload.png" align="right" width="70%"></p>
 </div>
 <div class="section level2">
 <h2 id="listing-customers">Listing Customers<a class="anchor" aria-label="anchor" href="#listing-customers"></a>
@@ -180,39 +180,55 @@ status, custom data, name, email, locale, and timestamps.</p>
 <span><span class="fu"><a href="../reference/paddle_list_customers.html">paddle_list_customers</a></span><span class="op">(</span>email <span class="op">=</span> <span class="st">"example@company.com"</span><span class="op">)</span></span></code></pre></div>
 <p>will return a list of details for specific customer matching the
 email address:</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">data</annotation></semantics></math>data[[1]]
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>id
-[1] “ctm_01jxjhwrveed9zsp29qy8fmdkr”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>status
-[1] “active”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>custom_data
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>custom_data$ref
-[1] “trial”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>custom_data$industry
-[1] “SaaS”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>name
-[1] “John Smith”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>email
-[1] “<a href="mailto:example@company.com" class="email">example@company.com</a>”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>marketing_consent
-[1] FALSE</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>locale
-[1] “en-GB”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>created_at
-[1] “2025-06-12T17:09:39.822Z”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>updated_at
-[1] “2025-06-12T17:09:39.822Z”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>a</mi><mi>t</mi><mi>a</mi><mrow><mo stretchy="true" form="prefix">[</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">data[[1]]</annotation></semantics></math>import_meta
-NULL</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>e</mi><mi>t</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">meta</annotation></semantics></math>meta$request_id
-[1] “28c4d590-8aaa-4fa0-9622-99d307865bc7”</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>e</mi><mi>t</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">meta</annotation></semantics></math>pagination
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>e</mi><mi>t</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">meta</annotation></semantics></math>pagination$per_page
-[1] 50</p>
-<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mi>e</mi><mi>t</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">meta</annotation></semantics></math>pagination$<code><a href="https://rdrr.io/r/base/Control.html" class="external-link">next</a></code>
-[1] “<a href="https://sandbox-api.paddle.com/custom" class="external-link uri">https://sandbox-api.paddle.com/custom</a></p>
+<pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"</span></span>
+<span><span class="st">$data</span></span>
+<span><span class="st">$data[[1]]</span></span>
+<span><span class="st">$data[[1]]$id</span></span>
+<span><span class="st">[1] \"ctm_01jxjhwrveed9zsp29qy8fmdkr\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$status</span></span>
+<span><span class="st">[1] \"active\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$custom_data</span></span>
+<span><span class="st">$data[[1]]$custom_data$ref</span></span>
+<span><span class="st">[1] \"trial\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$custom_data$industry</span></span>
+<span><span class="st">[1] \"SaaS\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$name</span></span>
+<span><span class="st">[1] \"John Smith\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$email</span></span>
+<span><span class="st">[1] \"example@company.com\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$marketing_consent</span></span>
+<span><span class="st">[1] FALSE</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$locale</span></span>
+<span><span class="st">[1] \"en-GB\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$created_at</span></span>
+<span><span class="st">[1] \"2025-06-12T17:09:39.822Z\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$updated_at</span></span>
+<span><span class="st">[1] \"2025-06-12T17:09:39.822Z\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$data[[1]]$import_meta</span></span>
+<span><span class="st">NULL</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$meta</span></span>
+<span><span class="st">$meta$request_id</span></span>
+<span><span class="st">[1] \"28c4d590-8aaa-4fa0-9622-99d307865bc7\"</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$meta$pagination</span></span>
+<span><span class="st">$meta$pagination$per_page</span></span>
+<span><span class="st">[1] 50</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">$meta$pagination$`next`</span></span>
+<span><span class="st">[1] \"https://sandbox-api.paddle.com/custom"</span><span class="op">)</span></span></code></pre>
 <p>you can subset the list of customers e.g. by their status:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paddle_list_customers.html">paddle_list_customers</a></span><span class="op">(</span>status <span class="op">=</span> <span class="st">"archived"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -221,7 +237,7 @@ NULL</p>
 <p>You can update a customer’s name, email, status, custom data, or
 locale. In this example, we will update the name of an existing
 customer:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paddle_update_customer.html">paddle_update_customer</a></span><span class="op">(</span></span>
 <span>  customer_id <span class="op">=</span> <span class="st">"ctm_01jxjhwrveed9zsp29qy8fmdkr"</span>,</span>
 <span>  name <span class="op">=</span> <span class="st">"Johny Smith"</span></span>
@@ -261,7 +277,7 @@ NULL</p>
 <p>You can create a customer address by providing the customer ID,
 country code, city, and postal code. The address will be linked to the
 specified customer.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paddle_create_customer_address.html">paddle_create_customer_address</a></span><span class="op">(</span></span>
 <span>  customer_id <span class="op">=</span> <span class="st">"ctm_01jxjhwrveed9zsp29qy8fmdkr"</span>,</span>
 <span>  country_code <span class="op">=</span> <span class="st">"US"</span>,</span>
@@ -306,7 +322,7 @@ NULL</p>
 <p>To update an existing customer address, you can specify the customer
 ID, address ID, and the fields you want to change. For example, to
 update the city of an address:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paddle_update_customer_address.html">paddle_update_customer_address</a></span><span class="op">(</span></span>
 <span>  customer_id <span class="op">=</span> <span class="st">"ctm_01jxjhwrveed9zsp29qy8fmdkr"</span>,</span>
 <span>  address_id <span class="op">=</span> <span class="st">"add_01jxjk35r0zskb9hvby15hrhzz"</span>,</span>
@@ -353,7 +369,7 @@ NULL</p>
 <p>You can create a business linked to a customer by providing the
 customer ID, business name, and optional contacts. The business will be
 associated with the specified customer.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paddle_create_customer_business.html">paddle_create_customer_business</a></span><span class="op">(</span></span>
 <span>  customer_id <span class="op">=</span> <span class="st">"ctm_01jxjhwrveed9zsp29qy8fmdkr"</span>,</span>
 <span>  name <span class="op">=</span> <span class="st">"Example Company"</span>,</span>
@@ -394,7 +410,7 @@ NULL</p>
 <p>To update an existing business, you can specify the customer ID,
 business ID, and the fields you want to change. For example, to update
 the tax identifier of a business:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paddle_update_customer_business.html">paddle_update_customer_business</a></span><span class="op">(</span></span>
 <span>  customer_id <span class="op">=</span> <span class="st">"ctm_01jxjhwrveed9zsp29qy8fmdkr"</span>,</span>
 <span>  business_id <span class="op">=</span> <span class="st">"biz_01jxjk6yqnw88jt9tepz31vnrz"</span>,</span>
@@ -435,14 +451,14 @@ NULL</p>
 </h2>
 <p>You can retrieve the credit balance for a customer across all or
 selected currencies:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/paddle_list_credit_balances.html">paddle_list_credit_balances</a></span><span class="op">(</span><span class="st">"ctm_01jxjhwrveed9zsp29qy8fmdkr"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Filter by currency</span></span>
 <span><span class="fu"><a href="../reference/paddle_list_credit_balances.html">paddle_list_credit_balances</a></span><span class="op">(</span><span class="st">"ctm_01jxjhwrveed9zsp29qy8fmdkr"</span>, currency_code <span class="op">=</span> <span class="st">"USD"</span><span class="op">)</span></span></code></pre></div>
 <p>In this case there are no credit balances, so the response will be
 empty:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">'</span></span>
 <span><span class="st">$data</span></span>
 <span><span class="st">list()</span></span>
@@ -470,7 +486,7 @@ empty:</p>
 </ul>
 <p>You can use the same workflow in production by switching to “live”
 mode:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/set_paddle_mode.html">set_paddle_mode</a></span><span class="op">(</span><span class="st">"live"</span><span class="op">)</span></span></code></pre></div>
 </div>
   </div>
