@@ -8,6 +8,8 @@
 [![R-CMD-check](https://github.com/Arnold-Kakas/paddleR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Arnold-Kakas/paddleR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/Arnold-Kakas/paddleR/graph/badge.svg)](https://app.codecov.io/gh/Arnold-Kakas/paddleR)
+[![Codecov test
+coverage](https://codecov.io/gh/Arnold-Kakas/paddleR/graph/badge.svg)](https://app.codecov.io/gh/Arnold-Kakas/paddleR)
 <!-- badges: end -->
 
 ## 📦 About paddleR
