@@ -91,7 +91,7 @@ $meta$request_id
 
 You can see newly created customer in Paddle dashboard under "Customers" section:
 
-<img src="man/figures/john_smith.png" align="right" width="70%"/>
+<img src="images/john_smith.png" align="right" width="70%"/>
 
 ## Bulk Customer Creation (e.g. Testing)
 
@@ -114,7 +114,7 @@ customers <- lapply(emails, function(email) {
 
 This will create multiple customers with unique emails and the same custom data. You can then inspect the `customers` list to see the details of each created customer.
 
-<img src="man/figures/bulk_customers_upload.png" align="right" width="70%"/>
+<img src="images/bulk_customers_upload.png" align="right" width="70%"/>
 
 ## Listing Customers
 
@@ -134,7 +134,7 @@ paddle_list_customers(email = "example@company.com")
 
 will return a list of details for specific customer matching the email address:
 
-```{r, echo=FALSE, results='asis'}
+```
 cat("
 $data
 $data[[1]]
