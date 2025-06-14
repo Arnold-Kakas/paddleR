@@ -19,7 +19,6 @@
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' paddle_list_discounts(
-#'   id = "dsc_01jx7mfd3bdqgwvw9595c50jfq"
 #' )
 paddle_list_discounts <- function(id = NULL,
                                   code = NULL,
@@ -104,7 +103,7 @@ paddle_list_discounts <- function(id = NULL,
 #' @returns A list containing the created discount and metadata.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # don't run in users environment
 #' set_paddle_mode("sandbox")
 #' paddle_create_discount(
 #'  amount = "10.00",
@@ -198,12 +197,14 @@ paddle_create_discount <- function(amount,
 #'
 #' @returns A list containing the updated discount and metadata.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs valid discount key
 #' set_paddle_mode("sandbox")
 #' paddle_update_discount(
-#'   id = "dsc_01jx7mfd3bdqgwvw9595c50jfq",
+#'   id = "dsc_123",
 #'   description = "Updated description"
 #' )
+#' }
 paddle_update_discount <- function(id,
                                    status = NULL,
                                    description = NULL,

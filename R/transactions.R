@@ -26,7 +26,6 @@
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' paddle_list_transactions(
-#'   customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr"
 #' )
 paddle_list_transactions <- function(after = NULL,
                                      id = NULL,
@@ -119,11 +118,11 @@ paddle_list_transactions <- function(after = NULL,
 #' @returns A list containing the created transaction and metadata.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # needs valid price key
 #' set_paddle_mode("sandbox")
 #' paddle_create_transaction(
 #'  items = list(
-#'  list(price_id = "price_01jxjhwrveed9zsp29qy8fmdkr", quantity = 1)
+#'  list(price_id = "pri_123", quantity = 1)
 #' )
 #' }
 paddle_create_transaction <- function(items,
@@ -244,11 +243,11 @@ paddle_create_transaction <- function(items,
 #' @returns A list with updated transaction data and metadata.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # needs valid price key
 #' set_paddle_mode("sandbox")
 #' paddle_create_transaction(
 #'  items = list(
-#'  list(price_id = "price_01jxjhwrveed9zsp29qy8fmdkr", quantity = 1)
+#'  list(price_id = "price_123", quantity = 1)
 #' )
 #' }
 paddle_update_transaction <- function(id,
@@ -339,16 +338,18 @@ paddle_update_transaction <- function(id,
 #'
 #' @returns A list with previewed transaction data.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs valid keys(price, customer, discount)
 #' set_paddle_mode("sandbox")
 #' paddle_preview_transaction(
-#'   items = list(list(price_id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx", quantity = 2)),
-#'   customer_id = "ctm_01jwk0s510nxxv3gv8ky41e46a",
+#'   items = list(list(price_id = "pri_123", quantity = 2)),
+#'   customer_id = "ctm_123",
 #'   currency_code = "EUR",
-#'   discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9",
+#'   discount_id = "dsc_123",
 #'   ignore_trials = TRUE,
 #'   customer_ip_address = "8.8.8.8"
 #' )
+#' }
 paddle_preview_transaction <- function(items,
                                        customer_id = NULL,
                                        currency_code = NULL,

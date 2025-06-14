@@ -19,7 +19,6 @@
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' paddle_list_products(
-#'   id = "pro_01jwp8mvatdtncfca757r5wb9f"
 #' )
 paddle_list_products <- function(id = NULL,
                                  status = NULL,
@@ -126,7 +125,7 @@ paddle_list_products <- function(id = NULL,
 #' @returns A list representing the newly created product.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # do not run to not create products in users Paddle accounts
 #' set_paddle_mode("sandbox")
 #' paddle_create_product(
 #'  name = "My Product",
@@ -208,12 +207,14 @@ paddle_create_product <- function(name,
 #'
 #' @returns A list representing the updated product.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs valid product key
 #' set_paddle_mode("sandbox")
 #' paddle_update_product(
-#'   id = "pro_01jwp8mvatdtncfca757r5wb9f",
+#'   id = "pro_123",
 #'   name = "Updated Product Name"
 #' )
+#' }
 paddle_update_product <- function(id,
                                   name = NULL,
                                   description = NULL,

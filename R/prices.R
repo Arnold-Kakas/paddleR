@@ -23,7 +23,6 @@
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' paddle_list_prices(
-#'   id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx"
 #' )
 paddle_list_prices <- function(id = NULL,
                                product_id = NULL,
@@ -123,11 +122,11 @@ paddle_list_prices <- function(id = NULL,
 #' @returns A list representing the created price entity and metadata.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # needs existing product key
 #' set_paddle_mode("sandbox")
 #' paddle_create_price(
 #'  description = "Standard monthly subscription",
-#'  product_id = "pro_01jwp8mvatdtncfca757r5wb9f",
+#'  product_id = "pro_123",
 #'  unit_price = list(
 #'  amount = "1000",  # 10.00 USD
 #'  currency_code = "USD"
@@ -218,12 +217,14 @@ paddle_create_price <- function(description,
 #'
 #' @returns A list representing the updated price entity.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs existing price key
 #' set_paddle_mode("sandbox")
 #' paddle_update_price(
-#'   id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx",
+#'   id = "pri_123",
 #'   name = "Updated Price Name",
 #' )
+#' }
 paddle_update_price <- function(id,
                                 description = NULL,
                                 type = NULL,

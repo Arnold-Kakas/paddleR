@@ -19,7 +19,6 @@
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' paddle_list_subscriptions(
-#'   customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr"
 #' )
 paddle_list_subscriptions <- function(id = NULL,
                                       customer_id = NULL,
@@ -97,12 +96,14 @@ paddle_list_subscriptions <- function(id = NULL,
 #'
 #' @returns A list with updated subscription entity and metadata.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
 #' paddle_update_subscription(
-#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#'   id = "sub_123",
 #'   custom_data = list(purpose = "example"),
 #' )
+#' }
 paddle_update_subscription <- function(
     id,
     customer_id = NULL,
@@ -223,12 +224,14 @@ paddle_update_subscription <- function(
 #'
 #' @returns A list containing subscription preview and transaction impact.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
 #' paddle_preview_subscription_update(
-#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#'   id = "sub_123",
 #'   custom_data = list(purpose = "example"),
 #' )
+#' }
 paddle_preview_subscription_update <- function(
     id,
     customer_id = NULL,
@@ -340,11 +343,13 @@ paddle_preview_subscription_update <- function(
 #'
 #' @returns A list containing transaction details for payment method update.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
 #' paddle_get_update_payment_transaction(
-#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k"
+#'   id = "sub_123"
 #' )
+#' }
 paddle_get_update_payment_transaction <- function(id) {
   if (missing(id) || !is.character(id) || !nzchar(id)) {
     stop("`id` must be a non-empty string.", call. = FALSE)
@@ -429,10 +434,10 @@ paddle_preview_one_time_charge <- function(
 #' @returns A list with updated subscription entity and metadata.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
 #' paddle_activate_trial_subscription(
-#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k" # subscription must be trialing
+#'  id = "sub_123" # subscription must be trialing
 #'  )
 #'  }
 paddle_activate_trial_subscription <- function(id) {
@@ -458,10 +463,10 @@ paddle_activate_trial_subscription <- function(id) {
 #' @returns A list representing the updated subscription object.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
 #' paddle_pause_subscription(
-#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k" # subscription must be active
+#'  id = "sub_123" # subscription must be active
 #'  )
 #'  }
 paddle_pause_subscription <- function(
@@ -506,10 +511,10 @@ paddle_pause_subscription <- function(
 #' @returns A list representing the updated subscription object.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
 #' paddle_resume_subscription(
-#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k", # subscription must be paused
+#'  id = "sub_123", # subscription must be paused
 #'  effective_from = "2025-07-01T00:00:00Z"
 #'  )
 #'  }
@@ -551,10 +556,10 @@ paddle_resume_subscription <- function(
 #' @returns A list with the updated subscription entity and metadata.
 #' @export
 #' @examples
-#' \dontrun{
+#' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
 #' paddle_cancel_subscription(
-#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#'  id = "sub_123",
 #'  effective_from = "immediately"
 #'  )
 #'  }
