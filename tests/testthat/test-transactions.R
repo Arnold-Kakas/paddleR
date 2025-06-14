@@ -68,7 +68,7 @@ test_that("paddle_create_transaction() validates inputs strictly", {
 test_that("paddle_update_transaction() handles include query and validation", {
   skip_on_cran()
   set_paddle_mode("sandbox")
-  expect_error(paddle_update_transaction(""), "`transaction_id` must be")
+  expect_error(paddle_update_transaction(""), "`id` must be")
 
   expect_error(
     paddle_update_transaction("txn_01jx34btjb292adefxgkrj6t4j", status = "invalid"),
@@ -91,7 +91,7 @@ test_that("paddle_update_transaction() handles include query and validation", {
 
   expect_silent(
     paddle_update_transaction(
-      transaction_id = paddle_create_transaction(
+      id = paddle_create_transaction(
         customer_id = "ctm_01jwk0s510nxxv3gv8ky41e46a",
         items = list(list(price_id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx", quantity = 2)),
       )$data$id,

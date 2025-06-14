@@ -35,3 +35,11 @@ A list with customer data and pagination info.
 \description{
 Fetches a paginated list of customers. By default, only active customers are returned.
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_list_customers(
+  email = "example@company.com"
+)
+\dontshow{\}) # examplesIf}
+}

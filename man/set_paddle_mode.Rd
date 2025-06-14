@@ -2,7 +2,8 @@
 % Please edit documentation in R/paddle_mode.R
 \name{set_paddle_mode}
 \alias{set_paddle_mode}
-\title{Set Paddle Mode}
+\title{Set Paddle Mode
+This function sets the mode for Paddle API requests, either "sandbox" or "live".}
 \usage{
 set_paddle_mode(mode = c("live", "sandbox"))
 }
@@ -13,8 +14,11 @@ set_paddle_mode(mode = c("live", "sandbox"))
 The base URL for Paddle API requests based on the selected mode.
 }
 \description{
+Set Paddle Mode
 This function sets the mode for Paddle API requests, either "sandbox" or "live".
 }
 \examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
+\dontshow{\}) # examplesIf}
 }

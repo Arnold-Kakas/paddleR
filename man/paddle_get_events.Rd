@@ -19,3 +19,11 @@ A list of events returned by the Paddle API.
 \description{
 Retrieves a list of event entities from Paddle. You can optionally filter by event type.
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_get_events(
+  per_page = 2
+)
+\dontshow{\}) # examplesIf}
+}

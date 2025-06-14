@@ -57,3 +57,12 @@ A list containing the created transaction and metadata.
 \description{
 Creates a new transaction in the Paddle API.
 }
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_create_transaction(
+ items = list(
+ list(price_id = "price_01jxjhwrveed9zsp29qy8fmdkr", quantity = 1)
+)
+}
+}

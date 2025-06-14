@@ -5,7 +5,7 @@
 \title{Update a subscription}
 \usage{
 paddle_update_subscription(
-  subscription_id,
+  id,
   customer_id = NULL,
   address_id = NULL,
   business_id = NULL,
@@ -22,7 +22,7 @@ paddle_update_subscription(
 )
 }
 \arguments{
-\item{subscription_id}{Character. Required. The ID of the subscription (e.g. "sub_abc123").}
+\item{id}{Character. Required. The ID of the subscription (e.g. "sub_abc123").}
 
 \item{customer_id}{Character. Optional. Paddle customer ID.}
 
@@ -56,4 +56,13 @@ A list with updated subscription entity and metadata.
 }
 \description{
 Updates a subscription using its ID. Required for changes like billing date, items, or proration.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_update_subscription(
+  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+  custom_data = list(purpose = "example"),
+)
+\dontshow{\}) # examplesIf}
 }

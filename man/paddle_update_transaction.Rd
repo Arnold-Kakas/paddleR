@@ -5,7 +5,7 @@
 \title{Update a Transaction}
 \usage{
 paddle_update_transaction(
-  transaction_id,
+  id,
   status = NULL,
   customer_id = NULL,
   address_id = NULL,
@@ -23,7 +23,7 @@ paddle_update_transaction(
 )
 }
 \arguments{
-\item{transaction_id}{Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).}
+\item{id}{Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).}
 
 \item{status}{Character. Optional. `"billed"` or `"canceled"`.}
 
@@ -54,4 +54,13 @@ A list with updated transaction data and metadata.
 }
 \description{
 Updates a transaction by its ID. Only transactions with status `draft` or `ready` can be updated.
+}
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_create_transaction(
+ items = list(
+ list(price_id = "price_01jxjhwrveed9zsp29qy8fmdkr", quantity = 1)
+)
+}
 }

@@ -1,5 +1,8 @@
 ---
 title: "Managing customers"
+resource_files:
+  - man/figures/john_smith.png
+  - man/figures/bulk_customers_upload.png
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{managing_customers}
@@ -45,42 +48,28 @@ paddle_create_customer(
 )
 ```
 
-```{r}
+```{r echo=FALSE, results='asis'}
 cat('
-$email
-[1] "lia30@okeefe.com"
-
-$custom_data
-$custom_data$industry
-[1] "SaaS"
-
-$custom_data$ref
-[1] "bulk"
-
-
-$locale
-[1] "en-GB"
-
 $data
 $data$id
-[1] "ctm_01jxjjc245e0ygrhzmtes96j5w"
+[1] "ctm_01jxjhwrveed9zsp29qy8fmdkr"
 
 $data$status
 [1] "active"
 
 $data$custom_data
+$data$custom_data$ref
+[1] "trial"
+
 $data$custom_data$industry
 [1] "SaaS"
 
-$data$custom_data$ref
-[1] "bulk"
-
 
 $data$name
-NULL
+[1] "John Smith"
 
 $data$email
-[1] "lia30@okeefe.com"
+[1] "example@company.com"
 
 $data$marketing_consent
 [1] FALSE
@@ -89,10 +78,7 @@ $data$locale
 [1] "en-GB"
 
 $data$created_at
-[1] "2025-06-12T17:18:00.837Z"
-
-$data$updated_at
-[1] "2025-06-12T17:18:00.837Z"
+[1] "2025-06-12T17:09:39.822Z"
 
 $data$import_meta
 NULL
@@ -100,13 +86,12 @@ NULL
 
 $meta
 $meta$request_id
-[1] "16a19e1e-2a12-4f69-b134-34a95cc15c2d"
-')
+[1] "f0c9ba18-9bdc-4090-941d-a1499e1d1374"')
 ```
 
 You can see newly created customer in Paddle dashboard under "Customers" section:
 
-![Customer John Smith is created in Paddle](reference/figures/john_smith.png)
+<img src="man/figures/john_smith.png" align="right" width="70%"/>
 
 ## Bulk Customer Creation (e.g. Testing)
 
@@ -129,7 +114,7 @@ customers <- lapply(emails, function(email) {
 
 This will create multiple customers with unique emails and the same custom data. You can then inspect the `customers` list to see the details of each created customer.
 
-![New customers from bulk upload are created in Paddle](reference/figures/bulk_customers_upload.png)
+<img src="man/figures/bulk_customers_upload.png" align="right" width="70%"/>
 
 ## Listing Customers
 
@@ -216,7 +201,7 @@ paddle_update_customer(
 )
 ```
 
-```{r}
+```{r echo=FALSE, results='asis'}
 cat('
 $data
 $data$id
@@ -275,7 +260,7 @@ paddle_create_customer_address(
 )
 ```
 
-```{r}
+```{r, echo=FALSE, results='asis'}
 cat('
     $data
 $data$id
@@ -339,7 +324,7 @@ paddle_update_customer_address(
 )
 ```
 
-```{r}
+```{r, echo=FALSE, results='asis'}
 cat('
 $data
 $data$id
@@ -405,7 +390,7 @@ paddle_create_customer_business(
 )
 ```
 
-```{r}
+```{r, echo=FALSE, results='asis'}
 cat('
 $data
 $data$id
@@ -467,7 +452,7 @@ paddle_update_customer_business(
 )
 ```
 
-```{r}
+```{r, echo=FALSE, results='asis'}
 cat('
 $data
 $data$id

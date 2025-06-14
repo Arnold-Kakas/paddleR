@@ -5,7 +5,7 @@
 \title{Update a Customer Address}
 \usage{
 paddle_update_customer_address(
-  customer_id,
+  id,
   address_id,
   country_code = NULL,
   description = NULL,
@@ -19,7 +19,7 @@ paddle_update_customer_address(
 )
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
+\item{id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
 
 \item{address_id}{Character. Paddle address ID (e.g., "add_456"). Required.}
 
@@ -46,4 +46,15 @@ A list containing the updated address entity and metadata.
 }
 \description{
 Updates an address for a specific customer using Paddle's API.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_update_customer_address(
+  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  address_id = "add_01jxjk35r0zskb9hvby15hrhzz",
+  city = "San Francisco",
+  region = "CA"
+)
+\dontshow{\}) # examplesIf}
 }

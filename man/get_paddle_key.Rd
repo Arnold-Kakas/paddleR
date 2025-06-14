@@ -12,3 +12,8 @@ A character string representing the Paddle API key.
 \description{
 Resolves the Paddle API key based on environment variables and the selected mode (live or sandbox).
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+get_paddle_key()  # returns token for current mode
+\dontshow{\}) # examplesIf}
+}

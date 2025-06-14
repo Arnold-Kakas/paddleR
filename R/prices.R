@@ -19,6 +19,12 @@
 #'
 #' @return A list of price entities and pagination metadata.
 #' @export
+#'
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_list_prices(
+#'   id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx"
+#' )
 paddle_list_prices <- function(id = NULL,
                                product_id = NULL,
                                status = NULL,
@@ -114,8 +120,20 @@ paddle_list_prices <- function(id = NULL,
 #' @param quantity List with `minimum` and `maximum` quantity limits. Optional.
 #' @param custom_data Named list of custom metadata. Optional.
 #'
-#' @return A list representing the created price entity and metadata.
+#' @returns A list representing the created price entity and metadata.
 #' @export
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_create_price(
+#'  description = "Standard monthly subscription",
+#'  product_id = "pro_01jwp8mvatdtncfca757r5wb9f",
+#'  unit_price = list(
+#'  amount = "1000",  # 10.00 USD
+#'  currency_code = "USD"
+#'  ),
+#' )
+#' }
 paddle_create_price <- function(description,
                                 product_id,
                                 unit_price,
@@ -185,7 +203,7 @@ paddle_create_price <- function(description,
 #'
 #' Updates an existing price entity in Paddle using its ID.
 #'
-#' @param price_id ID of the price. Required.
+#' @param id ID of the price. Required.
 #' @param description Internal description for your team. Required.
 #' @param unit_price A list with `amount` (string, lowest denomination, e.g. for 10 USD write 1000 (lowest denomination = cents)) and `currency_code` (3-letter ISO). Required.
 #' @param type Type of item (one of `"standard"` and `"custom"`). Optional. Defaults to `"standard"`.
@@ -198,9 +216,15 @@ paddle_create_price <- function(description,
 #' @param custom_data Named list of custom metadata. Optional.
 #' @param status Status of the price (one of `"active"`, `"archived"`). Optional.
 #'
-#' @return A list representing the updated price entity.
+#' @returns A list representing the updated price entity.
 #' @export
-paddle_update_price <- function(price_id,
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_update_price(
+#'   id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx",
+#'   name = "Updated Price Name",
+#' )
+paddle_update_price <- function(id,
                                 description = NULL,
                                 type = NULL,
                                 name = NULL,
@@ -212,8 +236,8 @@ paddle_update_price <- function(price_id,
                                 quantity = NULL,
                                 status = NULL,
                                 custom_data = NULL) {
-  if (missing(price_id) || !nzchar(price_id)) {
-    stop("`price_id` is required and must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !nzchar(id)) {
+    stop("`id` is required and must be a non-empty string.", call. = FALSE)
   }
 
   if (!is.null(type)) {
@@ -260,7 +284,7 @@ paddle_update_price <- function(price_id,
   if (!missing(status))                body$status                <- status
   if (!missing(custom_data))           body$custom_data           <- custom_data
 
-  url <- paste0(get_paddle_url(), "/prices/", price_id)
+  url <- paste0(get_paddle_url(), "/prices/", id)
 
   update(url, body)
 }

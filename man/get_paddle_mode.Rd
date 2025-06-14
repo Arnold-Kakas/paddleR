@@ -14,3 +14,8 @@ The current mode for Paddle API requests, either "live" or "sandbox".
 Get Paddle Mode
 This function retrieves the current mode set for Paddle API requests.
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+get_paddle_mode()  # should return "live" by default
+\dontshow{\}) # examplesIf}
+}

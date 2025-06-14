@@ -42,3 +42,11 @@ A list of price entities and pagination metadata.
 Fetches a paginated list of price entities from Paddle. Filters are available
 for ID, product, status, recurrence, and ordering. Optionally includes related products.
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_list_prices(
+  id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx"
+)
+\dontshow{\}) # examplesIf}
+}

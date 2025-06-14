@@ -14,8 +14,13 @@
 #' @param per_page Integer. Optional. Max 200, defaults to 50.
 #' @param collection_mode Character. Optional. Must be one of `"automatic"`, `"manual"`.
 #'
-#' @return A list with subscription data and pagination metadata.
+#' @returns A list with subscription data and pagination metadata.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_list_subscriptions(
+#'   customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+#' )
 paddle_list_subscriptions <- function(id = NULL,
                                       customer_id = NULL,
                                       address_id = NULL,
@@ -74,7 +79,7 @@ paddle_list_subscriptions <- function(id = NULL,
 #'
 #' Updates a subscription using its ID. Required for changes like billing date, items, or proration.
 #'
-#' @param subscription_id Character. Required. The ID of the subscription (e.g. "sub_abc123").
+#' @param id Character. Required. The ID of the subscription (e.g. "sub_abc123").
 #' @param customer_id Character. Optional. Paddle customer ID.
 #' @param address_id Character. Optional. Paddle address ID.
 #' @param business_id Character or NULL. Optional.
@@ -90,10 +95,16 @@ paddle_list_subscriptions <- function(id = NULL,
 #' @param custom_data Named list or NULL. Optional.
 #' @param scheduled_change NULL. Set to NULL to remove a scheduled change.
 #'
-#' @return A list with updated subscription entity and metadata.
+#' @returns A list with updated subscription entity and metadata.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_update_subscription(
+#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#'   custom_data = list(purpose = "example"),
+#' )
 paddle_update_subscription <- function(
-    subscription_id,
+    id,
     customer_id = NULL,
     address_id = NULL,
     business_id = NULL,
@@ -108,8 +119,8 @@ paddle_update_subscription <- function(
     custom_data = NULL,
     scheduled_change = NULL
 ) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   if (!is.null(collection_mode) && !collection_mode %in% c("automatic", "manual")) {
@@ -185,7 +196,7 @@ paddle_update_subscription <- function(
   ))
 
   update(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id),
+    link = paste0(get_paddle_url(), "/subscriptions/", id),
     body = body
   )
 }
@@ -194,7 +205,7 @@ paddle_update_subscription <- function(
 #'
 #' Previews an update to a subscription without applying those changes.
 #'
-#' @param subscription_id Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").
+#' @param id Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").
 #' @param customer_id Character. Optional. Paddle customer ID.
 #' @param address_id Character. Optional. Paddle address ID.
 #' @param business_id Character or NULL. Optional.
@@ -210,10 +221,16 @@ paddle_update_subscription <- function(
 #' @param custom_data Named list or NULL. Optional.
 #' @param scheduled_change NULL. Set to NULL to remove a scheduled change.
 #'
-#' @return A list containing subscription preview and transaction impact.
+#' @returns A list containing subscription preview and transaction impact.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_preview_subscription_update(
+#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#'   custom_data = list(purpose = "example"),
+#' )
 paddle_preview_subscription_update <- function(
-    subscription_id,
+    id,
     customer_id = NULL,
     address_id = NULL,
     business_id = NULL,
@@ -228,8 +245,8 @@ paddle_preview_subscription_update <- function(
     custom_data = NULL,
     scheduled_change = NULL
 ) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   if (!is.null(collection_mode) && !collection_mode %in% c("automatic", "manual")) {
@@ -305,7 +322,7 @@ paddle_preview_subscription_update <- function(
   ))
 
   update(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/preview"),
+    link = paste0(get_paddle_url(), "/subscriptions/", id, "/preview"),
     body = body
   )
 }
@@ -319,17 +336,22 @@ paddle_preview_subscription_update <- function(
 #' - For `past_due`, returns the most recent failed transaction.
 #' - For `active`, creates a new zero-amount transaction.
 #'
-#' @param subscription_id Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").
+#' @param id Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").
 #'
-#' @return A list containing transaction details for payment method update.
+#' @returns A list containing transaction details for payment method update.
 #' @export
-paddle_get_update_payment_transaction <- function(subscription_id) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_get_update_payment_transaction(
+#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k"
+#' )
+paddle_get_update_payment_transaction <- function(id) {
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   get(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/update-payment-method-transaction")
+    link = paste0(get_paddle_url(), "/subscriptions/", id, "/update-payment-method-transaction")
   )
 }
 
@@ -338,21 +360,30 @@ paddle_get_update_payment_transaction <- function(subscription_id) {
 #' Previews a one-time charge for a subscription without billing it.
 #' Used to estimate the result of a charge for non-recurring items.
 #'
-#' @param subscription_id Character. Required. The Paddle subscription ID (e.g. "sub_abc123").
+#' @param id Character. Required. The Paddle subscription ID (e.g. "sub_abc123").
 #' @param effective_from Character. Required. When the one-time charge should be billed (RFC 3339 format).
 #' @param items List of item lists. Optional. Each must include `price_id` (string) and `quantity` (numeric). If updating an existing item and not changing the quantity, you may omit quantity.
 #' @param on_payment_failure Character. Optional. Must be one of: `"prevent_change"`, `"allow_change"`.
 #'
-#' @return A list with preview of immediate and next transactions.
+#' @returns A list with preview of immediate and next transactions.
 #' @export
+#' @examples
+#' \dontrun{ # works when price entities have the billing_cycle = null.
+#' set_paddle_mode("sandbox")
+#' paddle_preview_one_time_charge(
+#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#'   effective_from = "2025-07-01T00:00:00Z",
+#'   items = list(list(price_id = "pri_01jvpq30eqev9nmyt50rpe1zvz", quantity = 1))
+#' )
+#' }
 paddle_preview_one_time_charge <- function(
-    subscription_id,
+    id,
     effective_from,
     items,
     on_payment_failure = NULL
 ) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   if (missing(effective_from) || !is.character(effective_from) || !nzchar(effective_from)) {
@@ -380,7 +411,7 @@ paddle_preview_one_time_charge <- function(
   ))
 
   post(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/charge/preview"),
+    link = paste0(get_paddle_url(), "/subscriptions/", id, "/charge/preview"),
     body = body
   )
 }
@@ -393,17 +424,24 @@ paddle_preview_one_time_charge <- function(
 #'
 #' This triggers an immediate charge and recalculates billing dates from activation time.
 #'
-#' @param subscription_id Character. Required. The Paddle subscription ID (e.g. "sub_abc123").
+#' @param id Character. Required. The Paddle subscription ID (e.g. "sub_abc123").
 #'
-#' @return A list with updated subscription entity and metadata.
+#' @returns A list with updated subscription entity and metadata.
 #' @export
-paddle_activate_trial_subscription <- function(subscription_id) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_activate_trial_subscription(
+#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k" # subscription must be trialing
+#'  )
+#'  }
+paddle_activate_trial_subscription <- function(id) {
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   post_excl_body(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/activate")
+    link = paste0(get_paddle_url(), "/subscriptions/", id, "/activate")
   )
 }
 
@@ -412,21 +450,28 @@ paddle_activate_trial_subscription <- function(subscription_id) {
 #' Pauses a subscription using its ID. You can pause at the end of the billing period (default),
 #' pause immediately by setting `effective_from = "immediately"`, or set a resume date.
 #'
-#' @param subscription_id Character. Required. Paddle subscription ID (e.g. "sub_abc123").
+#' @param id Character. Required. Paddle subscription ID (e.g. "sub_abc123").
 #' @param effective_from Character or NULL. Optional. One of `"next_billing_period"` or `"immediately"`. Defaults to `"next_billing_period"`.
 #' @param resume_at Character or NULL. Optional. RFC 3339 date-time string when subscription should resume.
 #' @param on_resume Character or NULL. Optional. One of `"start_new_billing_period"` or `"continue_billing_period"`.
 #'
-#' @return A list representing the updated subscription object.
+#' @returns A list representing the updated subscription object.
 #' @export
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_pause_subscription(
+#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k" # subscription must be active
+#'  )
+#'  }
 paddle_pause_subscription <- function(
-    subscription_id,
+    id,
     effective_from = NULL,
     resume_at = NULL,
     on_resume = NULL
 ) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   if (!is.null(on_resume) && !on_resume %in% c("start_new_billing_period", "continue_billing_period")) {
@@ -444,7 +489,7 @@ paddle_pause_subscription <- function(
   ))
 
   post(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/pause"),
+    link = paste0(get_paddle_url(), "/subscriptions/", id, "/pause"),
     body = body
   )
 }
@@ -454,19 +499,27 @@ paddle_pause_subscription <- function(
 #' Resumes a paused subscription immediately or at a specified date.
 #' Also updates a scheduled pause if subscription is active.
 #'
-#' @param subscription_id Character. Required. Paddle subscription ID (e.g. "sub_abc123").
+#' @param id Character. Required. Paddle subscription ID (e.g. "sub_abc123").
 #' @param effective_from Character. Required. RFC 3339 datetime string when the resume should occur.
 #' @param on_resume Character or NULL. Optional. One of `"start_new_billing_period"` or `"continue_billing_period"`.
 #'
-#' @return A list representing the updated subscription object.
+#' @returns A list representing the updated subscription object.
 #' @export
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_resume_subscription(
+#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k", # subscription must be paused
+#'  effective_from = "2025-07-01T00:00:00Z"
+#'  )
+#'  }
 paddle_resume_subscription <- function(
-    subscription_id,
+    id,
     effective_from,
     on_resume = NULL
 ) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   if (missing(effective_from) || !is.character(effective_from) || !nzchar(effective_from)) {
@@ -483,7 +536,7 @@ paddle_resume_subscription <- function(
   ))
 
   post(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/resume"),
+    link = paste0(get_paddle_url(), "/subscriptions/", id, "/resume"),
     body = body
   )
 }
@@ -492,14 +545,22 @@ paddle_resume_subscription <- function(
 #'
 #' Cancels a subscription using its ID. Defaults to cancel at next billing period unless `effective_from` is set to "immediately".
 #'
-#' @param subscription_id Character. Required. Paddle subscription ID, e.g. "sub_abc123".
+#' @param id Character. Required. Paddle subscription ID, e.g. "sub_abc123".
 #' @param effective_from Character or NULL. Optional. One of `"next_billing_period"` or `"immediately"`. Defaults to `"next_billing_period"`.
 #'
-#' @return A list with the updated subscription entity and metadata.
+#' @returns A list with the updated subscription entity and metadata.
 #' @export
-paddle_cancel_subscription <- function(subscription_id, effective_from = NULL) {
-  if (missing(subscription_id) || !is.character(subscription_id) || !nzchar(subscription_id)) {
-    stop("`subscription_id` must be a non-empty string.", call. = FALSE)
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_cancel_subscription(
+#'  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#'  effective_from = "immediately"
+#'  )
+#'  }
+paddle_cancel_subscription <- function(id, effective_from = NULL) {
+  if (missing(id) || !is.character(id) || !nzchar(id)) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   if (!is.null(effective_from) && !effective_from %in% c("next_billing_period", "immediately")) {
@@ -509,7 +570,7 @@ paddle_cancel_subscription <- function(subscription_id, effective_from = NULL) {
   body <- drop_nulls(list(effective_from = effective_from))
 
   post(
-    link = paste0(get_paddle_url(), "/subscriptions/", subscription_id, "/cancel"),
+    link = paste0(get_paddle_url(), "/subscriptions/", id, "/cancel"),
     body = body
   )
 }

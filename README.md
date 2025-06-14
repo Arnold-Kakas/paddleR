@@ -5,7 +5,11 @@
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/Arnold-Kakas/paddleR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Arnold-Kakas/paddleR/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/Arnold-Kakas/paddleR/graph/badge.svg)](https://app.codecov.io/gh/Arnold-Kakas/paddleR)
 <!-- badges: end -->
+<img src="man/figures/logo.png" align="right" width="160"/>
 
 The goal of paddleR is to provide a comprehensive R interface to the
 Paddle API, enabling seamless integration with Paddle’s billing and
@@ -13,12 +17,14 @@ subscription management platform.
 
 ## Installation
 
-You can install the development version of regexcite from
-[GitHub](https://github.com/) with:
+You can install the development version of paddleR from
+[GitHub](https://github.com/) or stable version from CRAN with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("Arnold-Kakas/paddleR")
+# install development version from GitHub
+# devtools::install_github("Arnold-Kakas/paddleR")
+
+install.packages("paddleR")
 
 library(paddleR)
 ```

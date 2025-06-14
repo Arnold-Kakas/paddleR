@@ -36,28 +36,28 @@ test_that("paddle_create_discount() validates required and conditional fields", 
 })
 
 test_that("paddle_update_discount() validates inputs correctly", {
-  expect_error(paddle_update_discount(discount_id = ""),
-               "`discount_id` must be a non-empty string")
+  expect_error(paddle_update_discount(id = ""),
+               "`id` must be a non-empty string")
 
-  expect_error(paddle_update_discount(discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", type = "invalid"),
+  expect_error(paddle_update_discount(id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", type = "invalid"),
                "`type` must be one of")
 
 
-  expect_error(paddle_update_discount(discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", status = "invalid"),
+  expect_error(paddle_update_discount(id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", status = "invalid"),
                "`status` must be one of")
 
-  expect_error(paddle_update_discount(discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", mode = "invalid"),
+  expect_error(paddle_update_discount(id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", mode = "invalid"),
                "`mode` must be one of: standard, custom")
 
-  expect_error(paddle_update_discount(discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", type = "flat"),
+  expect_error(paddle_update_discount(id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", type = "flat"),
                "`currency_code` is required")
 
-  expect_error(paddle_update_discount(discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", code = "###BADCODE###"),
+  expect_error(paddle_update_discount(id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9", code = "###BADCODE###"),
                "`code` must be alphanumeric")
 
   expect_silent(
     paddle_update_discount(
-      discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9",
+      id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9",
       description = "Updated promo",
       type = "percentage",
       amount = "20",

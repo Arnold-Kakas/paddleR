@@ -1,6 +1,6 @@
 Package: paddleR
 Type: Package
-Title: Wrapper for Paddle API
+Title: Wrapper for Paddle API (Application Programming Interface)
 Version: 0.1.0
 Authors@R: c(
     person(
@@ -9,7 +9,7 @@ Authors@R: c(
       role = c("aut", "cre", "cph")
     )
   )
-Description: Wrapper for Paddle - The Merchant of Record for digital products. Provides functions to analyze and manage you products, customers, invoices and many more.
+Description: A wrapper for Paddle - The Merchant of Record for digital products API (Application Programming Interface). Provides functions to manage and analyze products, customers, invoices and many more.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

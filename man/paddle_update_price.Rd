@@ -5,7 +5,7 @@
 \title{Update a Paddle Price}
 \usage{
 paddle_update_price(
-  price_id,
+  id,
   description = NULL,
   type = NULL,
   name = NULL,
@@ -20,7 +20,7 @@ paddle_update_price(
 )
 }
 \arguments{
-\item{price_id}{ID of the price. Required.}
+\item{id}{ID of the price. Required.}
 
 \item{description}{Internal description for your team. Required.}
 
@@ -49,4 +49,13 @@ A list representing the updated price entity.
 }
 \description{
 Updates an existing price entity in Paddle using its ID.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_update_price(
+  id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx",
+  name = "Updated Price Name",
+)
+\dontshow{\}) # examplesIf}
 }

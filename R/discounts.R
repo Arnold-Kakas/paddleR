@@ -14,8 +14,13 @@
 #' @param order_by Character. Ordering string (e.g., `"id[ASC]"` or `"created_at[DESC]"`). Optional.
 #' @param per_page Integer. Number of results per page (max 200). Optional, defaults to 50.
 #'
-#' @return A list containing discount data and pagination metadata.
+#' @returns A list containing discount data and pagination metadata.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_list_discounts(
+#'   id = "dsc_01jx7mfd3bdqgwvw9595c50jfq"
+#' )
 paddle_list_discounts <- function(id = NULL,
                                   code = NULL,
                                   status = NULL,
@@ -96,8 +101,17 @@ paddle_list_discounts <- function(id = NULL,
 #' @param expires_at Character. RFC 3339 datetime string. Optional.
 #' @param custom_data Named list. Custom metadata. Optional.
 #'
-#' @return A list containing the created discount and metadata.
+#' @returns A list containing the created discount and metadata.
 #' @export
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_create_discount(
+#'  amount = "10.00",
+#'  description = "10% off",
+#'  type = "percentage"
+#' )
+#' }
 paddle_create_discount <- function(amount,
                                    description,
                                    type,
@@ -166,7 +180,7 @@ paddle_create_discount <- function(amount,
 #'
 #' Updates an existing discount by ID via the Paddle API.
 #'
-#' @param discount_id Character. The Paddle discount ID (e.g., "dsc_123"). Required.
+#' @param id Character. The Paddle discount ID (e.g., "dsc_123"). Required.
 #' @param status Character vector of discount statuses (one of `"active"`, `"archived"`). Optional.
 #' @param description Character. Internal description. Optional.
 #' @param enabled_for_checkout Logical. Available for checkout? Optional.
@@ -182,9 +196,15 @@ paddle_create_discount <- function(amount,
 #' @param expires_at Character. RFC 3339 datetime string. Optional.
 #' @param custom_data Named list. Custom metadata. Optional.
 #'
-#' @return A list containing the updated discount and metadata.
+#' @returns A list containing the updated discount and metadata.
 #' @export
-paddle_update_discount <- function(discount_id,
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_update_discount(
+#'   id = "dsc_01jx7mfd3bdqgwvw9595c50jfq",
+#'   description = "Updated description"
+#' )
+paddle_update_discount <- function(id,
                                    status = NULL,
                                    description = NULL,
                                    enabled_for_checkout = NULL,
@@ -200,8 +220,8 @@ paddle_update_discount <- function(discount_id,
                                    expires_at = NULL,
                                    custom_data = NULL) {
 
-  if (missing(discount_id) || !is.character(discount_id) || nchar(discount_id) == 0) {
-    stop("`discount_id` must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !is.character(id) || nchar(id) == 0) {
+    stop("`id` must be a non-empty string.", call. = FALSE)
   }
 
   if (!is.null(type) && !type %in% c("percentage", "flat", "flat_per_seat")) {
@@ -253,7 +273,7 @@ paddle_update_discount <- function(discount_id,
   if (!is.null(expires_at))                  body$expires_at <- expires_at
   if (!is.null(custom_data))                 body$custom_data <- custom_data
 
-  url <- paste0(get_paddle_url(), "/discounts/", discount_id)
+  url <- paste0(get_paddle_url(), "/discounts/", id)
 
   update(url, body)
 }

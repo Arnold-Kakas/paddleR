@@ -21,8 +21,13 @@
 #' @param include Character vector. Must be one of `"address"`, `"adjustments"`, `"adjustments_totals"`, `"available_payment_methods"`, `"business"`, `"customer"`, `"discount"`. Optional.
 #' @param per_page Integer. Max results per page (max 200). Optional.
 #'
-#' @return A list containing transactions and pagination metadata.
+#' @returns A list containing transactions and pagination metadata.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_list_transactions(
+#'   customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+#' )
 paddle_list_transactions <- function(after = NULL,
                                      id = NULL,
                                      customer_id = NULL,
@@ -111,8 +116,16 @@ paddle_list_transactions <- function(after = NULL,
 #' @param checkout List with `url` (Character) to override payment link. Optional.
 #' @param include Character vector. Must be one of `"address"`, `"adjustments"`, `"adjustments_totals"`, `"available_payment_methods"`, `"business"`, `"customer"`, `"discount"`. Optional.
 #'
-#' @return A list containing the created transaction and metadata.
+#' @returns A list containing the created transaction and metadata.
 #' @export
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_create_transaction(
+#'  items = list(
+#'  list(price_id = "price_01jxjhwrveed9zsp29qy8fmdkr", quantity = 1)
+#' )
+#' }
 paddle_create_transaction <- function(items,
                                       status = NULL,
                                       customer_id = NULL,
@@ -214,7 +227,7 @@ paddle_create_transaction <- function(items,
 #'
 #' Updates a transaction by its ID. Only transactions with status `draft` or `ready` can be updated.
 #'
-#' @param transaction_id Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).
+#' @param id Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).
 #' @param status Character. Optional. `"billed"` or `"canceled"`.
 #' @param customer_id,address_id,business_id Character. Optional Paddle IDs.
 #' @param custom_data Named list. Optional.
@@ -228,9 +241,17 @@ paddle_create_transaction <- function(items,
 #' @param checkout_url Character. Optional.
 #' @param include Character vector of related entities to return. Optional.
 #'
-#' @return A list with updated transaction data and metadata.
+#' @returns A list with updated transaction data and metadata.
 #' @export
-paddle_update_transaction <- function(transaction_id,
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_create_transaction(
+#'  items = list(
+#'  list(price_id = "price_01jxjhwrveed9zsp29qy8fmdkr", quantity = 1)
+#' )
+#' }
+paddle_update_transaction <- function(id,
                                       status = NULL,
                                       customer_id = NULL,
                                       address_id = NULL,
@@ -245,8 +266,8 @@ paddle_update_transaction <- function(transaction_id,
                                       items = NULL,
                                       checkout_url = NULL,
                                       include = NULL) {
-  if (!is.character(transaction_id) || !nzchar(transaction_id))
-    stop("`transaction_id` must be a non-empty string.", call. = FALSE)
+  if (!is.character(id) || !nzchar(id))
+    stop("`id` must be a non-empty string.", call. = FALSE)
 
   if (!is.null(status) && !status %in% c("billed", "canceled"))
     stop("`status` must be one of: 'billed', 'canceled'", call. = FALSE)
@@ -299,7 +320,7 @@ paddle_update_transaction <- function(transaction_id,
 
   query <- if (!is.null(include)) list(include = paste(include, collapse = ",")) else NULL
 
-  url <- httr2::url_modify(paste0(get_paddle_url(), "/transactions/", transaction_id), query = query)
+  url <- httr2::url_modify(paste0(get_paddle_url(), "/transactions/", id), query = query)
 
   update(url, body)
 }
@@ -316,8 +337,18 @@ paddle_update_transaction <- function(transaction_id,
 #' @param customer_ip_address Character. Optional. Valid IPv4 or IPv6.
 #' @param address Named list. Optional. Must include `country_code` (2-letter) and optionally `postal_code`.
 #'
-#' @return A list with previewed transaction data.
+#' @returns A list with previewed transaction data.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_preview_transaction(
+#'   items = list(list(price_id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx", quantity = 2)),
+#'   customer_id = "ctm_01jwk0s510nxxv3gv8ky41e46a",
+#'   currency_code = "EUR",
+#'   discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9",
+#'   ignore_trials = TRUE,
+#'   customer_ip_address = "8.8.8.8"
+#' )
 paddle_preview_transaction <- function(items,
                                        customer_id = NULL,
                                        currency_code = NULL,

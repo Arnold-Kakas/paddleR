@@ -5,7 +5,7 @@
 \title{Update a Paddle Customer}
 \usage{
 paddle_update_customer(
-  customer_id,
+  id,
   name = NULL,
   email = NULL,
   status = NULL,
@@ -14,7 +14,7 @@ paddle_update_customer(
 )
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (required).}
+\item{id}{Character. Paddle customer ID (required).}
 
 \item{name}{Character. Full name of the customer. Optional (can be `NULL` to remove).}
 
@@ -31,4 +31,15 @@ A list with the updated customer info.
 }
 \description{
 Updates an existing customer using their Paddle ID.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+# Requires a valid id
+paddle_update_customer(
+  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  name = "Updated Name",
+  status = "active"
+)
+\dontshow{\}) # examplesIf}
 }

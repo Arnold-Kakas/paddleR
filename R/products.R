@@ -14,8 +14,13 @@
 #' @param after Character. Return entities after the specified Paddle ID when working with paginated endpoints.. Optional.
 #' @param order_by Character. Ordering string (e.g., `"id[ASC]"`). Valid fields for ordering: `"created_at"`, `"custom_data"`, `"id"`, `"description"`, `"image_url"`, `"name"`, `"status"`, `"tax_category"`, and `"updated_at"`. Valid directions `"[ASC]"` and `"[DESC]"` Optional. Optional.
 #' @param per_page Number of products per page (max 200). Optional, defaults to 50.
-#' @return A list containing product data and pagination metadata.
+#' @returns A list containing product data and pagination metadata.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_list_products(
+#'   id = "pro_01jwp8mvatdtncfca757r5wb9f"
+#' )
 paddle_list_products <- function(id = NULL,
                                  status = NULL,
                                  tax_category = NULL,
@@ -118,8 +123,17 @@ paddle_list_products <- function(id = NULL,
 #' @param image_url HTTPS URL for the product image (1:1 recommended). Optional.
 #' @param custom_data Named list of your own structured key-value metadata. Optional.
 #'
-#' @return A list representing the newly created product.
+#' @returns A list representing the newly created product.
 #' @export
+#' @examples
+#' \dontrun{
+#' set_paddle_mode("sandbox")
+#' paddle_create_product(
+#'  name = "My Product",
+#'  tax_category = "digital-goods",
+#'  description = "A great product"
+#'  )
+#' }
 paddle_create_product <- function(name,
                                   tax_category,
                                   description = NULL,
@@ -183,7 +197,7 @@ paddle_create_product <- function(name,
 #' Updates an existing product using its Paddle ID. You can update any combination
 #' of fields, such as name, description, tax category, type, image URL, custom metadata, and status.
 #'
-#' @param product_id The Paddle product ID (e.g., `"pro_abc123"`). Required.
+#' @param id The Paddle product ID (e.g., `"pro_abc123"`). Required.
 #' @param name Updated product name. Optional.
 #' @param description Updated product description. Optional (use `NULL` to clear).
 #' @param type Character. Type of product (one of `"standard"` and `"custom"`). Optional, defaults to `"standard`.
@@ -192,9 +206,15 @@ paddle_create_product <- function(name,
 #' @param custom_data Named list of key-value metadata. Optional (use `NULL` to clear).
 #' @param status Character vector of statuses (e.g., `"active"`, `"archived"`). Optional.
 #'
-#' @return A list representing the updated product.
+#' @returns A list representing the updated product.
 #' @export
-paddle_update_product <- function(product_id,
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_update_product(
+#'   id = "pro_01jwp8mvatdtncfca757r5wb9f",
+#'   name = "Updated Product Name"
+#' )
+paddle_update_product <- function(id,
                                   name = NULL,
                                   description = NULL,
                                   type = NULL,
@@ -203,8 +223,8 @@ paddle_update_product <- function(product_id,
                                   custom_data = NULL,
                                   status = NULL) {
 
-  if (missing(product_id) || !nzchar(product_id)) {
-    stop("`product_id` is required and must be a non-empty string.", call. = FALSE)
+  if (missing(id) || !nzchar(id)) {
+    stop("`id` is required and must be a non-empty string.", call. = FALSE)
   }
 
   if (!is.null(tax_category)) {
@@ -249,7 +269,7 @@ paddle_update_product <- function(product_id,
   if (!missing(custom_data))  body$custom_data  <- custom_data
   if (!missing(status))       body$status       <- status
 
-  url <- paste0(get_paddle_url(), "/products/", product_id)
+  url <- paste0(get_paddle_url(), "/products/", id)
 
   update(url, body)
 }

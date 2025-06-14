@@ -21,3 +21,14 @@ A data frame with the new customer info.
 \description{
 If successful, your response includes a copy of the new customer entity.
 }
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_create_customer(
+  email = "test@example.com",
+  name = "Test User",
+  custom_data = list(plan = "demo"),
+  locale = "en-US"
+)
+}
+}

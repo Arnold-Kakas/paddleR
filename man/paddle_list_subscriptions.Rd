@@ -38,3 +38,11 @@ A list with subscription data and pagination metadata.
 \description{
 Retrieves a paginated list of subscriptions from the Paddle API.
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_list_subscriptions(
+  customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr"
+)
+\dontshow{\}) # examplesIf}
+}

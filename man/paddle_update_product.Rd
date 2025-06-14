@@ -5,7 +5,7 @@
 \title{Update a Paddle Product}
 \usage{
 paddle_update_product(
-  product_id,
+  id,
   name = NULL,
   description = NULL,
   type = NULL,
@@ -16,7 +16,7 @@ paddle_update_product(
 )
 }
 \arguments{
-\item{product_id}{The Paddle product ID (e.g., `"pro_abc123"`). Required.}
+\item{id}{The Paddle product ID (e.g., `"pro_abc123"`). Required.}
 
 \item{name}{Updated product name. Optional.}
 
@@ -38,4 +38,13 @@ A list representing the updated product.
 \description{
 Updates an existing product using its Paddle ID. You can update any combination
 of fields, such as name, description, tax category, type, image URL, custom metadata, and status.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_update_product(
+  id = "pro_01jwp8mvatdtncfca757r5wb9f",
+  name = "Updated Product Name"
+)
+\dontshow{\}) # examplesIf}
 }

@@ -5,7 +5,7 @@
 \title{Create an Address for a Customer}
 \usage{
 paddle_create_customer_address(
-  customer_id,
+  id,
   country_code,
   description = NULL,
   first_line = NULL,
@@ -17,7 +17,7 @@ paddle_create_customer_address(
 )
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
+\item{id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
 
 \item{country_code}{Character. Two-letter ISO 3166-1 alpha-2 country code. Required.}
 
@@ -40,4 +40,14 @@ A list containing the created address entity and metadata.
 }
 \description{
 Creates a new address for a given customer in the Paddle API.
+}
+\examples{
+\dontrun{
+paddle_create_customer_address(
+  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  country_code = "US",
+  city = "New York",
+  postal_code = "10001"
+)
+}
 }

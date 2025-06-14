@@ -33,3 +33,13 @@ A list representing the newly created product.
 Creates a new product in Paddle. You must specify a name and tax category
 (chosen from a predefined set supported by Paddle).
 }
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_create_product(
+ name = "My Product",
+ tax_category = "digital-goods",
+ description = "A great product"
+ )
+}
+}

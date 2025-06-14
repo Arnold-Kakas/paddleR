@@ -73,7 +73,7 @@ test_that("paddle_update_price() errors with invalid tax_mode", {
   skip_on_cran()
   expect_error(
     paddle_update_price(
-      price_id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # Replace with valid ID if testing live
+      id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # Replace with valid ID if testing live
       tax_mode = "bad_value"
     ),
     "`tax_mode` must be one of"
@@ -84,7 +84,7 @@ test_that("paddle_update_price() errors with invalid type", {
   skip_on_cran()
   expect_error(
     paddle_update_price(
-      price_id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # Replace with valid ID if testing live
+      id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # Replace with valid ID if testing live
       type = "bad_value"
     )
   )
@@ -94,7 +94,7 @@ test_that("paddle_update_price() errors with invalid status", {
   skip_on_cran()
   expect_error(
     paddle_update_price(
-      price_id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # Replace with valid ID if testing live
+      id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # Replace with valid ID if testing live
       status = "bad_value")
   )
 })
@@ -102,7 +102,7 @@ test_that("paddle_update_price() errors with invalid status", {
 test_that("paddle_update_price() works with all optional fields", {
   skip_on_cran()
   expect_type(paddle_update_price(
-    price_id = "pri_01jvpq30eqev9nmyt50rpe1zvz",  # Replace with valid sandbox ID to test
+    id = "pri_01jvpq30eqev9nmyt50rpe1zvz",  # Replace with valid sandbox ID to test
     description = "Updated price description",
     name = "Test Annual Plan",
     type = "standard",

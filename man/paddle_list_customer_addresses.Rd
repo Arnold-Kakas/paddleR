@@ -5,8 +5,8 @@
 \title{List Addresses for a Customer}
 \usage{
 paddle_list_customer_addresses(
-  customer_id,
-  id = NULL,
+  id,
+  address_id = NULL,
   status = NULL,
   after = NULL,
   order_by = NULL,
@@ -15,9 +15,9 @@ paddle_list_customer_addresses(
 )
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (e.g., "ctm_abc123"). Required.}
+\item{id}{Character. Paddle customer ID (e.g., "ctm_abc123"). Required.}
 
-\item{id}{Character vector of address IDs (e.g., "add_123"). Optional.}
+\item{address_id}{Character vector of address IDs (e.g., "add_123"). Optional.}
 
 \item{status}{Character vector. Optional. Valid: "active", "archived".}
 
@@ -35,4 +35,10 @@ A list containing address data and pagination metadata.
 \description{
 Fetches a paginated list of addresses associated with a given customer from the Paddle API.
 By default, only active addresses are returned.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_list_customer_addresses(id = "ctm_01jxjhwrveed9zsp29qy8fmdkr")
+\dontshow{\}) # examplesIf}
 }

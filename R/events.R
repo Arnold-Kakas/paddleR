@@ -9,8 +9,13 @@
 #' @param after Character. Return entities after the specified Paddle ID when working with paginated endpoints. Optional.
 #' @param order_by Character. Optional. Must be in the form "id[ASC]" or "id[DESC]".
 #' @param per_page Integer. Optional. Max 200, defaults to 50.
-#' @return A list of events returned by the Paddle API.
+#' @returns A list of events returned by the Paddle API.
 #' @export
+#' @examplesIf paddle_has_token()
+#' set_paddle_mode("sandbox")
+#' paddle_get_events(
+#'   per_page = 2
+#' )
 paddle_get_events <- function(after = NULL,
                               order_by = NULL,
                               per_page = NULL) {

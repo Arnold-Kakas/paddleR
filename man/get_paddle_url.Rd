@@ -14,3 +14,8 @@ The base URL for Paddle API requests.
 Get Paddle URL
 This function retrieves the base URL for Paddle API requests based on the current mode.
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+get_paddle_url()  # returns token for current mode
+\dontshow{\}) # examplesIf}
+}

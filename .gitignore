@@ -6,3 +6,5 @@
 .Rprofile
 inst/doc
 docs
+/doc/
+/Meta/

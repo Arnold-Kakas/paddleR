@@ -38,3 +38,11 @@ A list containing product data and pagination metadata.
 \description{
 Fetches a paginated list of products from the Paddle API. By default, only active products are returned.
 }
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_list_products(
+  id = "pro_01jwp8mvatdtncfca757r5wb9f"
+)
+\dontshow{\}) # examplesIf}
+}

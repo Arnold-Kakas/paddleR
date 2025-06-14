@@ -5,7 +5,7 @@
 \title{Preview an update to a subscription}
 \usage{
 paddle_preview_subscription_update(
-  subscription_id,
+  id,
   customer_id = NULL,
   address_id = NULL,
   business_id = NULL,
@@ -22,7 +22,7 @@ paddle_preview_subscription_update(
 )
 }
 \arguments{
-\item{subscription_id}{Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").}
+\item{id}{Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").}
 
 \item{customer_id}{Character. Optional. Paddle customer ID.}
 
@@ -56,4 +56,13 @@ A list containing subscription preview and transaction impact.
 }
 \description{
 Previews an update to a subscription without applying those changes.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_preview_subscription_update(
+  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+  custom_data = list(purpose = "example"),
+)
+\dontshow{\}) # examplesIf}
 }

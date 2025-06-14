@@ -4,10 +4,10 @@
 \alias{paddle_resume_subscription}
 \title{Resume a paused or scheduled-to-pause subscription}
 \usage{
-paddle_resume_subscription(subscription_id, effective_from, on_resume = NULL)
+paddle_resume_subscription(id, effective_from, on_resume = NULL)
 }
 \arguments{
-\item{subscription_id}{Character. Required. Paddle subscription ID (e.g. "sub_abc123").}
+\item{id}{Character. Required. Paddle subscription ID (e.g. "sub_abc123").}
 
 \item{effective_from}{Character. Required. RFC 3339 datetime string when the resume should occur.}
 
@@ -19,4 +19,13 @@ A list representing the updated subscription object.
 \description{
 Resumes a paused subscription immediately or at a specified date.
 Also updates a scheduled pause if subscription is active.
+}
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_resume_subscription(
+ id = "sub_01jvptej6fxyctrdt8ty45gw4k", # subscription must be paused
+ effective_from = "2025-07-01T00:00:00Z"
+ )
+ }
 }

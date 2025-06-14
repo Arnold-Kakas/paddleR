@@ -5,8 +5,8 @@
 \title{List Businesses for a Customer}
 \usage{
 paddle_list_customer_businesses(
-  customer_id,
-  id = NULL,
+  id,
+  business_id = NULL,
   status = NULL,
   after = NULL,
   order_by = NULL,
@@ -15,9 +15,9 @@ paddle_list_customer_businesses(
 )
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (e.g., "ctm_abc123"). Required.}
+\item{id}{Character. Paddle customer ID (e.g., "ctm_abc123"). Required.}
 
-\item{id}{Character vector of business IDs (e.g., "biz_123"). Optional.}
+\item{business_id}{Character vector of business IDs (e.g., "biz_123"). Optional.}
 
 \item{status}{Character. Status of the customer (`"active"` or `"archived"`). Optional.}
 
@@ -35,4 +35,10 @@ A list containing business data and pagination metadata.
 \description{
 Retrieves a paginated list of businesses associated with a given customer from the Paddle API.
 By default, only active businesses are returned.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_list_customer_businesses(id = "ctm_01jxjhwrveed9zsp29qy8fmdkr")
+\dontshow{\}) # examplesIf}
 }

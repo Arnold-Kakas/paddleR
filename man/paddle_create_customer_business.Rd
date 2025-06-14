@@ -5,7 +5,7 @@
 \title{Create a Business for a Customer}
 \usage{
 paddle_create_customer_business(
-  customer_id,
+  id,
   name,
   company_number = NULL,
   tax_identifier = NULL,
@@ -14,7 +14,7 @@ paddle_create_customer_business(
 )
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
+\item{id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
 
 \item{name}{Character. Name of the business. Required.}
 
@@ -31,4 +31,14 @@ A list containing the created business entity and metadata.
 }
 \description{
 Creates a new business entity associated with a specific customer in the Paddle API.
+}
+\examples{
+\dontrun{
+paddle_create_customer_business(
+  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  name = "Acme Inc.",
+  tax_identifier = "123456789",
+  contacts = list(list(email = "ceo@acme.com"))
+)
+}
 }

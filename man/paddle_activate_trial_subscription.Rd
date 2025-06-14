@@ -4,10 +4,10 @@
 \alias{paddle_activate_trial_subscription}
 \title{Activate a trialing subscription}
 \usage{
-paddle_activate_trial_subscription(subscription_id)
+paddle_activate_trial_subscription(id)
 }
 \arguments{
-\item{subscription_id}{Character. Required. The Paddle subscription ID (e.g. "sub_abc123").}
+\item{id}{Character. Required. The Paddle subscription ID (e.g. "sub_abc123").}
 }
 \value{
 A list with updated subscription entity and metadata.
@@ -18,4 +18,12 @@ with status = "trialing" can be activated.
 }
 \details{
 This triggers an immediate charge and recalculates billing dates from activation time.
+}
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_activate_trial_subscription(
+ id = "sub_01jvptej6fxyctrdt8ty45gw4k" # subscription must be trialing
+ )
+ }
 }

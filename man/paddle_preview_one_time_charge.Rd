@@ -5,14 +5,14 @@
 \title{Preview a one-time charge for a subscription}
 \usage{
 paddle_preview_one_time_charge(
-  subscription_id,
+  id,
   effective_from,
   items,
   on_payment_failure = NULL
 )
 }
 \arguments{
-\item{subscription_id}{Character. Required. The Paddle subscription ID (e.g. "sub_abc123").}
+\item{id}{Character. Required. The Paddle subscription ID (e.g. "sub_abc123").}
 
 \item{effective_from}{Character. Required. When the one-time charge should be billed (RFC 3339 format).}
 
@@ -26,4 +26,14 @@ A list with preview of immediate and next transactions.
 \description{
 Previews a one-time charge for a subscription without billing it.
 Used to estimate the result of a charge for non-recurring items.
+}
+\examples{
+\dontrun{ # works when price entities have the billing_cycle = null.
+set_paddle_mode("sandbox")
+paddle_preview_one_time_charge(
+  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+  effective_from = "2025-07-01T00:00:00Z",
+  items = list(list(price_id = "pri_01jvpq30eqev9nmyt50rpe1zvz", quantity = 1))
+)
+}
 }

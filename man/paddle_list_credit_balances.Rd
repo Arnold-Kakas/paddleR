@@ -4,10 +4,10 @@
 \alias{paddle_list_credit_balances}
 \title{List Credit Balances for a Customer}
 \usage{
-paddle_list_credit_balances(customer_id, currency_code = NULL)
+paddle_list_credit_balances(id, currency_code = NULL)
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
+\item{id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
 
 \item{currency_code}{Optional character vector of ISO 4217 currency codes to filter results.}
 }
@@ -16,4 +16,13 @@ A list of credit balances by currency with available, reserved, and used totals.
 }
 \description{
 Retrieves credit balances across all currencies for a specific customer from the Paddle API.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_list_credit_balances(
+  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  currency_code = c("USD", "EUR")
+)
+\dontshow{\}) # examplesIf}
 }

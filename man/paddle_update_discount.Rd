@@ -5,7 +5,7 @@
 \title{Update a Paddle Discount}
 \usage{
 paddle_update_discount(
-  discount_id,
+  id,
   status = NULL,
   description = NULL,
   enabled_for_checkout = NULL,
@@ -23,7 +23,7 @@ paddle_update_discount(
 )
 }
 \arguments{
-\item{discount_id}{Character. The Paddle discount ID (e.g., "dsc_123"). Required.}
+\item{id}{Character. The Paddle discount ID (e.g., "dsc_123"). Required.}
 
 \item{status}{Character vector of discount statuses (one of `"active"`, `"archived"`). Optional.}
 
@@ -58,4 +58,13 @@ A list containing the updated discount and metadata.
 }
 \description{
 Updates an existing discount by ID via the Paddle API.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_update_discount(
+  id = "dsc_01jx7mfd3bdqgwvw9595c50jfq",
+  description = "Updated description"
+)
+\dontshow{\}) # examplesIf}
 }

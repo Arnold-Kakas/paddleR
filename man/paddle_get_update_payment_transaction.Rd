@@ -4,10 +4,10 @@
 \alias{paddle_get_update_payment_transaction}
 \title{Get a transaction to update payment method}
 \usage{
-paddle_get_update_payment_transaction(subscription_id)
+paddle_get_update_payment_transaction(id)
 }
 \arguments{
-\item{subscription_id}{Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").}
+\item{id}{Character. Required. Paddle ID of the subscription (e.g. "sub_abc123").}
 }
 \value{
 A list containing transaction details for payment method update.
@@ -20,4 +20,12 @@ Only for subscriptions where `collection_mode` is `automatic`.
 Depending on subscription status:
 - For `past_due`, returns the most recent failed transaction.
 - For `active`, creates a new zero-amount transaction.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_get_update_payment_transaction(
+  id = "sub_01jvptej6fxyctrdt8ty45gw4k"
+)
+\dontshow{\}) # examplesIf}
 }

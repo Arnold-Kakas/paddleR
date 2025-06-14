@@ -53,3 +53,13 @@ A list containing the created discount and metadata.
 \description{
 Sends a POST request to the Paddle API to create a new discount.
 }
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_create_discount(
+ amount = "10.00",
+ description = "10\% off",
+ type = "percentage"
+)
+}
+}

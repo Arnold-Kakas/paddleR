@@ -4,10 +4,10 @@
 \alias{paddle_generate_auth_token}
 \title{Generate an Authentication Token for a Paddle Customer}
 \usage{
-paddle_generate_auth_token(customer_id)
+paddle_generate_auth_token(id)
 }
 \arguments{
-\item{customer_id}{Paddle customer ID (required).}
+\item{id}{Paddle customer ID (required).}
 }
 \value{
 A list containing the auth token and expiry details.
@@ -15,4 +15,10 @@ A list containing the auth token and expiry details.
 \description{
 Creates a temporary authentication token for a customer.
 The token allows Paddle.js to present saved payment methods at checkout.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_generate_auth_token("ctm_01jxjhwrveed9zsp29qy8fmdkr")
+\dontshow{\}) # examplesIf}
 }

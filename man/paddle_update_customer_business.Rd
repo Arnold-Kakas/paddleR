@@ -5,7 +5,7 @@
 \title{Update a Business for a Customer}
 \usage{
 paddle_update_customer_business(
-  customer_id,
+  id,
   business_id,
   name = NULL,
   company_number = NULL,
@@ -16,7 +16,7 @@ paddle_update_customer_business(
 )
 }
 \arguments{
-\item{customer_id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
+\item{id}{Character. Paddle customer ID (e.g., "ctm_123"). Required.}
 
 \item{business_id}{Character. Paddle business ID (e.g., "biz_456"). Required.}
 
@@ -37,4 +37,14 @@ A list containing the updated business entity and metadata.
 }
 \description{
 Updates a business entity linked to a specific customer using the Paddle API.
+}
+\examples{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_paddle_mode("sandbox")
+paddle_update_customer_business(
+  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  business_id = "biz_01jxjk6yqnw88jt9tepz31vnrz",
+  name = "Acme International"
+)
+\dontshow{\}) # examplesIf}
 }

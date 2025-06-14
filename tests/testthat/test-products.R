@@ -69,16 +69,16 @@ test_that("paddle_create_product() works with all optional fields", {
   ), NA)
 })
 
-test_that("paddle_update_product() fails without product_id", {
+test_that("paddle_update_product() fails without id", {
   skip_on_cran()
   set_paddle_mode("sandbox")
-  expect_error(paddle_update_product(name = "Updated Name"), "product_id")
+  expect_error(paddle_update_product(name = "Updated Name"), "id")
 })
 
 test_that("paddle_update_product() works with all optional params", {
   skip_on_cran()
   expect_type(paddle_update_product(
-    product_id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # replace with real ID for live test
+    id = "pro_01jvpnemqfw4fh3nypjhxzpxwh",  # replace with real ID for live test
     name = "Updated Product",
     description = "Updated via test",
     type = "standard",

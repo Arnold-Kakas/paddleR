@@ -7,8 +7,7 @@
 #'
 #' @param resp Response object from `httr2::req_perform()`
 #'
-#' @return Parsed JSON content from response, or throws error if HTTP status is not 2xx.
-#' @export
+#' @returns Parsed JSON content from response, or throws error if HTTP status is not 2xx.
 handle_paddle_response <- function(resp) {
   if (!httr2::resp_is_error(resp)) {
     return(httr2::resp_body_json(resp))
@@ -36,7 +35,7 @@ handle_paddle_response <- function(resp) {
 #' Make a POST request to Paddle API
 #' @param link The API endpoint URL.
 #' @param body The body of the request, typically a list to be converted to JSON.
-#' @return Parsed JSON response from the API.
+#' @returns Parsed JSON response from the API.
 
 post <- function(link, body) {
     res <- httr2::request(link) |>
@@ -51,7 +50,7 @@ post <- function(link, body) {
 
 #' Make a POST request to Paddle API without body
 #' @param link The API endpoint URL.
-#' @return Parsed JSON response from the API.
+#' @returns Parsed JSON response from the API.
 
 post_excl_body <- function(link) {
   res <- httr2::request(link) |>
@@ -65,7 +64,7 @@ post_excl_body <- function(link) {
 
 #' Make a GET request to Paddle API
 #' @param link The API endpoint URL.
-#' @return Parsed JSON response from the API.
+#' @returns Parsed JSON response from the API.
 
 get <- function(link) {
   res <- httr2::request(link) |>
@@ -79,7 +78,7 @@ get <- function(link) {
 #' Make a DELETE request to Paddle API
 #' @param link The API endpoint URL.
 #' @param body The body of the request, typically a list to be converted to JSON.
-#' @return Parsed JSON response from the API.
+#' @returns Parsed JSON response from the API.
 
 update <- function(link, body) {
   res <- httr2::request(link) |>
@@ -95,7 +94,7 @@ update <- function(link, body) {
 
 #' Drop NULL values from a list
 #' @param x A list from which to remove NULL values.
-#' @return A list with NULL values removed.
+#' @returns A list with NULL values removed.
 drop_nulls <- function(x) {
   x[!vapply(x, is.null, logical(1))]
 }

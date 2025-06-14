@@ -5,14 +5,14 @@
 \title{Pause a subscription}
 \usage{
 paddle_pause_subscription(
-  subscription_id,
+  id,
   effective_from = NULL,
   resume_at = NULL,
   on_resume = NULL
 )
 }
 \arguments{
-\item{subscription_id}{Character. Required. Paddle subscription ID (e.g. "sub_abc123").}
+\item{id}{Character. Required. Paddle subscription ID (e.g. "sub_abc123").}
 
 \item{effective_from}{Character or NULL. Optional. One of `"next_billing_period"` or `"immediately"`. Defaults to `"next_billing_period"`.}
 
@@ -26,4 +26,12 @@ A list representing the updated subscription object.
 \description{
 Pauses a subscription using its ID. You can pause at the end of the billing period (default),
 pause immediately by setting `effective_from = "immediately"`, or set a resume date.
+}
+\examples{
+\dontrun{
+set_paddle_mode("sandbox")
+paddle_pause_subscription(
+ id = "sub_01jvptej6fxyctrdt8ty45gw4k" # subscription must be active
+ )
+ }
 }
