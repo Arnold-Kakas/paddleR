@@ -60,11 +60,11 @@ A list containing the updated discount and metadata.
 Updates an existing discount by ID via the Paddle API.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs valid discount key
 set_paddle_mode("sandbox")
 paddle_update_discount(
-  id = "dsc_01jx7mfd3bdqgwvw9595c50jfq",
+  id = "dsc_123",
   description = "Updated description"
 )
-\dontshow{\}) # examplesIf}
+}
 }

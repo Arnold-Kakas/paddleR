@@ -37,8 +37,8 @@ Fetches a paginated list of addresses associated with a given customer from the 
 By default, only active addresses are returned.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs existing customer key
 set_paddle_mode("sandbox")
-paddle_list_customer_addresses(id = "ctm_01jxjhwrveed9zsp29qy8fmdkr")
-\dontshow{\}) # examplesIf}
+paddle_list_customer_addresses(id = "ctm_123")
+}
 }

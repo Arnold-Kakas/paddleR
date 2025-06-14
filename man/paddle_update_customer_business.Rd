@@ -39,12 +39,12 @@ A list containing the updated business entity and metadata.
 Updates a business entity linked to a specific customer using the Paddle API.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs existing customer and business keys
 set_paddle_mode("sandbox")
 paddle_update_customer_business(
-  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
-  business_id = "biz_01jxjk6yqnw88jt9tepz31vnrz",
+  id = "ctm_123",
+  business_id = "biz_123",
   name = "Acme International"
 )
-\dontshow{\}) # examplesIf}
+}
 }

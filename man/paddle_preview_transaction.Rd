@@ -36,15 +36,15 @@ A list with previewed transaction data.
 Sends a preview request to Paddle to simulate a transaction without creating it.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs valid keys(price, customer, discount)
 set_paddle_mode("sandbox")
 paddle_preview_transaction(
-  items = list(list(price_id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx", quantity = 2)),
-  customer_id = "ctm_01jwk0s510nxxv3gv8ky41e46a",
+  items = list(list(price_id = "pri_123", quantity = 2)),
+  customer_id = "ctm_123",
   currency_code = "EUR",
-  discount_id = "dsc_01jwxsz8xrf3j3g32nrx3eycn9",
+  discount_id = "dsc_123",
   ignore_trials = TRUE,
   customer_ip_address = "8.8.8.8"
 )
-\dontshow{\}) # examplesIf}
+}
 }

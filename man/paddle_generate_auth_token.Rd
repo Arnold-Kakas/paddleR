@@ -17,8 +17,8 @@ Creates a temporary authentication token for a customer.
 The token allows Paddle.js to present saved payment methods at checkout.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs existing customer key
 set_paddle_mode("sandbox")
-paddle_generate_auth_token("ctm_01jxjhwrveed9zsp29qy8fmdkr")
-\dontshow{\}) # examplesIf}
+paddle_generate_auth_token("ctm_123")
+}
 }

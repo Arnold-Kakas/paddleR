@@ -51,11 +51,11 @@ A list representing the updated price entity.
 Updates an existing price entity in Paddle using its ID.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs existing price key
 set_paddle_mode("sandbox")
 paddle_update_price(
-  id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx",
+  id = "pri_123",
   name = "Updated Price Name",
 )
-\dontshow{\}) # examplesIf}
+}
 }

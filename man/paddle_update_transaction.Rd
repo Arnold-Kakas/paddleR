@@ -56,11 +56,11 @@ A list with updated transaction data and metadata.
 Updates a transaction by its ID. Only transactions with status `draft` or `ready` can be updated.
 }
 \examples{
-\dontrun{
+\dontrun{ # needs valid price key
 set_paddle_mode("sandbox")
 paddle_create_transaction(
  items = list(
- list(price_id = "price_01jxjhwrveed9zsp29qy8fmdkr", quantity = 1)
+ list(price_id = "price_123", quantity = 1)
 )
 }
 }

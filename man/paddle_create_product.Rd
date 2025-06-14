@@ -34,7 +34,7 @@ Creates a new product in Paddle. You must specify a name and tax category
 (chosen from a predefined set supported by Paddle).
 }
 \examples{
-\dontrun{
+\dontrun{ # do not run to not create products in users Paddle accounts
 set_paddle_mode("sandbox")
 paddle_create_product(
  name = "My Product",

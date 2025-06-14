@@ -58,11 +58,11 @@ A list with updated subscription entity and metadata.
 Updates a subscription using its ID. Required for changes like billing date, items, or proration.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
 paddle_update_subscription(
-  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+  id = "sub_123",
   custom_data = list(purpose = "example"),
 )
-\dontshow{\}) # examplesIf}
+}
 }

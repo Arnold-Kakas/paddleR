@@ -58,11 +58,11 @@ A list containing subscription preview and transaction impact.
 Previews an update to a subscription without applying those changes.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
 paddle_preview_subscription_update(
-  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+  id = "sub_123",
   custom_data = list(purpose = "example"),
 )
-\dontshow{\}) # examplesIf}
+}
 }

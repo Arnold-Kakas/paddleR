@@ -28,10 +28,10 @@ Pauses a subscription using its ID. You can pause at the end of the billing peri
 pause immediately by setting `effective_from = "immediately"`, or set a resume date.
 }
 \examples{
-\dontrun{
+\dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
 paddle_pause_subscription(
- id = "sub_01jvptej6fxyctrdt8ty45gw4k" # subscription must be active
+ id = "sub_123" # subscription must be active
  )
  }
 }

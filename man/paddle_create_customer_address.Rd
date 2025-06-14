@@ -42,9 +42,9 @@ A list containing the created address entity and metadata.
 Creates a new address for a given customer in the Paddle API.
 }
 \examples{
-\dontrun{
+\dontrun{ # needs existing customer key
 paddle_create_customer_address(
-  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  id = "ctm_123",
   country_code = "US",
   city = "New York",
   postal_code = "10001"

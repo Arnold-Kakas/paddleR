@@ -18,10 +18,10 @@ A list with the updated subscription entity and metadata.
 Cancels a subscription using its ID. Defaults to cancel at next billing period unless `effective_from` is set to "immediately".
 }
 \examples{
-\dontrun{
+\dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
 paddle_cancel_subscription(
- id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+ id = "sub_123",
  effective_from = "immediately"
  )
  }

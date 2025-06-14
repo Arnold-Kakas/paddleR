@@ -216,12 +216,14 @@ paddle_generate_auth_token <- function(id) {
 #'
 #' @return A list of credit balances by currency with available, reserved, and used totals.
 #' @export
-#' @examplesIf paddle_has_token()
+#' @examples
+#' \dontrun{ # needs existing customer key
 #' set_paddle_mode("sandbox")
 #' paddle_list_credit_balances(
 #'   id = "ctm_123",
 #'   currency_code = c("USD", "EUR")
 #' )
+#' }
 paddle_list_credit_balances <- function(id, currency_code = NULL) {
   if (missing(id) || !is.character(id) || nchar(id) == 0) {
     stop("`id` must be a non-empty string.", call. = FALSE)

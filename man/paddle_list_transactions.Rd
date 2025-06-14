@@ -60,7 +60,6 @@ Retrieves a paginated list of transactions from the Paddle API.
 \dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 paddle_list_transactions(
-  customer_id = "ctm_01jxjhwrveed9zsp29qy8fmdkr"
 )
 \dontshow{\}) # examplesIf}
 }

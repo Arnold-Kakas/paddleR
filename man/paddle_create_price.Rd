@@ -48,11 +48,11 @@ A list representing the created price entity and metadata.
 Creates a new price for a product. The price defines how much customers pay, how often, and under what terms.
 }
 \examples{
-\dontrun{
+\dontrun{ # needs existing product key
 set_paddle_mode("sandbox")
 paddle_create_price(
  description = "Standard monthly subscription",
- product_id = "pro_01jwp8mvatdtncfca757r5wb9f",
+ product_id = "pro_123",
  unit_price = list(
  amount = "1000",  # 10.00 USD
  currency_code = "USD"

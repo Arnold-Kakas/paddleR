@@ -18,11 +18,11 @@ A list of credit balances by currency with available, reserved, and used totals.
 Retrieves credit balances across all currencies for a specific customer from the Paddle API.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs existing customer key
 set_paddle_mode("sandbox")
 paddle_list_credit_balances(
-  id = "ctm_01jxjhwrveed9zsp29qy8fmdkr",
+  id = "ctm_123",
   currency_code = c("USD", "EUR")
 )
-\dontshow{\}) # examplesIf}
+}
 }

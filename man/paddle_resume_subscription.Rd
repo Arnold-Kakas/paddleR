@@ -21,10 +21,10 @@ Resumes a paused subscription immediately or at a specified date.
 Also updates a scheduled pause if subscription is active.
 }
 \examples{
-\dontrun{
+\dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
 paddle_resume_subscription(
- id = "sub_01jvptej6fxyctrdt8ty45gw4k", # subscription must be paused
+ id = "sub_123", # subscription must be paused
  effective_from = "2025-07-01T00:00:00Z"
  )
  }

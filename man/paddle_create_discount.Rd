@@ -54,7 +54,7 @@ A list containing the created discount and metadata.
 Sends a POST request to the Paddle API to create a new discount.
 }
 \examples{
-\dontrun{
+\dontrun{ # don't run in users environment
 set_paddle_mode("sandbox")
 paddle_create_discount(
  amount = "10.00",

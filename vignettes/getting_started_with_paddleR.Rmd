@@ -28,8 +28,8 @@ Whether you're building internal dashboards, automated billing workflows, or a S
 
 `PaddleR` supports two environments:
 
-* Live (https://api.paddle.com) for production
-* Sandbox (https://sandbox-api.paddle.com) for safe testing
+* Live (`https://api.paddle.com`) for production
+* Sandbox (`https://sandbox-api.paddle.com`) for safe testing
 
 By default, the package uses live mode. You can switch modes using:
 

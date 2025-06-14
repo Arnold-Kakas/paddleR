@@ -22,10 +22,10 @@ Depending on subscription status:
 - For `active`, creates a new zero-amount transaction.
 }
 \examples{
-\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
 paddle_get_update_payment_transaction(
-  id = "sub_01jvptej6fxyctrdt8ty45gw4k"
+  id = "sub_123"
 )
-\dontshow{\}) # examplesIf}
+}
 }
