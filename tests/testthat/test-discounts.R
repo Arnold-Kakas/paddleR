@@ -1,4 +1,6 @@
 test_that("paddle_list_discounts() validates inputs correctly", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
   expect_error(paddle_list_discounts(order_by = "invalid_field[ASC]"),
                "`order_by` must be one of")
 
@@ -17,6 +19,8 @@ test_that("paddle_list_discounts() validates inputs correctly", {
 })
 
 test_that("paddle_create_discount() validates required and conditional fields", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
   expect_error(paddle_create_discount(description = "New Discount", type = "percentage"),
                "`amount`, `description`, and `type` are required")
 
@@ -36,6 +40,8 @@ test_that("paddle_create_discount() validates required and conditional fields", 
 })
 
 test_that("paddle_update_discount() validates inputs correctly", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
   expect_error(paddle_update_discount(id = ""),
                "`id` must be a non-empty string")
 

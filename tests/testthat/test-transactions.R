@@ -100,6 +100,8 @@ test_that("paddle_update_transaction() handles include query and validation", {
 })
 
 test_that("paddle_preview_transaction() validates inputs and succeeds", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
   good_items <- list(list(price_id = "pri_01jx33y8mcbkhw0cfbdrq6kkdx", quantity = 2))
 
   expect_error(paddle_preview_transaction(items = NULL), "must be a non-empty list")

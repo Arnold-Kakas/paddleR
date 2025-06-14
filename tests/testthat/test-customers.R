@@ -96,6 +96,8 @@ test_that("paddle_list_credit_balances() validates input correctly", {
 })
 
 test_that("paddle_list_customer_addresses() validates inputs correctly", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
   expect_error(paddle_list_customer_addresses(""),
                "`id` must be a non-empty string")
 

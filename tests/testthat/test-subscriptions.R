@@ -9,6 +9,8 @@ test_that("paddle_list_subscriptions() input validation works", {
 })
 
 test_that("paddle_list_subscriptions() works with valid inputs", {
+  skip_on_cran()
+  set_paddle_mode("sandbox")
   expect_silent(paddle_list_subscriptions(
     id = c("sub_01jvptej6fxyctrdt8ty45gw4k", "sub_01jvprmj2e0fn0ay9h0xjv375q"),
     customer_id = "ctm_01jvprk7zfmz4xe5298np09ck3",
