@@ -24,4 +24,5 @@ Imports:
 Depends: R (>= 4.1.0)
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
-URL: https://arnold-kakas.github.io/paddleR/
+URL: https://arnold-kakas.github.io/paddleR/, https://github.com/Arnold-Kakas/paddleR
+BugReports: https://github.com/Arnold-Kakas/paddleR/issues
