@@ -13,7 +13,7 @@
 #' @export
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
-#' paddle_get_events(
+#' result <- paddle_get_events(
 #'   per_page = 2
 #' )
 paddle_get_events <- function(after = NULL,

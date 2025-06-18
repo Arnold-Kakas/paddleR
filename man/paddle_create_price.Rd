@@ -50,13 +50,13 @@ Creates a new price for a product. The price defines how much customers pay, how
 \examples{
 \dontrun{ # needs existing product key
 set_paddle_mode("sandbox")
-paddle_create_price(
+result <- paddle_create_price(
  description = "Standard monthly subscription",
  product_id = "pro_123",
  unit_price = list(
  amount = "1000",  # 10.00 USD
  currency_code = "USD"
- ),
+ )
 )
 }
 }

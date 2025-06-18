@@ -23,7 +23,7 @@ Also updates a scheduled pause if subscription is active.
 \examples{
 \dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
-paddle_resume_subscription(
+result <- paddle_resume_subscription(
  id = "sub_123", # subscription must be paused
  effective_from = "2025-07-01T00:00:00Z"
  )

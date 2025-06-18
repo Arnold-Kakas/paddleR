@@ -58,9 +58,10 @@ Updates a transaction by its ID. Only transactions with status `draft` or `ready
 \examples{
 \dontrun{ # needs valid price key
 set_paddle_mode("sandbox")
-paddle_create_transaction(
+result <- paddle_create_transaction(
  items = list(
  list(price_id = "price_123", quantity = 1)
+)
 )
 }
 }

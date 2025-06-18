@@ -18,8 +18,7 @@
 #' @export
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
-#' paddle_list_discounts(
-#' )
+#' result <- paddle_list_discounts()
 paddle_list_discounts <- function(id = NULL,
                                   code = NULL,
                                   status = NULL,
@@ -105,7 +104,7 @@ paddle_list_discounts <- function(id = NULL,
 #' @examples
 #' \dontrun{ # don't run in users environment
 #' set_paddle_mode("sandbox")
-#' paddle_create_discount(
+#' result <- paddle_create_discount(
 #'  amount = "10.00",
 #'  description = "10% off",
 #'  type = "percentage"
@@ -200,7 +199,7 @@ paddle_create_discount <- function(amount,
 #' @examples
 #' \dontrun{ # needs valid discount key
 #' set_paddle_mode("sandbox")
-#' paddle_update_discount(
+#' result <- paddle_update_discount(
 #'   id = "dsc_123",
 #'   description = "Updated description"
 #' )

@@ -41,7 +41,7 @@ Updates a business entity linked to a specific customer using the Paddle API.
 \examples{
 \dontrun{ # needs existing customer and business keys
 set_paddle_mode("sandbox")
-paddle_update_customer_business(
+result <- paddle_update_customer_business(
   id = "ctm_123",
   business_id = "biz_123",
   name = "Acme International"

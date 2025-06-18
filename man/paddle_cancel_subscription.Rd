@@ -20,7 +20,7 @@ Cancels a subscription using its ID. Defaults to cancel at next billing period u
 \examples{
 \dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
-paddle_cancel_subscription(
+result <- paddle_cancel_subscription(
  id = "sub_123",
  effective_from = "immediately"
  )

@@ -39,6 +39,6 @@ By default, only active businesses are returned.
 \examples{
 \dontrun{ # needs existing customer key
 set_paddle_mode("sandbox")
-paddle_list_customer_businesses(id = "ctm_123")
+result <- paddle_list_customer_businesses(id = "ctm_123")
 }
 }

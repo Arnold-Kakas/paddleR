@@ -30,10 +30,10 @@ Used to estimate the result of a charge for non-recurring items.
 \examples{
 \dontrun{ # works when price entities have the billing_cycle = null.
 set_paddle_mode("sandbox")
-paddle_preview_one_time_charge(
-  id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+result <- paddle_preview_one_time_charge(
+  id = "sub_123",
   effective_from = "2025-07-01T00:00:00Z",
-  items = list(list(price_id = "pri_01jvpq30eqev9nmyt50rpe1zvz", quantity = 1))
+  items = list(list(price_id = "pri_123", quantity = 1))
 )
 }
 }

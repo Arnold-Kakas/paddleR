@@ -41,7 +41,6 @@ Retrieves a paginated list of subscriptions from the Paddle API.
 \examples{
 \dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
-paddle_list_subscriptions(
-)
+result <- paddle_list_subscriptions()
 \dontshow{\}) # examplesIf}
 }

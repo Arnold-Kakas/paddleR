@@ -24,7 +24,7 @@ Depending on subscription status:
 \examples{
 \dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
-paddle_get_update_payment_transaction(
+result <- paddle_get_update_payment_transaction(
   id = "sub_123"
 )
 }

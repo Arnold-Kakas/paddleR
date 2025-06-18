@@ -41,7 +41,6 @@ Fetches a paginated list of products from the Paddle API. By default, only activ
 \examples{
 \dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
-paddle_list_products(
-)
+result <- paddle_list_products()
 \dontshow{\}) # examplesIf}
 }

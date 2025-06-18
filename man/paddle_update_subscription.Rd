@@ -60,9 +60,9 @@ Updates a subscription using its ID. Required for changes like billing date, ite
 \examples{
 \dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
-paddle_update_subscription(
+result <- paddle_update_subscription(
   id = "sub_123",
-  custom_data = list(purpose = "example"),
+  custom_data = list(purpose = "example")
 )
 }
 }

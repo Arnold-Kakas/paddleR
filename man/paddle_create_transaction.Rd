@@ -60,9 +60,10 @@ Creates a new transaction in the Paddle API.
 \examples{
 \dontrun{ # needs valid price key
 set_paddle_mode("sandbox")
-paddle_create_transaction(
+result <- paddle_create_transaction(
  items = list(
  list(price_id = "pri_123", quantity = 1)
+)
 )
 }
 }

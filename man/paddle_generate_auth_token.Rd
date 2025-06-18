@@ -19,6 +19,6 @@ The token allows Paddle.js to present saved payment methods at checkout.
 \examples{
 \dontrun{ # needs existing customer key
 set_paddle_mode("sandbox")
-paddle_generate_auth_token("ctm_123")
+result <- paddle_generate_auth_token("ctm_123")
 }
 }

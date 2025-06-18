@@ -53,9 +53,9 @@ Updates an existing price entity in Paddle using its ID.
 \examples{
 \dontrun{ # needs existing price key
 set_paddle_mode("sandbox")
-paddle_update_price(
+result <- paddle_update_price(
   id = "pri_123",
-  name = "Updated Price Name",
+  name = "Updated Price Name"
 )
 }
 }

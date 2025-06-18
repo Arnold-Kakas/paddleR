@@ -18,8 +18,7 @@
 #' @export
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
-#' paddle_list_products(
-#' )
+#' result <- paddle_list_products()
 paddle_list_products <- function(id = NULL,
                                  status = NULL,
                                  tax_category = NULL,
@@ -127,7 +126,7 @@ paddle_list_products <- function(id = NULL,
 #' @examples
 #' \dontrun{ # do not run to not create products in users Paddle accounts
 #' set_paddle_mode("sandbox")
-#' paddle_create_product(
+#' result <- paddle_create_product(
 #'  name = "My Product",
 #'  tax_category = "digital-goods",
 #'  description = "A great product"
@@ -210,7 +209,7 @@ paddle_create_product <- function(name,
 #' @examples
 #' \dontrun{ # needs valid product key
 #' set_paddle_mode("sandbox")
-#' paddle_update_product(
+#' result <- paddle_update_product(
 #'   id = "pro_123",
 #'   name = "Updated Product Name"
 #' )

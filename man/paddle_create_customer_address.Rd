@@ -43,7 +43,7 @@ Creates a new address for a given customer in the Paddle API.
 }
 \examples{
 \dontrun{ # needs existing customer key
-paddle_create_customer_address(
+result <- paddle_create_customer_address(
   id = "ctm_123",
   country_code = "US",
   city = "New York",

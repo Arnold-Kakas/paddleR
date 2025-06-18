@@ -60,8 +60,7 @@ paddle_create_customer <- function(email,
 #' @export
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
-#' paddle_list_customers(
-#' )
+#' result <- paddle_list_customers()
 
 paddle_list_customers <- function(email = NULL,
                                      id = NULL,
@@ -140,7 +139,7 @@ paddle_list_customers <- function(email = NULL,
 #' \dontrun{ # needs existing customer key
 #' set_paddle_mode("sandbox")
 #' # Requires a valid id
-#' paddle_update_customer(
+#' result <- paddle_update_customer(
 #'   id = "ctm_123",
 #'   name = "Updated Name",
 #'   status = "active"
@@ -193,7 +192,7 @@ paddle_update_customer <- function(id,
 #' @examples
 #' \dontrun{ # needs existing customer key
 #' set_paddle_mode("sandbox")
-#' paddle_generate_auth_token("ctm_123")
+#' result <- paddle_generate_auth_token("ctm_123")
 #' }
 
 paddle_generate_auth_token <- function(id) {
@@ -219,7 +218,7 @@ paddle_generate_auth_token <- function(id) {
 #' @examples
 #' \dontrun{ # needs existing customer key
 #' set_paddle_mode("sandbox")
-#' paddle_list_credit_balances(
+#' result <- paddle_list_credit_balances(
 #'   id = "ctm_123",
 #'   currency_code = c("USD", "EUR")
 #' )
@@ -272,7 +271,7 @@ paddle_list_credit_balances <- function(id, currency_code = NULL) {
 #' @examples
 #' \dontrun{ # needs existing customer key
 #' set_paddle_mode("sandbox")
-#' paddle_list_customer_addresses(id = "ctm_123")
+#' result <- paddle_list_customer_addresses(id = "ctm_123")
 #' }
 paddle_list_customer_addresses <- function(id,
                                            address_id = NULL,
@@ -335,7 +334,7 @@ paddle_list_customer_addresses <- function(id,
 #' @export
 #' @examples
 #' \dontrun{ # needs existing customer key
-#' paddle_create_customer_address(
+#' result <- paddle_create_customer_address(
 #'   id = "ctm_123",
 #'   country_code = "US",
 #'   city = "New York",
@@ -398,7 +397,7 @@ paddle_create_customer_address <- function(id,
 #' @examples
 #' \dontrun{ # needs existing customer and address key
 #' set_paddle_mode("sandbox")
-#' paddle_update_customer_address(
+#' result <- paddle_update_customer_address(
 #'   id = "ctm_123",
 #'   address_id = "add_123",
 #'   city = "San Francisco",
@@ -477,7 +476,7 @@ paddle_update_customer_address <- function(id,
 #' @examples
 #' \dontrun{ # needs existing customer key
 #' set_paddle_mode("sandbox")
-#' paddle_list_customer_businesses(id = "ctm_123")
+#' result <- paddle_list_customer_businesses(id = "ctm_123")
 #' }
 
 paddle_list_customer_businesses <- function(id,
@@ -538,11 +537,11 @@ paddle_list_customer_businesses <- function(id,
 #' @export
 #' @examples
 #' \dontrun{ # needs existing customer key
-#' paddle_create_customer_business(
+#' result <- paddle_create_customer_business(
 #'   id = "ctm_123",
 #'   name = "Acme Inc.",
 #'   tax_identifier = "123456789",
-#'   contacts = list(list(email = "ceo@acme.com"))
+#'   contacts = list(list(email = "ceo@acme.com") )
 #' )
 #' }
 
@@ -604,7 +603,7 @@ paddle_create_customer_business <- function(id,
 #' @examples
 #' \dontrun{ # needs existing customer and business keys
 #' set_paddle_mode("sandbox")
-#' paddle_update_customer_business(
+#' result <- paddle_update_customer_business(
 #'   id = "ctm_123",
 #'   business_id = "biz_123",
 #'   name = "Acme International"

@@ -25,8 +25,7 @@
 #' @export
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
-#' paddle_list_transactions(
-#' )
+#' result <- paddle_list_transactions()
 paddle_list_transactions <- function(after = NULL,
                                      id = NULL,
                                      customer_id = NULL,
@@ -120,9 +119,10 @@ paddle_list_transactions <- function(after = NULL,
 #' @examples
 #' \dontrun{ # needs valid price key
 #' set_paddle_mode("sandbox")
-#' paddle_create_transaction(
+#' result <- paddle_create_transaction(
 #'  items = list(
 #'  list(price_id = "pri_123", quantity = 1)
+#' )
 #' )
 #' }
 paddle_create_transaction <- function(items,
@@ -245,9 +245,10 @@ paddle_create_transaction <- function(items,
 #' @examples
 #' \dontrun{ # needs valid price key
 #' set_paddle_mode("sandbox")
-#' paddle_create_transaction(
+#' result <- paddle_create_transaction(
 #'  items = list(
 #'  list(price_id = "price_123", quantity = 1)
+#' )
 #' )
 #' }
 paddle_update_transaction <- function(id,
@@ -341,7 +342,7 @@ paddle_update_transaction <- function(id,
 #' @examples
 #' \dontrun{ # needs valid keys(price, customer, discount)
 #' set_paddle_mode("sandbox")
-#' paddle_preview_transaction(
+#' result <- paddle_preview_transaction(
 #'   items = list(list(price_id = "pri_123", quantity = 2)),
 #'   customer_id = "ctm_123",
 #'   currency_code = "EUR",

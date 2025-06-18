@@ -36,7 +36,7 @@ Updates an existing customer using their Paddle ID.
 \dontrun{ # needs existing customer key
 set_paddle_mode("sandbox")
 # Requires a valid id
-paddle_update_customer(
+result <- paddle_update_customer(
   id = "ctm_123",
   name = "Updated Name",
   status = "active"

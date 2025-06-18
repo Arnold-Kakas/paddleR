@@ -38,7 +38,6 @@ Fetches a paginated list of discounts from the Paddle API. By default, only acti
 \examples{
 \dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
-paddle_list_discounts(
-)
+result <- paddle_list_discounts()
 \dontshow{\}) # examplesIf}
 }

@@ -18,8 +18,7 @@
 #' @export
 #' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
-#' paddle_list_subscriptions(
-#' )
+#' result <- paddle_list_subscriptions()
 paddle_list_subscriptions <- function(id = NULL,
                                       customer_id = NULL,
                                       address_id = NULL,
@@ -99,9 +98,9 @@ paddle_list_subscriptions <- function(id = NULL,
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' paddle_update_subscription(
+#' result <- paddle_update_subscription(
 #'   id = "sub_123",
-#'   custom_data = list(purpose = "example"),
+#'   custom_data = list(purpose = "example")
 #' )
 #' }
 paddle_update_subscription <- function(
@@ -227,9 +226,9 @@ paddle_update_subscription <- function(
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' paddle_preview_subscription_update(
+#' result <- paddle_preview_subscription_update(
 #'   id = "sub_123",
-#'   custom_data = list(purpose = "example"),
+#'   custom_data = list(purpose = "example")
 #' )
 #' }
 paddle_preview_subscription_update <- function(
@@ -346,7 +345,7 @@ paddle_preview_subscription_update <- function(
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' paddle_get_update_payment_transaction(
+#' result <- paddle_get_update_payment_transaction(
 #'   id = "sub_123"
 #' )
 #' }
@@ -375,10 +374,10 @@ paddle_get_update_payment_transaction <- function(id) {
 #' @examples
 #' \dontrun{ # works when price entities have the billing_cycle = null.
 #' set_paddle_mode("sandbox")
-#' paddle_preview_one_time_charge(
-#'   id = "sub_01jvptej6fxyctrdt8ty45gw4k",
+#' result <- paddle_preview_one_time_charge(
+#'   id = "sub_123",
 #'   effective_from = "2025-07-01T00:00:00Z",
-#'   items = list(list(price_id = "pri_01jvpq30eqev9nmyt50rpe1zvz", quantity = 1))
+#'   items = list(list(price_id = "pri_123", quantity = 1))
 #' )
 #' }
 paddle_preview_one_time_charge <- function(
@@ -436,7 +435,7 @@ paddle_preview_one_time_charge <- function(
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' paddle_activate_trial_subscription(
+#' result <- paddle_activate_trial_subscription(
 #'  id = "sub_123" # subscription must be trialing
 #'  )
 #'  }
@@ -465,7 +464,7 @@ paddle_activate_trial_subscription <- function(id) {
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' paddle_pause_subscription(
+#' result <- paddle_pause_subscription(
 #'  id = "sub_123" # subscription must be active
 #'  )
 #'  }
@@ -513,7 +512,7 @@ paddle_pause_subscription <- function(
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' paddle_resume_subscription(
+#' result <- paddle_resume_subscription(
 #'  id = "sub_123", # subscription must be paused
 #'  effective_from = "2025-07-01T00:00:00Z"
 #'  )
@@ -558,7 +557,7 @@ paddle_resume_subscription <- function(
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' paddle_cancel_subscription(
+#' result <- paddle_cancel_subscription(
 #'  id = "sub_123",
 #'  effective_from = "immediately"
 #'  )

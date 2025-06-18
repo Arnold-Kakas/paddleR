@@ -36,7 +36,7 @@ Creates a new product in Paddle. You must specify a name and tax category
 \examples{
 \dontrun{ # do not run to not create products in users Paddle accounts
 set_paddle_mode("sandbox")
-paddle_create_product(
+result <- paddle_create_product(
  name = "My Product",
  tax_category = "digital-goods",
  description = "A great product"

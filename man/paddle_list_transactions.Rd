@@ -59,7 +59,6 @@ Retrieves a paginated list of transactions from the Paddle API.
 \examples{
 \dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
-paddle_list_transactions(
-)
+result <- paddle_list_transactions()
 \dontshow{\}) # examplesIf}
 }

@@ -62,7 +62,7 @@ Updates an existing discount by ID via the Paddle API.
 \examples{
 \dontrun{ # needs valid discount key
 set_paddle_mode("sandbox")
-paddle_update_discount(
+result <- paddle_update_discount(
   id = "dsc_123",
   description = "Updated description"
 )

@@ -45,7 +45,6 @@ for ID, product, status, recurrence, and ordering. Optionally includes related p
 \examples{
 \dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
-paddle_list_prices(
-)
+result <- paddle_list_prices()
 \dontshow{\}) # examplesIf}
 }

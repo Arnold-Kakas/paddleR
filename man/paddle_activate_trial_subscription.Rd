@@ -22,7 +22,7 @@ This triggers an immediate charge and recalculates billing dates from activation
 \examples{
 \dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
-paddle_activate_trial_subscription(
+result <- paddle_activate_trial_subscription(
  id = "sub_123" # subscription must be trialing
  )
  }

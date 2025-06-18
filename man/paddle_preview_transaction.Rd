@@ -38,7 +38,7 @@ Sends a preview request to Paddle to simulate a transaction without creating it.
 \examples{
 \dontrun{ # needs valid keys(price, customer, discount)
 set_paddle_mode("sandbox")
-paddle_preview_transaction(
+result <- paddle_preview_transaction(
   items = list(list(price_id = "pri_123", quantity = 2)),
   customer_id = "ctm_123",
   currency_code = "EUR",

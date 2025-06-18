@@ -34,11 +34,11 @@ Creates a new business entity associated with a specific customer in the Paddle 
 }
 \examples{
 \dontrun{ # needs existing customer key
-paddle_create_customer_business(
+result <- paddle_create_customer_business(
   id = "ctm_123",
   name = "Acme Inc.",
   tax_identifier = "123456789",
-  contacts = list(list(email = "ceo@acme.com"))
+  contacts = list(list(email = "ceo@acme.com") )
 )
 }
 }

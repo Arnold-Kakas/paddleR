@@ -42,7 +42,7 @@ of fields, such as name, description, tax category, type, image URL, custom meta
 \examples{
 \dontrun{ # needs valid product key
 set_paddle_mode("sandbox")
-paddle_update_product(
+result <- paddle_update_product(
   id = "pro_123",
   name = "Updated Product Name"
 )

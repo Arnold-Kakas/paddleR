@@ -50,7 +50,7 @@ Updates an address for a specific customer using Paddle's API.
 \examples{
 \dontrun{ # needs existing customer and address key
 set_paddle_mode("sandbox")
-paddle_update_customer_address(
+result <- paddle_update_customer_address(
   id = "ctm_123",
   address_id = "add_123",
   city = "San Francisco",

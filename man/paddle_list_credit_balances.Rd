@@ -20,7 +20,7 @@ Retrieves credit balances across all currencies for a specific customer from the
 \examples{
 \dontrun{ # needs existing customer key
 set_paddle_mode("sandbox")
-paddle_list_credit_balances(
+result <- paddle_list_credit_balances(
   id = "ctm_123",
   currency_code = c("USD", "EUR")
 )

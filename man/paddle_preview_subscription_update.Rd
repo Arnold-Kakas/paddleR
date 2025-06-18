@@ -60,9 +60,9 @@ Previews an update to a subscription without applying those changes.
 \examples{
 \dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
-paddle_preview_subscription_update(
+result <- paddle_preview_subscription_update(
   id = "sub_123",
-  custom_data = list(purpose = "example"),
+  custom_data = list(purpose = "example")
 )
 }
 }

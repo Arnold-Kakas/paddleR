@@ -30,7 +30,7 @@ pause immediately by setting `effective_from = "immediately"`, or set a resume d
 \examples{
 \dontrun{ # needs valid subscription key
 set_paddle_mode("sandbox")
-paddle_pause_subscription(
+result <- paddle_pause_subscription(
  id = "sub_123" # subscription must be active
  )
  }
