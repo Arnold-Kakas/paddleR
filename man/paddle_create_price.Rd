@@ -48,7 +48,7 @@ A list representing the created price entity and metadata.
 Creates a new price for a product. The price defines how much customers pay, how often, and under what terms.
 }
 \examples{
-\dontrun{ # needs existing product key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_create_price(
  description = "Standard monthly subscription",
@@ -58,5 +58,5 @@ result <- paddle_create_price(
  currency_code = "USD"
  )
 )
-}
+\dontshow{\}) # examplesIf}
 }
