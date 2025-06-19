@@ -101,15 +101,12 @@ paddle_list_discounts <- function(id = NULL,
 #'
 #' @returns A list containing the created discount and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # don't run in users environment
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_create_discount(
 #'  amount = "10.00",
 #'  description = "10% off",
-#'  type = "percentage"
-#' )
-#' }
+#'  type = "percentage")
 paddle_create_discount <- function(amount,
                                    description,
                                    type,
@@ -196,14 +193,11 @@ paddle_create_discount <- function(amount,
 #'
 #' @returns A list containing the updated discount and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid discount key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_update_discount(
 #'   id = "dsc_123",
-#'   description = "Updated description"
-#' )
-#' }
+#'   description = "Updated description")
 paddle_update_discount <- function(id,
                                    status = NULL,
                                    description = NULL,

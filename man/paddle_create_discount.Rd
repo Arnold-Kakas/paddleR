@@ -54,12 +54,11 @@ A list containing the created discount and metadata.
 Sends a POST request to the Paddle API to create a new discount.
 }
 \examples{
-\dontrun{ # don't run in users environment
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_create_discount(
  amount = "10.00",
  description = "10\% off",
- type = "percentage"
-)
-}
+ type = "percentage")
+\dontshow{\}) # examplesIf}
 }
