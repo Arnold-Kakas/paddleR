@@ -123,15 +123,13 @@ paddle_list_products <- function(id = NULL,
 #'
 #' @returns A list representing the newly created product.
 #' @export
-#' @examples
-#' \dontrun{ # do not run to not create products in users Paddle accounts
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_create_product(
 #'  name = "My Product",
 #'  tax_category = "digital-goods",
 #'  description = "A great product"
 #'  )
-#' }
 paddle_create_product <- function(name,
                                   tax_category,
                                   description = NULL,
@@ -206,14 +204,12 @@ paddle_create_product <- function(name,
 #'
 #' @returns A list representing the updated product.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid product key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_update_product(
 #'   id = "pro_123",
 #'   name = "Updated Product Name"
 #' )
-#' }
 paddle_update_product <- function(id,
                                   name = NULL,
                                   description = NULL,

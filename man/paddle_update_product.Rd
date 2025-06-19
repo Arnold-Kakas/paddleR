@@ -40,11 +40,11 @@ Updates an existing product using its Paddle ID. You can update any combination
 of fields, such as name, description, tax category, type, image URL, custom metadata, and status.
 }
 \examples{
-\dontrun{ # needs valid product key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_update_product(
   id = "pro_123",
   name = "Updated Product Name"
 )
-}
+\dontshow{\}) # examplesIf}
 }

@@ -34,12 +34,12 @@ Creates a new product in Paddle. You must specify a name and tax category
 (chosen from a predefined set supported by Paddle).
 }
 \examples{
-\dontrun{ # do not run to not create products in users Paddle accounts
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_create_product(
  name = "My Product",
  tax_category = "digital-goods",
  description = "A great product"
  )
-}
+\dontshow{\}) # examplesIf}
 }
