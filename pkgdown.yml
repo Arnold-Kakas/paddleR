@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   getting_started_with_paddleR: getting_started_with_paddleR.html
   managing_customers: managing_customers.html
-last_built: 2025-06-19T18:30Z
+last_built: 2025-06-19T18:32Z
 urls:
   reference: https://arnold-kakas.github.io/paddleR/reference
   article: https://arnold-kakas.github.io/paddleR/articles
