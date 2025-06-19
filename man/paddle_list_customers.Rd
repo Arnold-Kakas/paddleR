@@ -19,15 +19,15 @@ paddle_list_customers(
 
 \item{id}{Character vector of Paddle customer IDs. Optional.}
 
-\item{status}{Characte vector of statuses to filter by (`"active"` or `"archived"`). Optional.}
+\item{status}{Characte vector of statuses to filter by (\code{"active"} or \code{"archived"}). Optional.}
 
 \item{after}{Character. Return entities after the specified Paddle ID when working with paginated endpoints. Optional.}
 
-\item{order_by}{Character. Order results by `"id[ASC]"` or `"id[DESC]"`. Optional.}
+\item{order_by}{Character. Order results by \code{"id[ASC]"} or \code{"id[DESC]"}. Optional.}
 
 \item{per_page}{Integer. Number of results per page (1–200). Optional, defaults to 50.}
 
-\item{search}{Character. Search term (one of `"id"`, `"name"`, `"email"`). Optional.}
+\item{search}{Character. Search term (one of \code{"id"}, \code{"name"}, \code{"email"}). Optional.}
 }
 \value{
 A list with customer data and pagination info.

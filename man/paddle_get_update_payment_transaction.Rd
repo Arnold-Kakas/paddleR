@@ -14,12 +14,14 @@ A list containing transaction details for payment method update.
 }
 \description{
 Returns a transaction that can be passed to a checkout to update payment details.
-Only for subscriptions where `collection_mode` is `automatic`.
+Only for subscriptions where \code{collection_mode} is \code{automatic}.
 }
 \details{
 Depending on subscription status:
-- For `past_due`, returns the most recent failed transaction.
-- For `active`, creates a new zero-amount transaction.
+\itemize{
+\item For \code{past_due}, returns the most recent failed transaction.
+\item For \code{active}, creates a new zero-amount transaction.
+}
 }
 \examples{
 \dontrun{ # needs valid subscription key

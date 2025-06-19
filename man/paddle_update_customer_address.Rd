@@ -39,7 +39,7 @@ paddle_update_customer_address(
 
 \item{custom_data}{Named list. Optional structured metadata.}
 
-\item{status}{Character. Status of the customer (`"active"` or `"archived"`). Optional.}
+\item{status}{Character. Status of the customer (\code{"active"} or \code{"archived"}). Optional.}
 }
 \value{
 A list containing the updated address entity and metadata.

@@ -15,7 +15,7 @@ paddle_preview_transaction(
 )
 }
 \arguments{
-\item{items}{List of lists. Required. Each must include `price_id` and `quantity`.}
+\item{items}{List of lists. Required. Each must include \code{price_id} and \code{quantity}.}
 
 \item{customer_id}{Character. Optional. Customer ID prefixed with "ctm_".}
 
@@ -27,7 +27,7 @@ paddle_preview_transaction(
 
 \item{customer_ip_address}{Character. Optional. Valid IPv4 or IPv6.}
 
-\item{address}{Named list. Optional. Must include `country_code` (2-letter) and optionally `postal_code`.}
+\item{address}{Named list. Optional. Must include \code{country_code} (2-letter) and optionally \code{postal_code}.}
 }
 \value{
 A list with previewed transaction data.

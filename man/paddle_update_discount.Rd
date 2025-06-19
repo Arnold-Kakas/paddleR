@@ -25,7 +25,7 @@ paddle_update_discount(
 \arguments{
 \item{id}{Character. The Paddle discount ID (e.g., "dsc_123"). Required.}
 
-\item{status}{Character vector of discount statuses (one of `"active"`, `"archived"`). Optional.}
+\item{status}{Character vector of discount statuses (one of \code{"active"}, \code{"archived"}). Optional.}
 
 \item{description}{Character. Internal description. Optional.}
 
@@ -33,9 +33,9 @@ paddle_update_discount(
 
 \item{code}{Character. Discount code. Optional.}
 
-\item{type}{Character. Type of discount (`"percentage"`, `"flat"`, or `"flat_per_seat"`). Optional.}
+\item{type}{Character. Type of discount (\code{"percentage"}, \code{"flat"}, or \code{"flat_per_seat"}). Optional.}
 
-\item{mode}{Character. Filter discounts by mode (one of `"standard"`, `"custom"`). Optional.}
+\item{mode}{Character. Filter discounts by mode (one of \code{"standard"}, \code{"custom"}). Optional.}
 
 \item{amount}{Character. Discount amount. Optional.}
 

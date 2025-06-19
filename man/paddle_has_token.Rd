@@ -4,17 +4,17 @@
 \alias{paddle_has_token}
 \title{Check if Paddle API Token is Available
 This function checks whether a Paddle API key is available in the environment,
-either as `PADDLE_KEY` or `PADDLE_KEY_LIVE` / `PADDLE_KEY_SANDBOX`.}
+either as \code{PADDLE_KEY} or \code{PADDLE_KEY_LIVE} / \code{PADDLE_KEY_SANDBOX}.}
 \usage{
 paddle_has_token()
 }
 \value{
-Logical `TRUE` if a token is found, `FALSE` otherwise.
+Logical \code{TRUE} if a token is found, \code{FALSE} otherwise.
 }
 \description{
 Check if Paddle API Token is Available
 This function checks whether a Paddle API key is available in the environment,
-either as `PADDLE_KEY` or `PADDLE_KEY_LIVE` / `PADDLE_KEY_SANDBOX`.
+either as \code{PADDLE_KEY} or \code{PADDLE_KEY_LIVE} / \code{PADDLE_KEY_SANDBOX}.
 }
 \examples{
 paddle_has_token()

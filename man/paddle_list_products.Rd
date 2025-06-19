@@ -18,17 +18,17 @@ paddle_list_products(
 \arguments{
 \item{id}{Character vector of product IDs to match. Optional.}
 
-\item{status}{Character vector of statuses to filter by (e.g., `"active"`, `"archived"`). Optional.}
+\item{status}{Character vector of statuses to filter by (e.g., \code{"active"}, \code{"archived"}). Optional.}
 
-\item{tax_category}{Character vector of tax categories to filter. One of `"digital-goods"`, `"ebooks`, `"implementation-services"`, `"professional-services"`, `"saas"`, `"software-programming-services"`, `"standard"`, `"training-services"`, and `"website-hosting"`. Optional.}
+\item{tax_category}{Character vector of tax categories to filter. One of \code{"digital-goods"}, \verb{"ebooks}, \code{"implementation-services"}, \code{"professional-services"}, \code{"saas"}, \code{"software-programming-services"}, \code{"standard"}, \code{"training-services"}, and \code{"website-hosting"}. Optional.}
 
-\item{type}{Character. Type of product (one of `"standard"` and `"custom"`). Optional.}
+\item{type}{Character. Type of product (one of \code{"standard"} and \code{"custom"}). Optional.}
 
-\item{include}{Character vector of related entities - default `NULL` or `"prices"`. Optional.}
+\item{include}{Character vector of related entities - default \code{NULL} or \code{"prices"}. Optional.}
 
 \item{after}{Character. Return entities after the specified Paddle ID when working with paginated endpoints.. Optional.}
 
-\item{order_by}{Character. Ordering string (e.g., `"id[ASC]"`). Valid fields for ordering: `"created_at"`, `"custom_data"`, `"id"`, `"description"`, `"image_url"`, `"name"`, `"status"`, `"tax_category"`, and `"updated_at"`. Valid directions `"[ASC]"` and `"[DESC]"` Optional. Optional.}
+\item{order_by}{Character. Ordering string (e.g., \code{"id[ASC]"}). Valid fields for ordering: \code{"created_at"}, \code{"custom_data"}, \code{"id"}, \code{"description"}, \code{"image_url"}, \code{"name"}, \code{"status"}, \code{"tax_category"}, and \code{"updated_at"}. Valid directions \code{"[ASC]"} and \code{"[DESC]"} Optional. Optional.}
 
 \item{per_page}{Number of products per page (max 200). Optional, defaults to 50.}
 }

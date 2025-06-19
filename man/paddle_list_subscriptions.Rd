@@ -20,15 +20,15 @@ paddle_list_subscriptions(
 \arguments{
 \item{id, customer_id, address_id, price_id}{Character vectors. Optional filters.}
 
-\item{status}{Character vector. Optional. Must be one of `"active"`, `"cancelled"`, `"past_due"`, `"paused"`, `"trialing"`.}
+\item{status}{Character vector. Optional. Must be one of \code{"active"}, \code{"cancelled"}, \code{"past_due"}, \code{"paused"}, \code{"trialing"}.}
 
-\item{scheduled_change_action}{Character vector. Optional. Must be one of `"cancel"`, `"pause"`, `"resume"`.}
+\item{scheduled_change_action}{Character vector. Optional. Must be one of \code{"cancel"}, \code{"pause"}, \code{"resume"}.}
 
-\item{collection_mode}{Character. Optional. Must be one of `"automatic"`, `"manual"`.}
+\item{collection_mode}{Character. Optional. Must be one of \code{"automatic"}, \code{"manual"}.}
 
 \item{after}{Character. Optional. Return entities after the specified Paddle ID when working with paginated endpoints.}
 
-\item{order_by}{Character. Optional. Must be in the form "id[ASC]" or "id[DESC]".}
+\item{order_by}{Character. Optional. Must be in the form "id\link{ASC}" or "id\link{DESC}".}
 
 \item{per_page}{Integer. Optional. Max 200, defaults to 50.}
 }

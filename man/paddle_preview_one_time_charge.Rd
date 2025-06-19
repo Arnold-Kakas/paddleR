@@ -16,9 +16,9 @@ paddle_preview_one_time_charge(
 
 \item{effective_from}{Character. Required. When the one-time charge should be billed (RFC 3339 format).}
 
-\item{items}{List of item lists. Optional. Each must include `price_id` (string) and `quantity` (numeric). If updating an existing item and not changing the quantity, you may omit quantity.}
+\item{items}{List of item lists. Optional. Each must include \code{price_id} (string) and \code{quantity} (numeric). If updating an existing item and not changing the quantity, you may omit quantity.}
 
-\item{on_payment_failure}{Character. Optional. Must be one of: `"prevent_change"`, `"allow_change"`.}
+\item{on_payment_failure}{Character. Optional. Must be one of: \code{"prevent_change"}, \code{"allow_change"}.}
 }
 \value{
 A list with preview of immediate and next transactions.

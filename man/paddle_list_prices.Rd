@@ -21,11 +21,11 @@ paddle_list_prices(
 
 \item{product_id}{Character vector of Paddle product IDs. Optional.}
 
-\item{status}{Character vector of status filters (e.g., `"active"`, `"archived"`). Optional.}
+\item{status}{Character vector of status filters (e.g., \code{"active"}, \code{"archived"}). Optional.}
 
-\item{include}{Character vector of related entities - default `NULL` or `"product"`. Optional.}
+\item{include}{Character vector of related entities - default \code{NULL} or \code{"product"}. Optional.}
 
-\item{order_by}{String specifying sort field and direction (e.g., "id[ASC]"). Valid fields for ordering: `billing_cycle.frequency`, `billing_cycle.interval`, `id`, `product_id`, `quantity.maximum`, `quantity.minimum`, `status`, `tax_mode`, `unit_price.amount`, and `unit_price.currency_code`. Valid directions `"[ASC]"` and `"[DESC]"` Optional.}
+\item{order_by}{String specifying sort field and direction (e.g., "id\link{ASC}"). Valid fields for ordering: \code{billing_cycle.frequency}, \code{billing_cycle.interval}, \code{id}, \code{product_id}, \code{quantity.maximum}, \code{quantity.minimum}, \code{status}, \code{tax_mode}, \code{unit_price.amount}, and \code{unit_price.currency_code}. Valid directions \code{"[ASC]"} and \code{"[DESC]"} Optional.}
 
 \item{per_page}{Number of results per page (max 200). Optional, defaults to 50.}
 
@@ -33,7 +33,7 @@ paddle_list_prices(
 
 \item{recurring}{Logical: TRUE to return recurring prices, FALSE for one-time. Optional.}
 
-\item{type}{Character. Type of item (one of `"standard"` and `"custom"`). Optional.}
+\item{type}{Character. Type of item (one of \code{"standard"} and \code{"custom"}). Optional.}
 }
 \value{
 A list of price entities and pagination metadata.

@@ -23,27 +23,27 @@ paddle_update_transaction(
 )
 }
 \arguments{
-\item{id}{Character. Required. Paddle ID of the transaction (e.g. `"txn_abc123"`).}
+\item{id}{Character. Required. Paddle ID of the transaction (e.g. \code{"txn_abc123"}).}
 
-\item{status}{Character. Optional. `"billed"` or `"canceled"`.}
+\item{status}{Character. Optional. \code{"billed"} or \code{"canceled"}.}
 
 \item{customer_id, address_id, business_id}{Character. Optional Paddle IDs.}
 
 \item{custom_data}{Named list. Optional.}
 
-\item{currency_code}{Character. Optional. `"USD"`, `"EUR"`, or `"GBP"` if `collection_mode = "manual"`.}
+\item{currency_code}{Character. Optional. \code{"USD"}, \code{"EUR"}, or \code{"GBP"} if \code{collection_mode = "manual"}.}
 
-\item{collection_mode}{Character. Optional. `"automatic"` or `"manual"`.}
+\item{collection_mode}{Character. Optional. \code{"automatic"} or \code{"manual"}.}
 
 \item{discount_id}{Character. Optional.}
 
 \item{billing_details}{List. Optional, see API.}
 
-\item{payment_terms}{List with `interval` and `frequency`. Shortcut to fill `billing_details$payment_terms`.}
+\item{payment_terms}{List with \code{interval} and \code{frequency}. Shortcut to fill \code{billing_details$payment_terms}.}
 
-\item{billing_period}{List with `starts_at` and `ends_at` in RFC 3339 format. Optional.}
+\item{billing_period}{List with \code{starts_at} and \code{ends_at} in RFC 3339 format. Optional.}
 
-\item{items}{List of objects with `price_id` and `quantity`. Optional.}
+\item{items}{List of objects with \code{price_id} and \code{quantity}. Optional.}
 
 \item{checkout_url}{Character. Optional.}
 
@@ -53,7 +53,7 @@ paddle_update_transaction(
 A list with updated transaction data and metadata.
 }
 \description{
-Updates a transaction by its ID. Only transactions with status `draft` or `ready` can be updated.
+Updates a transaction by its ID. Only transactions with status \code{draft} or \code{ready} can be updated.
 }
 \examples{
 \dontrun{ # needs valid price key

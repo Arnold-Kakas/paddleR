@@ -26,9 +26,9 @@ paddle_update_customer_business(
 
 \item{tax_identifier}{Character. Numeric VAT/tax ID. Optional.}
 
-\item{status}{Character. Status of the customer (one of `"active"` or `"archived"`). Optional.}
+\item{status}{Character. Status of the customer (one of \code{"active"} or \code{"archived"}). Optional.}
 
-\item{contacts}{List of contact objects (named list with at least `"email"`). Optional.}
+\item{contacts}{List of contact objects (named list with at least \code{"email"}). Optional.}
 
 \item{custom_data}{Named list of custom metadata. Optional.}
 }

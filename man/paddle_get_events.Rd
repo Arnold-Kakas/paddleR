@@ -9,7 +9,7 @@ paddle_get_events(after = NULL, order_by = NULL, per_page = NULL)
 \arguments{
 \item{after}{Character. Return entities after the specified Paddle ID when working with paginated endpoints. Optional.}
 
-\item{order_by}{Character. Optional. Must be in the form "id[ASC]" or "id[DESC]".}
+\item{order_by}{Character. Optional. Must be in the form "id\link{ASC}" or "id\link{DESC}".}
 
 \item{per_page}{Integer. Optional. Max 200, defaults to 50.}
 }

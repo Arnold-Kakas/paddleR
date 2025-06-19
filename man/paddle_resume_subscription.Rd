@@ -11,7 +11,7 @@ paddle_resume_subscription(id, effective_from, on_resume = NULL)
 
 \item{effective_from}{Character. Required. RFC 3339 datetime string when the resume should occur.}
 
-\item{on_resume}{Character or NULL. Optional. One of `"start_new_billing_period"` or `"continue_billing_period"`.}
+\item{on_resume}{Character or NULL. Optional. One of \code{"start_new_billing_period"} or \code{"continue_billing_period"}.}
 }
 \value{
 A list representing the updated subscription object.

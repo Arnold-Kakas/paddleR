@@ -23,11 +23,11 @@ paddle_list_customer_addresses(
 
 \item{after}{Character. Paddle ID to start listing after (for pagination). Optional.}
 
-\item{order_by}{Character. One of `"id[ASC]"`, `"id[DESC]"`. Optional.}
+\item{order_by}{Character. One of \code{"id[ASC]"}, \code{"id[DESC]"}. Optional.}
 
 \item{per_page}{Integer. Number of results per page (max 200). Optional.}
 
-\item{search}{Character. Search query across most address fields. Optional. Cannot match `status`, `created_at`, or `updated_at`.}
+\item{search}{Character. Search query across most address fields. Optional. Cannot match \code{status}, \code{created_at}, or \code{updated_at}.}
 }
 \value{
 A list containing address data and pagination metadata.

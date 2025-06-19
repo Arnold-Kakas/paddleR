@@ -16,11 +16,11 @@ paddle_create_product(
 \arguments{
 \item{name}{Name of the product. Required.}
 
-\item{tax_category}{Character vector of tax categories to filter. One of `"digital-goods"`, `"ebooks`, `"implementation-services"`, `"professional-services"`, `"saas"`, `"software-programming-services"`, `"standard"`, `"training-services"`, and `"website-hosting"`. Required.}
+\item{tax_category}{Character vector of tax categories to filter. One of \code{"digital-goods"}, \verb{"ebooks}, \code{"implementation-services"}, \code{"professional-services"}, \code{"saas"}, \code{"software-programming-services"}, \code{"standard"}, \code{"training-services"}, and \code{"website-hosting"}. Required.}
 
 \item{description}{Short description of the product. Optional.}
 
-\item{type}{Character. Type of product (one of `"standard"` and `"custom"`). Optional, defaults to `"standard`.}
+\item{type}{Character. Type of product (one of \code{"standard"} and \code{"custom"}). Optional, defaults to \verb{"standard}.}
 
 \item{image_url}{HTTPS URL for the product image (1:1 recommended). Optional.}
 

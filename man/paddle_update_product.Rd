@@ -16,21 +16,21 @@ paddle_update_product(
 )
 }
 \arguments{
-\item{id}{The Paddle product ID (e.g., `"pro_abc123"`). Required.}
+\item{id}{The Paddle product ID (e.g., \code{"pro_abc123"}). Required.}
 
 \item{name}{Updated product name. Optional.}
 
-\item{description}{Updated product description. Optional (use `NULL` to clear).}
+\item{description}{Updated product description. Optional (use \code{NULL} to clear).}
 
-\item{type}{Character. Type of product (one of `"standard"` and `"custom"`). Optional, defaults to `"standard`.}
+\item{type}{Character. Type of product (one of \code{"standard"} and \code{"custom"}). Optional, defaults to \verb{"standard}.}
 
-\item{tax_category}{Character vector of tax categories to filter. One of `"digital-goods"`, `"ebooks`, `"implementation-services"`, `"professional-services"`, `"saas"`, `"software-programming-services"`, `"standard"`, `"training-services"`, and `"website-hosting"`. Optional.}
+\item{tax_category}{Character vector of tax categories to filter. One of \code{"digital-goods"}, \verb{"ebooks}, \code{"implementation-services"}, \code{"professional-services"}, \code{"saas"}, \code{"software-programming-services"}, \code{"standard"}, \code{"training-services"}, and \code{"website-hosting"}. Optional.}
 
-\item{image_url}{HTTPS image URL. Optional (use `NULL` to clear).}
+\item{image_url}{HTTPS image URL. Optional (use \code{NULL} to clear).}
 
-\item{custom_data}{Named list of key-value metadata. Optional (use `NULL` to clear).}
+\item{custom_data}{Named list of key-value metadata. Optional (use \code{NULL} to clear).}
 
-\item{status}{Character vector of statuses (e.g., `"active"`, `"archived"`). Optional.}
+\item{status}{Character vector of statuses (e.g., \code{"active"}, \code{"archived"}). Optional.}
 }
 \value{
 A list representing the updated product.
