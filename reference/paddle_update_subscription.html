@@ -113,28 +113,28 @@
 
 
 <dt id="arg-discount">discount<a class="anchor" aria-label="anchor" href="#arg-discount"></a></dt>
-<dd><p>List or NULL. Optional. Must include `id` (string) and `effective_from` (string, must be one of `"immediately"` or `"next_billing_period`), or NULL to remove.</p></dd>
+<dd><p>List or NULL. Optional. Must include <code>id</code> (string) and <code>effective_from</code> (string, must be one of <code>"immediately"</code> or <code>"next_billing_period</code>), or NULL to remove.</p></dd>
 
 
 <dt id="arg-collection-mode">collection_mode<a class="anchor" aria-label="anchor" href="#arg-collection-mode"></a></dt>
-<dd><p>Character. Optional. One of: `"automatic"`, `"manual"`.</p></dd>
+<dd><p>Character. Optional. One of: <code>"automatic"</code>, <code>"manual"</code>.</p></dd>
 
 
 <dt id="arg-billing-details">billing_details<a class="anchor" aria-label="anchor" href="#arg-billing-details"></a></dt>
-<dd><p>List or NULL. Required if `collection_mode` is "manual", NULL if changing collection_mode to automatic. Must include `enable_checkout` (boolean), `purchase_order_number` (string), `payment_terms` (list with `interval` (`day`, `week`, `month` or `year`) and `frequency` (integer)) and optional `additional_information` (string)</p></dd>
+<dd><p>List or NULL. Required if <code>collection_mode</code> is "manual", NULL if changing collection_mode to automatic. Must include <code>enable_checkout</code> (boolean), <code>purchase_order_number</code> (string), <code>payment_terms</code> (list with <code>interval</code> (<code>day</code>, <code>week</code>, <code>month</code> or <code>year</code>) and <code>frequency</code> (integer)) and optional <code>additional_information</code> (string)</p></dd>
 
 
 <dt id="arg-items">items<a class="anchor" aria-label="anchor" href="#arg-items"></a></dt>
-<dd><p>List of item lists. Optional. Each must include `price_id` (string) and `quantity` (numeric). If updating an existing item and not changing the quantity, you may omit quantity.</p></dd>
+<dd><p>List of item lists. Optional. Each must include <code>price_id</code> (string) and <code>quantity</code> (numeric). If updating an existing item and not changing the quantity, you may omit quantity.</p></dd>
 
 
 <dt id="arg-proration-billing-mode">proration_billing_mode<a class="anchor" aria-label="anchor" href="#arg-proration-billing-mode"></a></dt>
 <dd><p>Character. Required when making changes that impact billing. Must be one of:
-`"prorated_immediately"`, `"prorated_next_billing_period"`, `"full_immediately"`, `"full_next_billing_period"` and `"do_not_bill"`.</p></dd>
+<code>"prorated_immediately"</code>, <code>"prorated_next_billing_period"</code>, <code>"full_immediately"</code>, <code>"full_next_billing_period"</code> and <code>"do_not_bill"</code>.</p></dd>
 
 
 <dt id="arg-on-payment-failure">on_payment_failure<a class="anchor" aria-label="anchor" href="#arg-on-payment-failure"></a></dt>
-<dd><p>Character. Optional. Must be one of: `"prevent_change"`, `"allow_change"`.</p></dd>
+<dd><p>Character. Optional. Must be one of: <code>"prevent_change"</code>, <code>"allow_change"</code>.</p></dd>
 
 
 <dt id="arg-custom-data">custom_data<a class="anchor" aria-label="anchor" href="#arg-custom-data"></a></dt>
