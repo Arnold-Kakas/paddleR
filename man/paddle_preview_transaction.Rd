@@ -36,7 +36,7 @@ A list with previewed transaction data.
 Sends a preview request to Paddle to simulate a transaction without creating it.
 }
 \examples{
-\dontrun{ # needs valid keys(price, customer, discount)
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_preview_transaction(
   items = list(list(price_id = "pri_123", quantity = 2)),
@@ -46,5 +46,5 @@ result <- paddle_preview_transaction(
   ignore_trials = TRUE,
   customer_ip_address = "8.8.8.8"
 )
-}
+\dontshow{\}) # examplesIf}
 }

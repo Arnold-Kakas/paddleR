@@ -56,12 +56,12 @@ A list with updated transaction data and metadata.
 Updates a transaction by its ID. Only transactions with status `draft` or `ready` can be updated.
 }
 \examples{
-\dontrun{ # needs valid price key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_create_transaction(
  items = list(
  list(price_id = "price_123", quantity = 1)
+ )
 )
-)
-}
+\dontshow{\}) # examplesIf}
 }

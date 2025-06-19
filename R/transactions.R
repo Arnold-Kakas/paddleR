@@ -116,15 +116,13 @@ paddle_list_transactions <- function(after = NULL,
 #'
 #' @returns A list containing the created transaction and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid price key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_create_transaction(
 #'  items = list(
 #'  list(price_id = "pri_123", quantity = 1)
+#'  )
 #' )
-#' )
-#' }
 paddle_create_transaction <- function(items,
                                       status = NULL,
                                       customer_id = NULL,
@@ -242,15 +240,13 @@ paddle_create_transaction <- function(items,
 #'
 #' @returns A list with updated transaction data and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid price key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_create_transaction(
 #'  items = list(
 #'  list(price_id = "price_123", quantity = 1)
+#'  )
 #' )
-#' )
-#' }
 paddle_update_transaction <- function(id,
                                       status = NULL,
                                       customer_id = NULL,
@@ -339,8 +335,7 @@ paddle_update_transaction <- function(id,
 #'
 #' @returns A list with previewed transaction data.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid keys(price, customer, discount)
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_preview_transaction(
 #'   items = list(list(price_id = "pri_123", quantity = 2)),
@@ -350,7 +345,6 @@ paddle_update_transaction <- function(id,
 #'   ignore_trials = TRUE,
 #'   customer_ip_address = "8.8.8.8"
 #' )
-#' }
 paddle_preview_transaction <- function(items,
                                        customer_id = NULL,
                                        currency_code = NULL,
