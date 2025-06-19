@@ -24,7 +24,7 @@ If successful, your response includes a copy of the new customer entity.
 \examples{
 \dontrun{ # would result in error if customer already exists
 set_paddle_mode("sandbox")
-paddle_create_customer(
+result <- paddle_create_customer(
   email = "test@example.com",
   name = "Test User",
   custom_data = list(plan = "demo"),

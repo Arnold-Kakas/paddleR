@@ -9,7 +9,7 @@ Authors@R: c(
       role = c("aut", "cre", "cph")
     )
   )
-Description: A wrapper for 'Paddle' - The Merchant of Record for digital products API (Application Programming Interface) <https:https://developer.paddle.com/api-reference/overview>. Provides functions to manage and analyze products, customers, invoices and many more.
+Description: A wrapper for 'Paddle' - The Merchant of Record for digital products API (Application Programming Interface) <https://developer.paddle.com/api-reference/overview>. Provides functions to manage and analyze products, customers, invoices and many more.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
