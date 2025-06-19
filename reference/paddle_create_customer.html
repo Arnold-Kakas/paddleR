@@ -96,7 +96,7 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span>  <span class="co"># would result in error if customer already exists</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># paddle_has_token()</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="set_paddle_mode.html">set_paddle_mode</a></span><span class="op">(</span><span class="st">"sandbox"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">paddle_create_customer</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  email <span class="op">=</span> <span class="st">"test@example.com"</span>,</span></span>
@@ -104,23 +104,7 @@
 <span class="r-in"><span>  custom_data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>plan <span class="op">=</span> <span class="st">"demo"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  locale <span class="op">=</span> <span class="st">"en-US"</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $email</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "test@example.com"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Test User"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $custom_data</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $custom_data$plan</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "demo"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $locale</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "en-US"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> Paddle API error: Authentication header included, but incorrectly formatted.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> Status code: 403</span>
-<span class="r-in"><span> <span class="co"># \dontrun{}</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
