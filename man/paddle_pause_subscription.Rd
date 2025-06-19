@@ -14,22 +14,22 @@ paddle_pause_subscription(
 \arguments{
 \item{id}{Character. Required. Paddle subscription ID (e.g. "sub_abc123").}
 
-\item{effective_from}{Character or NULL. Optional. One of \code{"next_billing_period"} or \code{"immediately"}. Defaults to \code{"next_billing_period"}.}
+\item{effective_from}{Character or NULL. Optional. One of `"next_billing_period"` or `"immediately"`. Defaults to `"next_billing_period"`.}
 
 \item{resume_at}{Character or NULL. Optional. RFC 3339 date-time string when subscription should resume.}
 
-\item{on_resume}{Character or NULL. Optional. One of \code{"start_new_billing_period"} or \code{"continue_billing_period"}.}
+\item{on_resume}{Character or NULL. Optional. One of `"start_new_billing_period"` or `"continue_billing_period"`.}
 }
 \value{
 A list representing the updated subscription object.
 }
 \description{
 Pauses a subscription using its ID. You can pause at the end of the billing period (default),
-pause immediately by setting \code{effective_from = "immediately"}, or set a resume date.
+pause immediately by setting `effective_from = "immediately"`, or set a resume date.
 }
 \examples{
-\dontrun{ # needs valid subscription key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_pause_subscription(id = "sub_123")
-}
+\dontshow{\}) # examplesIf}
 }

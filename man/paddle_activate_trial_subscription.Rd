@@ -20,8 +20,8 @@ with status = "trialing" can be activated.
 This triggers an immediate charge and recalculates billing dates from activation time.
 }
 \examples{
-\dontrun{
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_activate_trial_subscription(id = "sub_123")
-}
+\dontshow{\}) # examplesIf}
 }

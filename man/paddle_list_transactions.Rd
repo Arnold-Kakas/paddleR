@@ -28,25 +28,25 @@ paddle_list_transactions(
 
 \item{customer_id}{Character vector of customer IDs. Optional.}
 
-\item{subscription_id}{Character vector of subscription IDs or \code{"null"} to fetch unlinked. Optional.}
+\item{subscription_id}{Character vector of subscription IDs or `"null"` to fetch unlinked. Optional.}
 
 \item{invoice_number}{Character vector of invoice numbers. Optional.}
 
 \item{origin}{Character vector of origins. Optional.}
 
-\item{status}{Character vector of statuses. Must be one of \code{"draft"}, \code{"ready"}, \code{"billed"}, \code{"paid"}, \code{"completed"}, \code{"canceled"}, \code{"past_due"}. Optional.}
+\item{status}{Character vector of statuses. Must be one of `"draft"`, `"ready"`, `"billed"`, `"paid"`, `"completed"`, `"canceled"`, `"past_due"`. Optional.}
 
-\item{collection_mode}{Character. Must be one of \code{"automatic"} or \code{"manual"}. Optional.}
+\item{collection_mode}{Character. Must be one of `"automatic"` or `"manual"`. Optional.}
 
-\item{billed_at}{Character. RFC 3339 datetime or filter (e.g., "billed_at\link{LT}=2023-01-01T00:00:00Z"). Optional.}
+\item{billed_at}{Character. RFC 3339 datetime or filter (e.g., "billed_at[LT]=2023-01-01T00:00:00Z"). Optional.}
 
 \item{created_at}{Character. Same format as billed_at. Optional.}
 
 \item{updated_at}{Character. Same format as billed_at. Optional.}
 
-\item{order_by}{Character. Must be one of \code{billed_at[ASC|DESC]}, \code{created_at[ASC|DESC]}, \code{id[ASC|DESC]}, \code{updated_at[ASC|DESC]}. Optional.}
+\item{order_by}{Character. Must be one of `billed_at[ASC|DESC]`, `created_at[ASC|DESC]`, `id[ASC|DESC]`, `updated_at[ASC|DESC]`. Optional.}
 
-\item{include}{Character vector. Must be one of \code{"address"}, \code{"adjustments"}, \code{"adjustments_totals"}, \code{"available_payment_methods"}, \code{"business"}, \code{"customer"}, \code{"discount"}. Optional.}
+\item{include}{Character vector. Must be one of `"address"`, `"adjustments"`, `"adjustments_totals"`, `"available_payment_methods"`, `"business"`, `"customer"`, `"discount"`. Optional.}
 
 \item{per_page}{Integer. Max results per page (max 200). Optional.}
 }

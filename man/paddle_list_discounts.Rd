@@ -15,17 +15,17 @@ paddle_list_discounts(
 )
 }
 \arguments{
-\item{id}{Character vector of discount IDs (e.g., \code{"dsc_xxx"}). Optional.}
+\item{id}{Character vector of discount IDs (e.g., `"dsc_xxx"`). Optional.}
 
 \item{code}{Character vector of discount codes. Optional.}
 
-\item{status}{Character vector of discount statuses (one of \code{"active"}, \code{"archived"}). Optional.}
+\item{status}{Character vector of discount statuses (one of `"active"`, `"archived"`). Optional.}
 
-\item{mode}{Character. Filter discounts by mode (one of \code{"standard"}, \code{"custom"}). Optional.}
+\item{mode}{Character. Filter discounts by mode (one of `"standard"`, `"custom"`). Optional.}
 
 \item{after}{Character. Return entities after the specified Paddle ID (used for pagination). Optional.}
 
-\item{order_by}{Character. Ordering string (e.g., \code{"id[ASC]"} or \code{"created_at[DESC]"}). Optional.}
+\item{order_by}{Character. Ordering string (e.g., `"id[ASC]"` or `"created_at[DESC]"`). Optional.}
 
 \item{per_page}{Integer. Number of results per page (max 200). Optional, defaults to 50.}
 }

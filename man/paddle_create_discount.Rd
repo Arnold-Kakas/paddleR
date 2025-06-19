@@ -25,15 +25,15 @@ paddle_create_discount(
 
 \item{description}{Character. Internal description of the discount. Required.}
 
-\item{type}{Character. Type of discount (\code{"percentage"}, \code{"flat"}, or \code{"flat_per_seat"}). Required.}
+\item{type}{Character. Type of discount (`"percentage"`, `"flat"`, or `"flat_per_seat"`). Required.}
 
 \item{enabled_for_checkout}{Logical. Can be used at checkout? Optional.}
 
 \item{code}{Character. Optional promo code (letters/numbers, max 32 characters).}
 
-\item{mode}{Character. Filter discounts by mode (one of \code{"standard"}, \code{"custom"}). Optional.}
+\item{mode}{Character. Filter discounts by mode (one of `"standard"`, `"custom"`). Optional.}
 
-\item{currency_code}{Character. Required for \code{"flat"} or \code{"flat_per_seat"}. Optional.}
+\item{currency_code}{Character. Required for `"flat"` or `"flat_per_seat"`. Optional.}
 
 \item{recur}{Logical. Should it recur for subscriptions? Optional.}
 

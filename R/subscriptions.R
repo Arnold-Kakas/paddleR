@@ -95,14 +95,12 @@ paddle_list_subscriptions <- function(id = NULL,
 #'
 #' @returns A list with updated subscription entity and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid subscription key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_update_subscription(
 #'   id = "sub_123",
 #'   custom_data = list(purpose = "example")
 #' )
-#' }
 paddle_update_subscription <- function(
     id,
     customer_id = NULL,
@@ -223,14 +221,12 @@ paddle_update_subscription <- function(
 #'
 #' @returns A list containing subscription preview and transaction impact.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid subscription key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_preview_subscription_update(
 #'   id = "sub_123",
 #'   custom_data = list(purpose = "example")
 #' )
-#' }
 paddle_preview_subscription_update <- function(
     id,
     customer_id = NULL,
@@ -342,13 +338,11 @@ paddle_preview_subscription_update <- function(
 #'
 #' @returns A list containing transaction details for payment method update.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid subscription key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_get_update_payment_transaction(
 #'   id = "sub_123"
 #' )
-#' }
 paddle_get_update_payment_transaction <- function(id) {
   if (missing(id) || !is.character(id) || !nzchar(id)) {
     stop("`id` must be a non-empty string.", call. = FALSE)
@@ -371,15 +365,13 @@ paddle_get_update_payment_transaction <- function(id) {
 #'
 #' @returns A list with preview of immediate and next transactions.
 #' @export
-#' @examples
-#' \dontrun{ # works when price entities have the billing_cycle = null.
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_preview_one_time_charge(
 #'   id = "sub_123",
 #'   effective_from = "2025-07-01T00:00:00Z",
 #'   items = list(list(price_id = "pri_123", quantity = 1))
 #' )
-#' }
 paddle_preview_one_time_charge <- function(
     id,
     effective_from,
@@ -432,11 +424,9 @@ paddle_preview_one_time_charge <- function(
 #'
 #' @returns A list with updated subscription entity and metadata.
 #' @export
-#' @examples
-#' \dontrun{
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_activate_trial_subscription(id = "sub_123")
-#' }
 paddle_activate_trial_subscription <- function(id) {
   if (missing(id) || !is.character(id) || !nzchar(id)) {
     stop("`id` must be a non-empty string.", call. = FALSE)
@@ -459,11 +449,9 @@ paddle_activate_trial_subscription <- function(id) {
 #'
 #' @returns A list representing the updated subscription object.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid subscription key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_pause_subscription(id = "sub_123")
-#' }
 paddle_pause_subscription <- function(
     id,
     effective_from = NULL,
@@ -505,14 +493,12 @@ paddle_pause_subscription <- function(
 #'
 #' @returns A list representing the updated subscription object.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid subscription key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_resume_subscription(
-#'  id = "sub_123", # subscription must be paused
+#'  id = "sub_123",
 #'  effective_from = "2025-07-01T00:00:00Z"
-#'  )
-#'  }
+#' )
 paddle_resume_subscription <- function(
     id,
     effective_from,
@@ -550,14 +536,12 @@ paddle_resume_subscription <- function(
 #'
 #' @returns A list with the updated subscription entity and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs valid subscription key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_cancel_subscription(
 #'  id = "sub_123",
 #'  effective_from = "immediately"
-#'  )
-#'  }
+#' )
 paddle_cancel_subscription <- function(id, effective_from = NULL) {
   if (missing(id) || !is.character(id) || !nzchar(id)) {
     stop("`id` must be a non-empty string.", call. = FALSE)

@@ -19,11 +19,11 @@ paddle_list_customer_businesses(
 
 \item{business_id}{Character vector of business IDs (e.g., "biz_123"). Optional.}
 
-\item{status}{Character. Status of the customer (\code{"active"} or \code{"archived"}). Optional.}
+\item{status}{Character. Status of the customer (`"active"` or `"archived"`). Optional.}
 
 \item{after}{Character. Pagination cursor: return entities after this ID. Optional.}
 
-\item{order_by}{Character. Must be one of \code{"id[ASC]"}, \code{"id[DESC]"}. Optional.}
+\item{order_by}{Character. Must be one of `"id[ASC]"`, `"id[DESC]"`. Optional.}
 
 \item{per_page}{Integer. Max number of results (default: 50, max: 200). Optional.}
 

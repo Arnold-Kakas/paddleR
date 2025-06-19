@@ -7,7 +7,7 @@
 handle_paddle_response(resp)
 }
 \arguments{
-\item{resp}{Response object from \code{httr2::req_perform()}}
+\item{resp}{Response object from `httr2::req_perform()`}
 }
 \value{
 Parsed JSON content from response, or throws error if HTTP status is not 2xx.

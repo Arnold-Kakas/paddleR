@@ -21,37 +21,35 @@ paddle_create_transaction(
 )
 }
 \arguments{
-\item{items}{List of item objects. Each must contain \code{price_id} (Character, required) and \code{quantity} (integer, required).}
+\item{items}{List of item objects. Each must contain `price_id` (Character, required) and `quantity` (integer, required).}
 
-\item{status}{Character. Optional. Must be \code{"billed"} or skipped to let Paddle set the status.}
+\item{status}{Character. Optional. Must be `"billed"` or skipped to let Paddle set the status.}
 
 \item{customer_id}{Character. Optional. Paddle customer ID (e.g., "ctm_123").}
 
-\item{address_id}{Character. Optional. Paddle address ID (e.g., "add_456"). Requires \code{customer_id}.}
+\item{address_id}{Character. Optional. Paddle address ID (e.g., "add_456"). Requires `customer_id`.}
 
-\item{business_id}{Character. Optional. Paddle business ID. Requires \code{customer_id}.}
+\item{business_id}{Character. Optional. Paddle business ID. Requires `customer_id`.}
 
 \item{custom_data}{Named list. Optional structured metadata.}
 
-\item{currency_code}{Character. Optional. Must be \code{"USD"}, \code{"EUR"}, or \code{"GBP"} if \code{collection_mode = "manual"}.}
+\item{currency_code}{Character. Optional. Must be `"USD"`, `"EUR"`, or `"GBP"` if `collection_mode = "manual"`.}
 
-\item{collection_mode}{Character. Optional. Must be one of \code{"automatic"} or \code{"manual"}. Defaults to \code{"automatic"}.}
+\item{collection_mode}{Character. Optional. Must be one of `"automatic"` or `"manual"`. Defaults to `"automatic"`.}
 
 \item{discount_id}{Character. Optional. Paddle discount ID.}
 
-\item{billing_details}{List. Required if \code{collection_mode = "manual"}. May include:
-\itemize{
-\item \code{payment_terms} → list with \code{interval} (Character, must be one of \code{"day"}, \code{"week"}, \code{"month"}, \code{"year"}) and \code{frequency} (integer)
-\item \code{enable_checkout} (logical)
-\item \code{purchase_order_number} (Character)
-\item \code{additional_information} (Character or null)
-}}
+\item{billing_details}{List. Required if `collection_mode = "manual"`. May include:
+- `payment_terms` → list with `interval` (Character, must be one of `"day"`, `"week"`, `"month"`, `"year"`) and `frequency` (integer)
+- `enable_checkout` (logical)
+- `purchase_order_number` (Character)
+- `additional_information` (Character or null)}
 
-\item{billing_period}{List with \code{starts_at} and \code{ends_at} in RFC 3339 format. Optional.}
+\item{billing_period}{List with `starts_at` and `ends_at` in RFC 3339 format. Optional.}
 
-\item{checkout}{List with \code{url} (Character) to override payment link. Optional.}
+\item{checkout}{List with `url` (Character) to override payment link. Optional.}
 
-\item{include}{Character vector. Must be one of \code{"address"}, \code{"adjustments"}, \code{"adjustments_totals"}, \code{"available_payment_methods"}, \code{"business"}, \code{"customer"}, \code{"discount"}. Optional.}
+\item{include}{Character vector. Must be one of `"address"`, `"adjustments"`, `"adjustments_totals"`, `"available_payment_methods"`, `"business"`, `"customer"`, `"discount"`. Optional.}
 }
 \value{
 A list containing the created transaction and metadata.

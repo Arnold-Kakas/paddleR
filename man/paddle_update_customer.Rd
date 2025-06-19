@@ -16,13 +16,13 @@ paddle_update_customer(
 \arguments{
 \item{id}{Character. Paddle customer ID (required).}
 
-\item{name}{Character. Full name of the customer. Optional (can be \code{NULL} to remove).}
+\item{name}{Character. Full name of the customer. Optional (can be `NULL` to remove).}
 
 \item{email}{Character. Email address of the customer. Optional.}
 
-\item{status}{Character. Status of the customer (\code{"active"} or \code{"archived"}). Optional.}
+\item{status}{Character. Status of the customer (`"active"` or `"archived"`). Optional.}
 
-\item{custom_data}{Named list of custom metadata. Optional (can be \code{NULL} to remove).}
+\item{custom_data}{Named list of custom metadata. Optional (can be `NULL` to remove).}
 
 \item{locale}{Character. Locale string (IETF BCP 47). Optional.}
 }

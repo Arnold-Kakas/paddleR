@@ -9,20 +9,20 @@ paddle_cancel_subscription(id, effective_from = NULL)
 \arguments{
 \item{id}{Character. Required. Paddle subscription ID, e.g. "sub_abc123".}
 
-\item{effective_from}{Character or NULL. Optional. One of \code{"next_billing_period"} or \code{"immediately"}. Defaults to \code{"next_billing_period"}.}
+\item{effective_from}{Character or NULL. Optional. One of `"next_billing_period"` or `"immediately"`. Defaults to `"next_billing_period"`.}
 }
 \value{
 A list with the updated subscription entity and metadata.
 }
 \description{
-Cancels a subscription using its ID. Defaults to cancel at next billing period unless \code{effective_from} is set to "immediately".
+Cancels a subscription using its ID. Defaults to cancel at next billing period unless `effective_from` is set to "immediately".
 }
 \examples{
-\dontrun{ # needs valid subscription key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_cancel_subscription(
  id = "sub_123",
  effective_from = "immediately"
- )
- }
+)
+\dontshow{\}) # examplesIf}
 }

@@ -34,18 +34,18 @@ paddle_preview_subscription_update(
 
 \item{next_billed_at}{Character. Optional. RFC 3339 datetime string.}
 
-\item{discount}{List or NULL. Optional. Must include \code{id} (string) and \code{effective_from} (string, must be one of \code{"immediately"} or \verb{"next_billing_period}), or NULL to remove.}
+\item{discount}{List or NULL. Optional. Must include `id` (string) and `effective_from` (string, must be one of `"immediately"` or `"next_billing_period`), or NULL to remove.}
 
-\item{collection_mode}{Character. Optional. One of: \code{"automatic"}, \code{"manual"}.}
+\item{collection_mode}{Character. Optional. One of: `"automatic"`, `"manual"`.}
 
-\item{billing_details}{List or NULL. Required if \code{collection_mode} is "manual", NULL if changing collection_mode to automatic. Must include \code{enable_checkout} (boolean), \code{purchase_order_number} (string), \code{payment_terms} (list with \code{interval} (\code{day}, \code{week}, \code{month} or \code{year}) and \code{frequency} (integer)) and optional \code{additional_information} (string)}
+\item{billing_details}{List or NULL. Required if `collection_mode` is "manual", NULL if changing collection_mode to automatic. Must include `enable_checkout` (boolean), `purchase_order_number` (string), `payment_terms` (list with `interval` (`day`, `week`, `month` or `year`) and `frequency` (integer)) and optional `additional_information` (string)}
 
-\item{items}{List of item lists. Optional. Each must include \code{price_id} (string) and \code{quantity} (numeric). If updating an existing item and not changing the quantity, you may omit quantity.}
+\item{items}{List of item lists. Optional. Each must include `price_id` (string) and `quantity` (numeric). If updating an existing item and not changing the quantity, you may omit quantity.}
 
 \item{proration_billing_mode}{Character. Required when making changes that impact billing. Must be one of:
-\code{"prorated_immediately"}, \code{"prorated_next_billing_period"}, \code{"full_immediately"}, \code{"full_next_billing_period"} and \code{"do_not_bill"}.}
+`"prorated_immediately"`, `"prorated_next_billing_period"`, `"full_immediately"`, `"full_next_billing_period"` and `"do_not_bill"`.}
 
-\item{on_payment_failure}{Character. Optional. Must be one of: \code{"prevent_change"}, \code{"allow_change"}.}
+\item{on_payment_failure}{Character. Optional. Must be one of: `"prevent_change"`, `"allow_change"`.}
 
 \item{custom_data}{Named list or NULL. Optional.}
 
@@ -58,11 +58,11 @@ A list containing subscription preview and transaction impact.
 Previews an update to a subscription without applying those changes.
 }
 \examples{
-\dontrun{ # needs valid subscription key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_preview_subscription_update(
   id = "sub_123",
   custom_data = list(purpose = "example")
 )
-}
+\dontshow{\}) # examplesIf}
 }

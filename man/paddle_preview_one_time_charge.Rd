@@ -16,9 +16,9 @@ paddle_preview_one_time_charge(
 
 \item{effective_from}{Character. Required. When the one-time charge should be billed (RFC 3339 format).}
 
-\item{items}{List of item lists. Optional. Each must include \code{price_id} (string) and \code{quantity} (numeric). If updating an existing item and not changing the quantity, you may omit quantity.}
+\item{items}{List of item lists. Optional. Each must include `price_id` (string) and `quantity` (numeric). If updating an existing item and not changing the quantity, you may omit quantity.}
 
-\item{on_payment_failure}{Character. Optional. Must be one of: \code{"prevent_change"}, \code{"allow_change"}.}
+\item{on_payment_failure}{Character. Optional. Must be one of: `"prevent_change"`, `"allow_change"`.}
 }
 \value{
 A list with preview of immediate and next transactions.
@@ -28,12 +28,12 @@ Previews a one-time charge for a subscription without billing it.
 Used to estimate the result of a charge for non-recurring items.
 }
 \examples{
-\dontrun{ # works when price entities have the billing_cycle = null.
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_preview_one_time_charge(
   id = "sub_123",
   effective_from = "2025-07-01T00:00:00Z",
   items = list(list(price_id = "pri_123", quantity = 1))
 )
-}
+\dontshow{\}) # examplesIf}
 }

@@ -22,7 +22,6 @@ Imports:
     httr2,
     rlang
 Depends: R (>= 4.1.0)
-Roxygen: list(markdown = TRUE) 
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 URL: https://arnold-kakas.github.io/paddleR/, https://github.com/Arnold-Kakas/paddleR

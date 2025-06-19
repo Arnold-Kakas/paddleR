@@ -22,7 +22,7 @@ paddle_create_customer_business(
 
 \item{tax_identifier}{Character. Optional tax/VAT ID.}
 
-\item{contacts}{List of contact objects (each a named list with \code{"name"} and required \code{"email"}). Optional.}
+\item{contacts}{List of contact objects (each a named list with `"name"` and required `"email"`). Optional.}
 
 \item{custom_data}{Named list of additional custom fields. Optional.}
 }

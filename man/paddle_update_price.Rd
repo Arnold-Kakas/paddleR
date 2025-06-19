@@ -24,23 +24,23 @@ paddle_update_price(
 
 \item{description}{Internal description for your team. Required.}
 
-\item{type}{Type of item (one of \code{"standard"} and \code{"custom"}). Optional. Defaults to \code{"standard"}.}
+\item{type}{Type of item (one of `"standard"` and `"custom"`). Optional. Defaults to `"standard"`.}
 
 \item{name}{Name of this price (shown at checkout/invoices). Optional.}
 
-\item{billing_cycle}{List with \code{frequency} and \code{interval} (one of \code{"day"}, \code{"week"}, \code{"month"}, \code{"year"}). Optional. Omit for one-time pricing.}
+\item{billing_cycle}{List with `frequency` and `interval` (one of `"day"`, `"week"`, `"month"`, `"year"`). Optional. Omit for one-time pricing.}
 
-\item{trial_period}{List with \code{frequency} and \code{interval} (one of \code{"day"}, \code{"week"}, \code{"month"}, \code{"year"}). Optional. Requires \code{billing_cycle}.}
+\item{trial_period}{List with `frequency` and `interval` (one of `"day"`, `"week"`, `"month"`, `"year"`). Optional. Requires `billing_cycle`.}
 
-\item{tax_mode}{One of \code{"account_setting"}, \code{"external"}, \code{"internal"}. Optional.}
+\item{tax_mode}{One of `"account_setting"`, `"external"`, `"internal"`. Optional.}
 
-\item{unit_price}{A list with \code{amount} (string, lowest denomination, e.g. for 10 USD write 1000 (lowest denomination = cents)) and \code{currency_code} (3-letter ISO). Required.}
+\item{unit_price}{A list with `amount` (string, lowest denomination, e.g. for 10 USD write 1000 (lowest denomination = cents)) and `currency_code` (3-letter ISO). Required.}
 
-\item{unit_price_overrides}{A list of overrides with \code{country_codes} (Supported two-letter ISO 3166-1 alpha-2 country code) and \code{unit_price} (same list as in unit_price parameter). Optional.}
+\item{unit_price_overrides}{A list of overrides with `country_codes` (Supported two-letter ISO 3166-1 alpha-2 country code) and `unit_price` (same list as in unit_price parameter). Optional.}
 
-\item{quantity}{List with \code{minimum} and \code{maximum} quantity limits. Optional.}
+\item{quantity}{List with `minimum` and `maximum` quantity limits. Optional.}
 
-\item{status}{Status of the price (one of \code{"active"}, \code{"archived"}). Optional.}
+\item{status}{Status of the price (one of `"active"`, `"archived"`). Optional.}
 
 \item{custom_data}{Named list of custom metadata. Optional.}
 }
