@@ -88,11 +88,11 @@
 
 
 <dl><dt id="arg-items">items<a class="anchor" aria-label="anchor" href="#arg-items"></a></dt>
-<dd><p>List of item objects. Each must contain <code>price_id</code> (Character, required) and <code>quantity</code> (integer, required).</p></dd>
+<dd><p>List of item objects. Each must contain `price_id` (Character, required) and `quantity` (integer, required).</p></dd>
 
 
 <dt id="arg-status">status<a class="anchor" aria-label="anchor" href="#arg-status"></a></dt>
-<dd><p>Character. Optional. Must be <code>"billed"</code> or skipped to let Paddle set the status.</p></dd>
+<dd><p>Character. Optional. Must be `"billed"` or skipped to let Paddle set the status.</p></dd>
 
 
 <dt id="arg-customer-id">customer_id<a class="anchor" aria-label="anchor" href="#arg-customer-id"></a></dt>
@@ -100,11 +100,11 @@
 
 
 <dt id="arg-address-id">address_id<a class="anchor" aria-label="anchor" href="#arg-address-id"></a></dt>
-<dd><p>Character. Optional. Paddle address ID (e.g., "add_456"). Requires <code>customer_id</code>.</p></dd>
+<dd><p>Character. Optional. Paddle address ID (e.g., "add_456"). Requires `customer_id`.</p></dd>
 
 
 <dt id="arg-business-id">business_id<a class="anchor" aria-label="anchor" href="#arg-business-id"></a></dt>
-<dd><p>Character. Optional. Paddle business ID. Requires <code>customer_id</code>.</p></dd>
+<dd><p>Character. Optional. Paddle business ID. Requires `customer_id`.</p></dd>
 
 
 <dt id="arg-custom-data">custom_data<a class="anchor" aria-label="anchor" href="#arg-custom-data"></a></dt>
@@ -112,11 +112,11 @@
 
 
 <dt id="arg-currency-code">currency_code<a class="anchor" aria-label="anchor" href="#arg-currency-code"></a></dt>
-<dd><p>Character. Optional. Must be <code>"USD"</code>, <code>"EUR"</code>, or <code>"GBP"</code> if <code>collection_mode = "manual"</code>.</p></dd>
+<dd><p>Character. Optional. Must be `"USD"`, `"EUR"`, or `"GBP"` if `collection_mode = "manual"`.</p></dd>
 
 
 <dt id="arg-collection-mode">collection_mode<a class="anchor" aria-label="anchor" href="#arg-collection-mode"></a></dt>
-<dd><p>Character. Optional. Must be one of <code>"automatic"</code> or <code>"manual"</code>. Defaults to <code>"automatic"</code>.</p></dd>
+<dd><p>Character. Optional. Must be one of `"automatic"` or `"manual"`. Defaults to `"automatic"`.</p></dd>
 
 
 <dt id="arg-discount-id">discount_id<a class="anchor" aria-label="anchor" href="#arg-discount-id"></a></dt>
@@ -124,23 +124,23 @@
 
 
 <dt id="arg-billing-details">billing_details<a class="anchor" aria-label="anchor" href="#arg-billing-details"></a></dt>
-<dd><p>List. Required if <code>collection_mode = "manual"</code>. May include:</p><ul><li><p><code>payment_terms</code> → list with <code>interval</code> (Character, must be one of <code>"day"</code>, <code>"week"</code>, <code>"month"</code>, <code>"year"</code>) and <code>frequency</code> (integer)</p></li>
-<li><p><code>enable_checkout</code> (logical)</p></li>
-<li><p><code>purchase_order_number</code> (Character)</p></li>
-<li><p><code>additional_information</code> (Character or null)</p></li>
-</ul></dd>
+<dd><p>List. Required if `collection_mode = "manual"`. May include:
+- `payment_terms` → list with `interval` (Character, must be one of `"day"`, `"week"`, `"month"`, `"year"`) and `frequency` (integer)
+- `enable_checkout` (logical)
+- `purchase_order_number` (Character)
+- `additional_information` (Character or null)</p></dd>
 
 
 <dt id="arg-billing-period">billing_period<a class="anchor" aria-label="anchor" href="#arg-billing-period"></a></dt>
-<dd><p>List with <code>starts_at</code> and <code>ends_at</code> in RFC 3339 format. Optional.</p></dd>
+<dd><p>List with `starts_at` and `ends_at` in RFC 3339 format. Optional.</p></dd>
 
 
 <dt id="arg-checkout">checkout<a class="anchor" aria-label="anchor" href="#arg-checkout"></a></dt>
-<dd><p>List with <code>url</code> (Character) to override payment link. Optional.</p></dd>
+<dd><p>List with `url` (Character) to override payment link. Optional.</p></dd>
 
 
 <dt id="arg-include">include<a class="anchor" aria-label="anchor" href="#arg-include"></a></dt>
-<dd><p>Character vector. Must be one of <code>"address"</code>, <code>"adjustments"</code>, <code>"adjustments_totals"</code>, <code>"available_payment_methods"</code>, <code>"business"</code>, <code>"customer"</code>, <code>"discount"</code>. Optional.</p></dd>
+<dd><p>Character vector. Must be one of `"address"`, `"adjustments"`, `"adjustments_totals"`, `"available_payment_methods"`, `"business"`, `"customer"`, `"discount"`. Optional.</p></dd>
 
 </dl></div>
     <div id="value">
