@@ -462,9 +462,7 @@ paddle_activate_trial_subscription <- function(id) {
 #' @examples
 #' \dontrun{ # needs valid subscription key
 #' set_paddle_mode("sandbox")
-#' result <- paddle_pause_subscription(
-#'  id = "sub_123" # subscription must be active
-#'  )
+#' result <- paddle_pause_subscription(id = "sub_123")
 #'  }
 paddle_pause_subscription <- function(
     id,
