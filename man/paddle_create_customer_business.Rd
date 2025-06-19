@@ -33,12 +33,12 @@ A list containing the created business entity and metadata.
 Creates a new business entity associated with a specific customer in the Paddle API.
 }
 \examples{
-\dontrun{ # needs existing customer key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 result <- paddle_create_customer_business(
   id = "ctm_123",
   name = "Acme Inc.",
   tax_identifier = "123456789",
   contacts = list(list(email = "ceo@acme.com") )
 )
-}
+\dontshow{\}) # examplesIf}
 }

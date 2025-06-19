@@ -33,7 +33,7 @@ A list with the updated customer info.
 Updates an existing customer using their Paddle ID.
 }
 \examples{
-\dontrun{ # needs existing customer key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 # Requires a valid id
 result <- paddle_update_customer(
@@ -41,5 +41,5 @@ result <- paddle_update_customer(
   name = "Updated Name",
   status = "active"
 )
-}
+\dontshow{\}) # examplesIf}
 }

@@ -22,7 +22,7 @@ A data frame with the new customer info.
 If successful, your response includes a copy of the new customer entity.
 }
 \examples{
-\dontrun{ # would result in error if customer already exists
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_create_customer(
   email = "test@example.com",
@@ -30,5 +30,5 @@ result <- paddle_create_customer(
   custom_data = list(plan = "demo"),
   locale = "en-US"
 )
-}
+\dontshow{\}) # examplesIf}
 }

@@ -14,8 +14,7 @@
 #' @returns A data frame with the new customer info.
 #'
 #' @export
-#' @examples
-#' \dontrun{ # would result in error if customer already exists
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_create_customer(
 #'   email = "test@example.com",
@@ -23,7 +22,6 @@
 #'   custom_data = list(plan = "demo"),
 #'   locale = "en-US"
 #' )
-#' }
 paddle_create_customer <- function(email,
                                    name = NULL,
                                    custom_data = NULL,
@@ -135,8 +133,7 @@ paddle_list_customers <- function(email = NULL,
 #'
 #' @returns A list with the updated customer info.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' # Requires a valid id
 #' result <- paddle_update_customer(
@@ -144,7 +141,6 @@ paddle_list_customers <- function(email = NULL,
 #'   name = "Updated Name",
 #'   status = "active"
 #' )
-#' }
 
 paddle_update_customer <- function(id,
                                    name = NULL,
@@ -189,11 +185,9 @@ paddle_update_customer <- function(id,
 #'
 #' @returns A list containing the auth token and expiry details.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_generate_auth_token("ctm_123")
-#' }
 
 paddle_generate_auth_token <- function(id) {
   if (missing(id) || !nzchar(id)) {
@@ -215,14 +209,12 @@ paddle_generate_auth_token <- function(id) {
 #'
 #' @return A list of credit balances by currency with available, reserved, and used totals.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_list_credit_balances(
 #'   id = "ctm_123",
 #'   currency_code = c("USD", "EUR")
 #' )
-#' }
 paddle_list_credit_balances <- function(id, currency_code = NULL) {
   if (missing(id) || !is.character(id) || nchar(id) == 0) {
     stop("`id` must be a non-empty string.", call. = FALSE)
@@ -268,11 +260,9 @@ paddle_list_credit_balances <- function(id, currency_code = NULL) {
 #'
 #' @returns A list containing address data and pagination metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_list_customer_addresses(id = "ctm_123")
-#' }
 paddle_list_customer_addresses <- function(id,
                                            address_id = NULL,
                                            status = NULL,
@@ -332,15 +322,13 @@ paddle_list_customer_addresses <- function(id,
 #'
 #' @returns A list containing the created address entity and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer key
+#' @examplesIf paddle_has_token()
 #' result <- paddle_create_customer_address(
 #'   id = "ctm_123",
 #'   country_code = "US",
 #'   city = "New York",
 #'   postal_code = "10001"
 #' )
-#' }
 
 paddle_create_customer_address <- function(id,
                                            country_code,
@@ -394,8 +382,7 @@ paddle_create_customer_address <- function(id,
 #'
 #' @returns A list containing the updated address entity and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer and address key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_update_customer_address(
 #'   id = "ctm_123",
@@ -403,7 +390,6 @@ paddle_create_customer_address <- function(id,
 #'   city = "San Francisco",
 #'   region = "CA"
 #' )
-#' }
 
 paddle_update_customer_address <- function(id,
                                            address_id,
@@ -473,11 +459,9 @@ paddle_update_customer_address <- function(id,
 #'
 #' @returns A list containing business data and pagination metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer key
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_list_customer_businesses(id = "ctm_123")
-#' }
 
 paddle_list_customer_businesses <- function(id,
                                             business_id = NULL,
@@ -535,15 +519,13 @@ paddle_list_customer_businesses <- function(id,
 #'
 #' @returns A list containing the created business entity and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer key
+#' @examplesIf paddle_has_token()
 #' result <- paddle_create_customer_business(
 #'   id = "ctm_123",
 #'   name = "Acme Inc.",
 #'   tax_identifier = "123456789",
 #'   contacts = list(list(email = "ceo@acme.com") )
 #' )
-#' }
 
 paddle_create_customer_business <- function(id,
                                             name,
@@ -600,15 +582,13 @@ paddle_create_customer_business <- function(id,
 #'
 #' @returns A list containing the updated business entity and metadata.
 #' @export
-#' @examples
-#' \dontrun{ # needs existing customer and business keys
+#' @examplesIf paddle_has_token()
 #' set_paddle_mode("sandbox")
 #' result <- paddle_update_customer_business(
 #'   id = "ctm_123",
 #'   business_id = "biz_123",
 #'   name = "Acme International"
 #' )
-#' }
 paddle_update_customer_business <- function(id,
                                             business_id,
                                             name = NULL,

@@ -42,12 +42,12 @@ A list containing the created address entity and metadata.
 Creates a new address for a given customer in the Paddle API.
 }
 \examples{
-\dontrun{ # needs existing customer key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 result <- paddle_create_customer_address(
   id = "ctm_123",
   country_code = "US",
   city = "New York",
   postal_code = "10001"
 )
-}
+\dontshow{\}) # examplesIf}
 }

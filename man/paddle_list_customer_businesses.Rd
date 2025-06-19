@@ -37,8 +37,8 @@ Retrieves a paginated list of businesses associated with a given customer from t
 By default, only active businesses are returned.
 }
 \examples{
-\dontrun{ # needs existing customer key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_list_customer_businesses(id = "ctm_123")
-}
+\dontshow{\}) # examplesIf}
 }

@@ -48,7 +48,7 @@ A list containing the updated address entity and metadata.
 Updates an address for a specific customer using Paddle's API.
 }
 \examples{
-\dontrun{ # needs existing customer and address key
+\dontshow{if (paddle_has_token()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 set_paddle_mode("sandbox")
 result <- paddle_update_customer_address(
   id = "ctm_123",
@@ -56,5 +56,5 @@ result <- paddle_update_customer_address(
   city = "San Francisco",
   region = "CA"
 )
-}
+\dontshow{\}) # examplesIf}
 }
