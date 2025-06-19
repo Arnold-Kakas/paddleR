@@ -20,10 +20,8 @@ with status = "trialing" can be activated.
 This triggers an immediate charge and recalculates billing dates from activation time.
 }
 \examples{
-\dontrun{ # needs valid subscription key
+\dontrun{
 set_paddle_mode("sandbox")
-result <- paddle_activate_trial_subscription(
- id = "sub_123" # subscription must be trialing
- )
- }
+result <- paddle_activate_trial_subscription(id = "sub_123")
+}
 }

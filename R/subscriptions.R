@@ -433,12 +433,10 @@ paddle_preview_one_time_charge <- function(
 #' @returns A list with updated subscription entity and metadata.
 #' @export
 #' @examples
-#' \dontrun{ # needs valid subscription key
+#' \dontrun{
 #' set_paddle_mode("sandbox")
-#' result <- paddle_activate_trial_subscription(
-#'  id = "sub_123" # subscription must be trialing
-#'  )
-#'  }
+#' result <- paddle_activate_trial_subscription(id = "sub_123")
+#' }
 paddle_activate_trial_subscription <- function(id) {
   if (missing(id) || !is.character(id) || !nzchar(id)) {
     stop("`id` must be a non-empty string.", call. = FALSE)
