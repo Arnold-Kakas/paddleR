@@ -1,10 +1,8 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Fixed the issues with names references in Title and Description fields.
-* Added web reference in correct form.
-* fixed the issue with the unexecutable code in man/paddle_update_transaction.Rd.
-* Suppressed the verbose results of function in examples.
+* Fixed the issue with verbose result in R/customers.R 
+* Corrected web refference
 
 ## R CMD check results
 
